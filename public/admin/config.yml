@@ -2,8 +2,6 @@ backend:
   name: github
   repo: "emerilansel-jpg/pesat-proposals"
   branch: "main"
-
-local_backend: true
   
 # Alternative: Use Netlify Identity if preferred
 # backend:
