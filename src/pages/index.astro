@@ -1,5 +1,4 @@
 ---
-import Main from '@/layouts/Main.astro';
 import { getCollection } from 'astro:content';
 
 const proposals = await getCollection('proposals');
@@ -7,84 +6,64 @@ const published = proposals.filter(p => !p.data.draft);
 published.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
-<Main title="Pesat AI — Proposal">
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposal | Pesat AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+</head>
+<body>
   <div class="doc">
     <header class="doc-header">
       <div class="doc-brand">
-        <img src="/logo.svg" alt="Pesat AI" width="32" height="32" />
-        <span>PESAT AI</span>
+        <svg width="36" height="36" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#00d4aa"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#0a0a2e" font-family="Inter,sans-serif" font-weight="900" font-size="18">P</text></svg>
+        <div>
+          <span class="brand-name">Pesat AI</span>
+          <span class="brand-sub">Geographic Entity Optimization</span>
+        </div>
       </div>
       <h1>Proposal</h1>
-      <p>Geographic Entity Optimization & AI Search Strategy</p>
     </header>
     <section class="list">
       {published.length === 0 ? (
-        <p class="empty">Belum ada proposal yang dipublikasikan.</p>
+        <p class="empty">Belum ada proposal.</p>
       ) : (
         <ul>
           {published.map(p => (
-            <li>
-              <a href={`/p/${p.slug}/`}>
-                <strong>{p.data.client}</strong>
-                <span>{p.data.title}</span>
-              </a>
-            </li>
+            <li><a href={`/p/${p.slug}/`}><strong>{p.data.client}</strong><span>{p.data.title}</span></a></li>
           ))}
         </ul>
       )}
     </section>
-    <footer class="doc-footer">
-      <p>Pesat AI &copy; {new Date().getFullYear()}</p>
-    </footer>
+    <footer class="doc-footer"><p>Pesat AI &copy; 2026</p></footer>
   </div>
 
   <style>
-    .doc { box-shadow: 0 0 40px rgba(0,0,0,0.08); }
-    .doc-header {
-      border-bottom: 3px solid #1e40af;
-      padding: 2.5rem;
-    }
-    .doc-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 800;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-    }
-    .doc-brand img { width: 28px; height: 28px; }
-    .doc-header h1 { font-size: 1.75rem; font-weight: 800; margin: 0 0 0.25rem; color: #0f172a; }
-    .doc-header p { color: #64748b; font-size: 0.95rem; margin: 0; }
-    .list { padding: 1.5rem 2.5rem; }
-    .list ul { list-style: none; padding: 0; margin: 0; }
-    .list li { border-bottom: 1px solid #e2e8f0; }
+    :root { --navy: #0a0a2e; --teal: #00d4aa; --white: #fff; --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-600: #475569; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--navy); color: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+    .doc { max-width: 780px; margin: 0 auto; min-height: 100vh; }
+    .doc-header { text-align: center; padding: 2rem 1.5rem 1.5rem; border-bottom: 1px solid rgba(0,212,170,0.15); }
+    .doc-brand { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-bottom: 1.25rem; }
+    .brand-name { display: block; font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .brand-sub { display: block; font-size: 0.68rem; color: var(--teal); text-transform: uppercase; letter-spacing: 0.05em; }
+    .doc-header h1 { font-size: 1.5rem; font-weight: 800; }
+    .list { padding: 1rem 1.25rem 2rem; }
+    .list ul { list-style: none; }
+    .list li { border-bottom: 1px solid rgba(255,255,255,0.04); }
     .list li:last-child { border-bottom: none; }
-    .list a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      text-decoration: none;
-      color: #1a1a2e;
-      gap: 1rem;
-    }
-    .list a:hover { color: #1e40af; }
-    .list strong { font-size: 0.95rem; }
-    .list span { font-size: 0.85rem; color: #64748b; text-align: right; }
-    .empty { padding: 2rem 0; text-align: center; color: #94a3b8; }
-    .doc-footer {
-      padding: 1.5rem 2.5rem;
-      border-top: 3px solid #1e40af;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #94a3b8;
-    }
-    @media (max-width: 600px) {
-      .doc-header, .list, .doc-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .list a { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
-      .list span { text-align: left; }
-    }
+    .list a { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; text-decoration: none; color: var(--white); gap: 1rem; }
+    .list a:hover { color: var(--teal); }
+    .list strong { font-size: 0.95rem; color: var(--teal); }
+    .list span { font-size: 0.85rem; color: var(--gray-400); text-align: right; }
+    .empty { text-align: center; color: var(--gray-600); padding: 2rem 0; }
+    .doc-footer { border-top: 1px solid rgba(0,212,170,0.15); padding: 1.25rem; text-align: center; font-size: 0.78rem; color: var(--gray-600); }
+    @media (max-width: 600px) { .doc-header { padding: 1.25rem 1rem 1rem; } .list { padding: 1rem 0.75rem 1.5rem; } .list a { flex-direction: column; align-items: flex-start; gap: 0.25rem; } }
   </style>
-</Main>
+</body>
+</html>

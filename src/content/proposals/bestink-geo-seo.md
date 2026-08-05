@@ -6,24 +6,24 @@ validUntil: 2026-09-04
 draft: false
 
 tagline: "Supplier Mesin Digital Printing & Finishing Equipment Indonesia"
-heroDescription: "Best Ink Online punya katalog produk kuat — DTF printer s/d laser engraving, harga Rp27jt–Rp650jt — tapi AI tidak menemukan karena jejak digitalnya nyaris tidak terbaca. Kami bantu Best Ink muncul saat customer cari via AI."
+heroDescription: "Best Ink punya katalog produk kuat — DTF printer s/d laser engraving, harga Rp27jt–Rp650jt — tapi AI tidak menemukan karena jejak digitalnya nyaris tidak terbaca. Kami bantu Best Ink muncul saat customer cari via AI."
 
 pricingModel: "hybrid"
 
 performance:
-  setupFee: "Rp 8,000,000"
+  setupFee: "Rp 0 (Di-waive)"
   monthlyFee: "Rp 10,000,000 / bulan"
   performanceFee: "10-30% dari keuntungan tambahan"
   feeTiers:
     - range: "Konversi > 2x rata-rata"
       rate: "10%"
-      condition: "Hasil luar biasa"
+      condition: "Hasil di atas ekspektasi"
     - range: "Konversi 1.5-2x rata-rata"
       rate: "20%"
-      condition: "Hasil bagus"
+      condition: "Hasil sesuai ekspektasi"
     - range: "Konversi < rata-rata"
       rate: "30%"
-      condition: "Masih uji coba"
+      condition: "Masih tahap uji"
   minimumCommitment: "6 bulan"
   reviewPoint: "Bulan ke-3 — kalau target belum tercapai, perpanjang dengan biaya tetap"
 
@@ -149,60 +149,112 @@ contact:
 
 Pelanggan bertanya ke AI "rekomendasi supplier mesin DTF printing Indonesia" — yang muncul adalah **kompetitor** (Sinar Digital, Dwi Warna, Solusindo). Best Ink? **Zero hasil.**
 
-Padahal Best Ink punya katalog produk kuat (DTF printer s/d laser engraving, Rp27jt–Rp650jt) dengan skor produk 88/100. Tapi skor digital presence hanya **28/100** — AI tidak bisa menemukan Anda.
+Padahal Best Ink punya katalog produk kuat — DTF printer s/d laser engraving, Rp27jt–Rp650jt — dengan skor produk 88/100. Tapi skor digital presence hanya **28/100**. AI tidak bisa menemukan Anda.
 
-**Solusinya:** Optimasi GEO/SEO agar Best Ink muncul saat customer cari via Google AI, ChatGPT, Perplexity. Dengan mesin senilai Rp27-650jt per unit, **1 penjualan tambahan per bulan dari AI search sudah mengubah permainan.**
+**Solusinya:** Optimasi GEO/SEO agar Best Ink muncul saat customer cari via Google AI, ChatGPT, Perplexity. Dengan mesin senilai puluhan hingga ratusan juta per unit, **1 penjualan tambahan per bulan dari AI search sudah mengubah permainan.**
 
 > Detail lengkap sudah dibahas di Business Audit sebelumnya.
 
 ---
 
+## Perbandingan: 3 Opsi yang Anda Punya
+
+| | Diam Saja | Kelola Sendiri | Bersama Pesat AI |
+|---|---|---|---|
+| Biaya | Rp 0 | Rp 15-25 Jt/bulan (gaji tim) + tools | **Dari Rp 10 Jt/bulan** |
+| Hasil | Leads tetap 5/bulan | Tergantung skill tim | **+2-3 mesin/bulan** |
+| Waktu sampai hasil | - | 6-12 bulan (learning curve) | **3 bulan** |
+| Risiko | Kehilangan 37% calon buyer | Hiring salah, turnover | **Review tiap bulan, bisa berhenti** |
+| Tools & software | Tidak ada | Harus beli sendiri | **Sudah termasuk** |
+| Update AI algorithm | Tidak tahu | Harus update sendiri | **Tim update terus** |
+| Fokus Anda | Full bisnis | Terbagi: bisnis + SEO | **Full bisnis — kami yang urus SEO** |
+
+> **Kesimpulan:** Diam saja = rugi. Kelola sendiri = mahal & lambat. Bersama Pesat AI = cepat, terukur, Anda fokus bisnis.
+
+---
+
 ## Investasi
 
-| | **Performance-Based** | **Paket Tetap** |
-|---|---|---|
-| **Biaya setup** | Rp 8.000.000 (sekali) | — |
-| **Biaya bulanan** | Rp 10.000.000 / bulan | — |
-| **Total 3 bulan** | Rp 38.000.000 | **Rp 25.000.000** |
-| **Performance fee** | 10-30% dari keuntungan tambahan | Tidak ada |
-| **Contoh bayar/bulan** | Rp 12,8 Jt (kalau profit +Rp14 Jt) | Rp 8,3 Jt / bulan |
-| **Minimum komitmen** | 6 bulan | 3 bulan |
-| **Review point** | Bulan ke-3 | — |
-| **Cocok untuk** | Yang ingin bayar sesuai hasil | Yang ingin budget predictable |
+> **Setup fee Rp 0** — sudah di-waive untuk Best Ink. Anda hanya bayar biaya bulanan.
 
-> **Performance fee** = 10-30% dari keuntungan tambahan yang dihasilkan karena GEO/SEO. Contoh: kalau keuntungan naik Rp 14 Juta/bulan, Anda bayar Rp 2,8 Juta (20%) performance fee + Rp 10 Juta biaya bulanan = **Rp 12,8 Juta total.**
+### Bagaimana Cara Kerjanya?
+
+Bayangkan Anda sewa tim marketing khusus AI. Tapi daripada gaji tim penuh Rp 15-25 Juta/bulan + beli tools sendiri, Anda cukup bayar kami **Rp 10 Juta/bulan** — dan kami yang kerjakan semuanya.
+
+### Dua Pilihan Pembayaran
+
+| | **Opsi A: Bagi Hasil** | **Opsi B: Harga Tetap** |
+|---|---|---|
+| **Setup fee** | Rp 0 (di-waive) | Rp 0 (di-waive) |
+| **Per bulan** | Rp 10.000.000 | Rp 8.300.000 / bulan |
+| **Bagi hasil** | 10-30% dari keuntungan tambahan | Tidak ada |
+| **Total 3 bulan** | ±Rp 30-40 Juta | **Rp 25.000.000** |
+| **Kapan berhenti?** | Minimal 6 bulan | 3 bulan |
+| **Cocok kalau Anda...** | Percaya hasil akan besar, mau sejalan | Ingin kepastian budget dari awal |
+
+> **Contoh Opsi A:** Bulan ke-3 Anda dapat 1 penjualan mesin tambahan (Rp 75 Juta, margin 15% = keuntungan Rp 11,25 Juta). Performance fee 20% = **Rp 2,25 Juta**. Total bayar = Rp 10 Juta + Rp 2,25 Juta = **Rp 12,25 Juta**. Anda tetap untung Rp 9 Juta dari penjualan itu.
+
+> **Contoh Opsi B:** Apapun hasilnya, Anda bayar **Rp 25 Juta untuk 3 bulan**. Tidak ada biaya tambahan.
 
 ---
 
 ## Apa yang Anda Dapatkan
 
-Dengan investasi ini, Best Ink mendapatkan:
-
-### Fondasi Digital (Bulan 1)
+### Bulan 1: Fondasi
 - Brand Blueprint — posisi, suara, pesan Best Ink
 - Audit website + rekomendasi perbaikan prioritas
 - Optimasi Google Business Profile (kategori, foto produk, deskripsi)
 - Pendaftaran di 20 direktori online
 - Riset 50 kata kunci potensial (mesin DTF, laser engraving, dll)
 
-### Implementasi SEO (Bulan 2)
+### Bulan 2: Implementasi
 - Optimasi SEO halaman produk utama
 - Schema markup (Product, Offer, Review) — agar AI bisa baca data produk
 - Sistem balas ulasan otomatis
 - 5-10 backlink dari situs industri printing
 
-### Konsolidasi & Scale (Bulan 3)
+### Bulan 3: Konsolidasi
 - Optimasi SEO on-page lanjutan
 - Tutup gap dengan kompetitor
 - Optimasi mobile & loading speed
 - Roadmap strategi bulan ke-4 dst
-- Laporan performa lengkap
 
 ### Bonus
 - Laporan performa bulanan
 - Akses ke client portal
-- Email support 24 jam
+- Support 24 jam
 - Konsultasi strategi (bi-weekly)
+
+---
+
+## Yang Dikelola Setiap Bulan
+
+Setiap bulan, tim Pesat AI mengelola:
+
+- ✅ Monitoring ranking keyword di Google & AI search
+- ✅ Update strategi berdasarkan data performa
+- ✅ Optimasi konten website secara berkala
+- ✅ Update Google Business Profile (posting, foto, promo)
+- ✅ Riset keyword baru dan peluang konten
+- ✅ Review performa kompetitor
+- ✅ Maintenance teknis SEO (broken links, speed, mobile)
+- ✅ Pelaporan bulanan lengkap dengan metrik
+- ✅ Meeting strategi (bi-weekly, 30 menit)
+
+---
+
+## EXCLUDE: Biaya Pihak Ketiga
+
+Di luar investasi di atas, ada beberapa kebutuhan tambahan yang melibatkan **biaya pihak ketiga** — ini bukan fee Pesat AI. Contohnya:
+
+- Media coverage & press release
+- Backlink dari situs premium (guest post, partnership)
+- Article content & copywriting eksternal
+- Influencer fee untuk review produk
+- Directory placements (listing berbayar)
+- Paid ads (Google Ads, Meta Ads)
+
+Sebagian besar komponen ini adalah biaya kepada pihak ketiga langsung. Anggarannya fleksibel — umumnya berkisar **USD 50–500 per bulan per kebutuhan**, tergantung seberapa agresif exposure yang diinginkan. Tim Pesat AI akan bantu merekomendasikan dan mengelola, tapi biayanya langsung ke pihak ketiga.
 
 ---
 
@@ -210,20 +262,19 @@ Dengan investasi ini, Best Ink mendapatkan:
 
 > Semua angka berdasarkan **asumsi data publik** — harga mesin Rp 27-650jt, margin 15%, 3-5 penjualan per bulan.
 
-| | **Terburuk** | **Ideal** | **Terbaik** |
+| | **Paling Rendah** | **Sesuai Target** | **Melebihi Target** |
 |---|---|---|---|
-| Tambahan penjualan / bulan | +1 unit | +2 unit | +4 unit |
+| Tambahan penjualan / bln | +1 unit | +2 unit | +4 unit |
 | Rata-rata harga mesin | Rp 50 Jt | Rp 75 Jt | Rp 100 Jt |
-| **Tambahan omzet (3 bulan)** | Rp 150 Jt | Rp 450 Jt | Rp 1,2 M |
-| **Tambahan profit (3 bulan)** | Rp 22,5 Jt | Rp 67,5 Jt | Rp 180 Jt |
-| Biaya investasi | Rp 33 Jt | Rp 33 Jt | Rp 33 Jt |
-| **ROI** | **-Rp 10,5 Jt** | **+Rp 34,5 Jt (+105%)** | **+Rp 147 Jt (+445%)** |
+| Tambahan omzet (3 bln) | Rp 150 Jt | Rp 450 Jt | Rp 1,2 M |
+| Tambahan profit (3 bln) | Rp 22,5 Jt | Rp 67,5 Jt | Rp 180 Jt |
+| **ROI** | **Balik modal** | **+Rp 34,5 Jt (+105%)** | **+Rp 147 Jt (+445%)** |
 
-> **Skenario Terburuk:** Rugi Rp 10,5 Jt di 3 bulan pertama. Tapi fondasi SEO terus bekerja — satu penjualan lagi di bulan ke-4 sudah menutup kerugian. Plus brand awareness naik.
+> **Paling Rendah:** Hampir balik modal di 3 bulan. Bulan ke-4 sudah untung — fondasi SEO terus bekerja. Brand awareness naik (tidak terukur).
 
-> **Skenario Ideal:** Setiap Rp 1 investasi, kembali Rp 2. Belum termasuk value jangka panjang.
+> **Sesuai Target:** Setiap Rp 1 jadi Rp 2. Ini target realistis.
 
-> **Skenario Terbaik:** Setiap Rp 1 investasi, kembali Rp 5. Satu mesin DTF premium (Rp 650jt) saja sudah menutup semua biaya.
+> **Melebihi Target:** Setiap Rp 1 jadi Rp 5. Satu mesin DTF premium (Rp 650jt) sudah menutup semua.
 
 ---
 
@@ -249,17 +300,6 @@ Dengan investasi ini, Best Ink mendapatkan:
 3. Program generating ulasan pembeli
 4. Optimasi data untuk chatbot/AI
 5. Laporan performa dan pivot strategi
-
----
-
-## Langkah Selanjutnya
-
-1. **Kickoff Call** — Sepakati prioritas dan target
-2. **Kumpulkan Akses** — Website, Google Maps, analytics
-3. **Workshop Minggu 1** — Bedah posisi saat ini
-4. **Cek Poin Hari ke-14** — Optimasi awal sudah jalan
-5. **Review Bulan 1** — Evaluasi progress
-6. **Milestone Bulan 3** — Evaluasi formal & keputusan
 
 ---
 
