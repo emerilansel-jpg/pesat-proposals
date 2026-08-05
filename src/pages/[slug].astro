@@ -1,0 +1,151 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const proposals = await getCollection('proposals');
+  const published = proposals.filter(p => !p.data.draft);
+  return published.map(p => ({
+    params: { slug: p.slug },
+    props: { proposal: p },
+  }));
+}
+
+const { proposal } = Astro.props;
+const data = proposal.data;
+const { Content } = await proposal.render();
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{data.title} | Pesat AI</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+</head>
+<body>
+  <div class="doc">
+    <header class="doc-header">
+      <div class="doc-brand">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#00d4aa"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#0a0a2e" font-family="Inter,sans-serif" font-weight="900" font-size="18">P</text></svg>
+        <span class="brand-name">Pesat AI</span>
+      </div>
+      <h1>{data.title}</h1>
+      <p class="doc-for">Untuk: <strong>{data.client}</strong></p>
+      <p class="doc-meta">
+        {new Date(data.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+        &nbsp;·&nbsp;
+        Berlaku hingga {new Date(data.validUntil).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
+    </header>
+    <div class="doc-body">
+      <Content />
+    </div>
+    <footer class="doc-footer">
+      <p>Pesat AI &copy; 2026 &mdash; Dokumen konfidensial</p>
+    </footer>
+  </div>
+</body>
+</html>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #f5f5f5;
+    color: #111;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .doc {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Header */
+  .doc-header {
+    text-align: center;
+    padding: 2rem 1.5rem 1.5rem;
+    border-bottom: 2px solid #111;
+  }
+  .doc-brand {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .brand-name { font-size: 0.9rem; font-weight: 800; color: #111; letter-spacing: 0.03em; }
+  .doc-header h1 { font-size: 1.4rem; font-weight: 800; color: #111; line-height: 1.3; margin-bottom: 0.3rem; }
+  .doc-for { color: #666; font-size: 0.9rem; margin-bottom: 0.4rem; }
+  .doc-for strong { color: #111; }
+  .doc-meta { font-size: 0.78rem; color: #999; }
+
+  /* Body */
+  .doc-body { padding: 1.5rem 1.25rem 2rem; }
+
+  .doc-body h2 {
+    font-size: 1.15rem; font-weight: 800; color: #111;
+    border-left: 3px solid #00d4aa; padding-left: 0.7rem;
+    margin: 2.5rem 0 0.75rem;
+  }
+  .doc-body h2:first-child { margin-top: 0; }
+  .doc-body h3 { font-size: 0.95rem; font-weight: 700; color: #00d4aa; margin: 1.5rem 0 0.5rem; }
+  .doc-body h4 { font-size: 0.88rem; font-weight: 700; color: #111; margin: 1rem 0 0.35rem; }
+  .doc-body p { color: #444; margin-bottom: 0.7rem; }
+  .doc-body ul, .doc-body ol { color: #444; padding-left: 1.25rem; margin-bottom: 0.7rem; }
+  .doc-body li { margin-bottom: 0.35rem; }
+  .doc-body strong { color: #111; }
+  .doc-body hr { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
+
+  /* Tables */
+  .doc-body table {
+    width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.25rem; font-size: 0.82rem;
+  }
+  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; border-bottom: 1px solid #eee; }
+  .doc-body th { font-weight: 700; color: #00d4aa; background: #f9fafb; }
+  .doc-body td { color: #444; }
+  .doc-body td:first-child { color: #111; font-weight: 600; }
+  .doc-body tr:last-child td { border-bottom: none; }
+
+  /* Blockquote */
+  .doc-body blockquote {
+    background: #f0fdf9; border-left: 3px solid #00d4aa;
+    margin: 0.75rem 0; padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0;
+    font-size: 0.82rem; color: #444;
+  }
+  .doc-body blockquote p { margin-bottom: 0.25rem; }
+  .doc-body blockquote strong { color: #00d4aa; }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid #eee; padding: 1.25rem; text-align: center;
+    font-size: 0.78rem; color: #999;
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .doc { box-shadow: none; max-width: 100%; }
+    .doc-body { padding: 0; }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    body { background: #fff; }
+    .doc { box-shadow: none; }
+    .doc-header { padding: 1.25rem 1rem 1rem; }
+    .doc-header h1 { font-size: 1.15rem; }
+    .doc-body { padding: 1rem 0.75rem 1.5rem; }
+    .doc-body h2 { font-size: 1rem; }
+    .doc-body h3 { font-size: 0.88rem; }
+    .doc-body table { font-size: 0.75rem; }
+    .doc-body th, .doc-body td { padding: 0.35rem 0.4rem; }
+  }
+</style>
