@@ -10,54 +10,50 @@ draft: false
 
 Pelanggan bertanya ke AI "rekomendasi supplier mesin DTF printing Indonesia" — yang muncul adalah **kompetitor** (Sinar Digital, Dwi Warna, Solusindo). Best Ink? **Zero hasil.**
 
-Padahal Best Ink punya katalog produk kuat — DTF printer s/d laser engraving, Rp27jt–Rp650jt — dengan skor produk 88/100. Tapi skor digital presence hanya **28/100**. AI tidak bisa menemukan Anda.
+Padahal Best Ink punya produk bagus — DTF printer, laser engraving, Rp27jt–Rp650jt — tapi AI tidak bisa menemukan Anda karena jejak digital hampir tidak ada.
 
-**Solusinya:** Optimasi GEO/SEO agar Best Ink muncul saat customer cari via Google AI, ChatGPT, Perplexity. Dengan mesin senilai puluhan hingga ratusan juta per unit, **1 penjualan tambahan per bulan dari AI search sudah mengubah permainan.**
+**Solusinya:** Optimasi GEO/SEO agar Best Ink muncul saat customer cari via Google AI, ChatGPT, Perplexity. Dengan mesin senilai ratusan juta per unit, **1 penjualan tambahan dari AI search sudah mengubah permainan.**
 
 > Detail lengkap sudah dibahas di Business Audit sebelumnya.
 
 ---
 
-## Perbandingan: 3 Opsi yang Anda Punya
-
-| | Diam Saja | Kelola Sendiri | Bersama Pesat AI |
-|---|---|---|---|
-| Investasi | Rp 0 | Rp 15-25 Jt/bulan (gaji tim) + tools | **Dari Rp 10 Jt/bulan** |
-| Hasil | Leads tetap 5/bulan | Tergantung skill tim | **+2-3 mesin/bulan** |
-| Waktu sampai hasil | - | 6-12 bulan (learning curve) | **3 bulan** |
-| Risiko | Kehilangan 37% calon buyer | Hiring salah, turnover | **Review tiap bulan, bisa berhenti** |
-| Tools & software | Tidak ada | Harus beli sendiri | **Sudah termasuk** |
-| Update AI algorithm | Tidak tahu | Harus update sendiri | **Tim update terus** |
-| Fokus Anda | Full bisnis | Terbagi: bisnis + SEO | **Full bisnis — kami yang urus SEO** |
-
-> **Kesimpulan:** Diam saja = rugi. Kelola sendiri = mahal & lambat. Bersama Pesat AI = cepat, terukur, Anda fokus bisnis.
-
----
-
 ## Investasi
 
-> **Setup Rp 0** — sudah di-waive untuk Best Ink. Anda hanya bayar investasi bulanan.
+> **Setup $0** — sudah di-waive untuk Best Ink.
 
-### Bagaimana Cara Kerjanya?
+### Performance-Based: Setara Gaji 1 Staff UMR + Rev Share
 
-Bayangkan Anda sewa tim marketing khusus AI. Tapi daripada gaji tim penuh Rp 15-25 Juta/bulan + beli tools sendiri, Anda cukup bayar kami **Rp 10 Juta/bulan** — dan kami yang kerjakan semuanya.
+Bayangkan Anda punya 1 staff marketing. Gajinya UMR sekitar **$375/bulan** (Rp 6 Juta). Tapi staff itu belum tentu paham AI search.
 
-### Dua Pilihan
+Kami menawarkan hal yang **lebih murah dari UMR**, tapi langsung fokus ke AI search:
 
-| | **Opsi A: Bagi Hasil** | **Opsi B: Harga Tetap** |
-|---|---|---|
-| Setup | Rp 0 (di-waive) | Rp 0 (di-waive) |
-| Per bulan | Rp 10.000.000 | Rp 8.300.000 / bulan |
-| Bagi hasil | 10-30% dari keuntungan tambahan | Tidak ada |
-| Total 3 bulan | ±Rp 30-40 Juta | **Rp 25.000,000** |
-| Kapan berhenti? | Minimal 6 bulan | 3 bulan |
-| Cocok kalau Anda... | Percaya hasil akan besar, mau sejalan | Ingin kepastian budget dari awal |
+| | Investasi |
+|---|---|
+| Per bulan | **$625** (setara Rp 10 Juta) |
+| Setup | **$0** (di-waive) |
+| Rev share | Hanya diambil **kalau Anda benar-benar untung** |
+| Rate | 10-30% dari keuntungan tambahan |
+| Minimum | 6 bulan, review di bulan ke-3 |
 
-> **Contoh Opsi A:** Bulan ke-3 Anda dapat 1 penjualan mesin tambahan (Rp 75 Juta, margin 15% = keuntungan Rp 11,25 Juta). Investasi bagi hasil 20% = **Rp 2,25 Juta**. Total bayar = Rp 10 Juta + Rp 2,25 Juta = **Rp 12,25 Juta**. Anda tetap untung Rp 9 Juta dari penjualan itu.
+> **Contoh:** Bulan ke-3 Anda dapat 1 penjualan mesin tambahan ($4,700 / Rp 75 Juta, margin 15% = keuntungan $700). Rev share 20% = **$140**. Total bayar = $625 + $140 = **$765**. Anda tetap untung **$560** dari penjualan itu.
 
-> **Contoh Opsi B:** Apapun hasilnya, Anda bayar **Rp 25 Juta untuk 3 bulan**. Tidak ada investasi tambahan.
+> Rev share hanya diambil **kalau ada keuntungan tambahan**. Kalau tidak ada — Anda hanya bayar $625/bulan. Tidak ada kejutan.
 
-> **Catatan:** Di luar investasi di atas, ada kebutuhan seperti media coverage, backlinks, article content, influencer, directory placements — ini **investasi pihak ketiga** (bukan fee Pesat AI). Anggarannya fleksibel, umumnya **USD 50–500 per bulan per kebutuhan**, tergantung seberapa agresif exposure yang diinginkan. Tim Pesat AI bantu rekomendasikan dan kelola, tapi investasinya langsung ke pihak ketiga.
+### Atau: Harga Tetap
+
+| | Investasi |
+|---|---|
+| Total 3 bulan | **$1,563** (Rp 25 Juta) |
+| Per bulan | ~$521 |
+| Rev share | Tidak ada |
+| Minimum | 3 bulan |
+
+> Cocok kalau Anda ingin kepastian budget dari awal.
+
+### Yang Tidak Termasuk
+
+> Di luar investasi di atas, ada kebutuhan seperti media coverage, backlinks, article content, influencer, directory placements — ini **investasi pihak ketiga** (bukan fee Pesat AI). Anggarannya fleksibel, umumnya **$3–30 per bulan per kebutuhan**, tergantung seberapa agresif exposure yang diinginkan. Tim Pesat AI bantu rekomendasikan, tapi investasinya langsung ke pihak ketiga.
 
 ---
 
@@ -68,15 +64,13 @@ Bayangkan Anda sewa tim marketing khusus AI. Tapi daripada gaji tim penuh Rp 15-
 - Audit website + rekomendasi perbaikan prioritas
 - Optimasi Google Business Profile (kategori, foto produk, deskripsi)
 - Pendaftaran di 20 direktori online
-- Riset 50 kata kunci potensial (mesin DTF, laser engraving, dll)
-- Laporan performa bulanan
+- Riset 50 kata kunci potensial
 
 ### Bulan 2: Implementasi
 - Optimasi SEO halaman produk utama
 - Schema markup (Product, Offer, Review) — agar AI bisa baca data produk
 - Sistem balas ulasan otomatis
 - 5-10 backlink dari situs industri printing
-- Laporan performa bulanan
 
 ### Bulan 3: Konsolidasi
 - Optimasi SEO on-page lanjutan
@@ -92,28 +86,44 @@ Bayangkan Anda sewa tim marketing khusus AI. Tapi daripada gaji tim penuh Rp 15-
 - ✅ Riset keyword baru dan peluang konten
 - ✅ Review performa kompetitor
 - ✅ Maintenance teknis SEO (broken links, speed, mobile)
-- ✅ Pelaporan bulanan lengkap dengan metrik
+- ✅ Pelaporan bulanan lengkap
 - ✅ Meeting strategi (bi-weekly, 30 menit)
 
 ---
 
 ## Skenario Hasil (3 Bulan)
 
-> Semua angka berdasarkan **asumsi data publik** — harga mesin Rp 27-650jt, margin 15%, 3-5 penjualan per bulan.
+> Angka berdasarkan data publik — harga mesin Rp 27-650jt, margin 15%, 3-5 penjualan/bulan.
 
 | | **Paling Rendah** | **Sesuai Target** | **Melebihi Target** |
 |---|---|---|---|
 | Tambahan penjualan / bln | +1 unit | +2 unit | +4 unit |
-| Rata-rata harga mesin | Rp 50 Jt | Rp 75 Jt | Rp 100 Jt |
-| Tambahan omzet (3 bln) | Rp 150 Jt | Rp 450 Jt | Rp 1,2 M |
-| Tambahan keuntungan (3 bln) | Rp 22,5 Jt | Rp 67,5 Jt | Rp 180 Jt |
-| **ROI** | **Balik modal** | **+Rp 34,5 Jt (+105%)** | **+Rp 147 Jt (+445%)** |
+| Rata-rata harga mesin | $3,125 | $4,688 | $6,250 |
+| Tambahan omzet (3 bln) | $9,375 | $28,125 | $75,000 |
+| Tambahan keuntungan (3 bln) | $1,406 | $4,219 | $11,250 |
+| **ROI** | **Hampir balik modal** | **+$2,656 (+105%)** | **+$9,688 (+445%)** |
 
-> **Paling Rendah:** Hampir balik modal di 3 bulan. Bulan ke-4 sudah untung — fondasi SEO terus bekerja. Brand awareness naik (tidak terukur).
+> **Paling Rendah:** Hampir balik modal di 3 bulan. Bulan ke-4 sudah untung — fondasi SEO terus bekerja.
 
-> **Sesuai Target:** Setiap Rp 1 jadi Rp 2. Ini target realistis.
+> **Sesuai Target:** Setiap $1 jadi $2. Ini target realistis.
 
-> **Melebihi Target:** Setiap Rp 1 jadi Rp 5. Satu mesin DTF premium (Rp 650jt) sudah menutup semua.
+> **Melebihi Target:** Setiap $1 jadi $5. Satu mesin premium sudah menutup semua.
+
+---
+
+## Perbandingan: 3 Opsi yang Anda Punya
+
+| | Diam Saja | Kelola Sendiri | Bersama Pesat AI |
+|---|---|---|---|
+| Investasi | $0 | $938-1,563/bulan (gaji tim + tools) | **Dari $625/bulan** |
+| Hasil | Leads tetap 5/bulan | Tergantung skill tim | **+2-3 mesin/bulan** |
+| Waktu sampai hasil | - | 6-12 bulan (learning curve) | **3 bulan** |
+| Risiko | Kehilangan 37% calon buyer | Hiring salah, turnover | **Review tiap bulan** |
+| Tools & software | Tidak ada | Harus beli sendiri | **Sudah termasuk** |
+| Update AI | Tidak tahu | Harus update sendiri | **Tim update terus** |
+| Fokus Anda | Full bisnis | Terbagi | **Full bisnis — kami urus SEO** |
+
+> **Kesimpulan:** Diam saja = rugi **$0 investasi tapi kehilangan 37% calon buyer** (potensi kehilangan $46,875+ omzet/bulan). Kelola sendiri = **$938-1,563/bulan + 6-12 bulan learning curve**. Bersama Pesat AI = **$625/bulan, hasil dalam 3 bulan, Anda fokus bisnis.**
 
 ---
 
@@ -150,4 +160,4 @@ Bayangkan Anda sewa tim marketing khusus AI. Tapi daripada gaji tim penuh Rp 15-
 ---
 
 *Proposal ini berlaku hingga 4 September 2026.*
-*Angka berdasarkan data publik industri mesin digital printing Indonesia.*
+*Semua investasi dalam USD. Kurs: 1 USD ≈ Rp 16,000.*

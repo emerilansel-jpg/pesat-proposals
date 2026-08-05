@@ -107,11 +107,12 @@ const { Content } = await proposal.render();
   /* Tables */
   .doc-body table {
     width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.25rem; font-size: 0.82rem;
+    display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
   }
-  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; border-bottom: 1px solid #eee; }
-  .doc-body th { font-weight: 700; color: #00d4aa; background: #f9fafb; }
+  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; border-bottom: 1px solid #eee; white-space: nowrap; }
+  .doc-body th { font-weight: 700; color: #00d4aa; background: #f9fafb; position: sticky; top: 0; }
   .doc-body td { color: #444; }
-  .doc-body td:first-child { color: #111; font-weight: 600; }
+  .doc-body td:first-child { color: #111; font-weight: 600; white-space: normal; min-width: 120px; }
   .doc-body tr:last-child td { border-bottom: none; }
 
   /* Blockquote */
@@ -145,7 +146,7 @@ const { Content } = await proposal.render();
     .doc-body { padding: 1rem 0.75rem 1.5rem; }
     .doc-body h2 { font-size: 1rem; }
     .doc-body h3 { font-size: 0.88rem; }
-    .doc-body table { font-size: 0.75rem; }
+    .doc-body table { font-size: 0.75rem; min-width: 500px; }
     .doc-body th, .doc-body td { padding: 0.35rem 0.4rem; }
   }
 </style>

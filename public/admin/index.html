@@ -1,13 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>Pesat Proposal CMS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesat AI — CMS Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #f5f5f5; color: #111; padding: 1rem; }
+    .admin { max-width: 800px; margin: 0 auto; }
+    .header { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
+    .header h1 { font-size: 1.3rem; font-weight: 800; }
+    .header p { color: #666; font-size: 0.85rem; margin-top: 0.25rem; }
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .tab { padding: 0.5rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+    .tab.active { background: #00d4aa; color: #0a0a2e; border-color: #00d4aa; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+    .card h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: #00d4aa; }
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.3rem; color: #444; }
+    .field input, .field textarea { width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.9rem; }
+    .field textarea { min-height: 80px; resize: vertical; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: #00d4aa; box-shadow: 0 0 0 2px rgba(0,212,170,0.15); }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; }
+    .btn-primary { background: #00d4aa; color: #0a0a2e; }
+    .btn-primary:hover { background: #00b894; }
+    .btn-secondary { background: #f3f4f6; color: #374151; }
+    .btn-secondary:hover { background: #e5e7eb; }
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+    .status { padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.82rem; font-weight: 600; margin-top: 0.5rem; display: none; }
+    .status.success { display: block; background: #ecfdf5; color: #065f46; }
+    .status.error { display: block; background: #fef2f2; color: #991b1b; }
+    .hidden { display: none; }
+    @media (max-width: 640px) { body { padding: 0.5rem; } .card { padding: 1rem; } }
+  </style>
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <div class="admin">
+    <div class="header">
+      <h1>📋 Pesat AI — CMS Proposal</h1>
+      <p>Edit proposal tanpa GitHub. Edit → Copy → Paste ke project.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('bestink')">Best Ink Online</button>
+    </div>
+
+    <!-- Bestink Form -->
+    <div id="bestink" class="editor">
+      <div class="card">
+        <h2>📝 Info Dasar</h2>
+        <div class="field">
+          <label>Judul Proposal</label>
+          <input id="b-title" value="Proposal GEO/SEO — Best Ink Online">
+        </div>
+        <div class="field">
+          <label>Nama Klien</label>
+          <input id="b-client" value="Best Ink Online">
+        </div>
+        <div class="field">
+          <label>Tagline</label>
+          <input id="b-tagline" value="Supplier Mesin Digital Printing & Finishing Equipment Indonesia">
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📊 Ringkasan</h2>
+        <div class="field">
+          <label>Ringkasan (Markdown)</label>
+          <textarea id="b-summary" rows="6">Pelanggan bertanya ke AI "rekomendasi supplier mesin DTF printing Indonesia" — yang muncul adalah **kompetitor** (Sinar Digital, Dwi Warna, Solusindo). Best Ink? **Zero hasil.**
+
+Padahal Best Ink punya produk bagus — DTF printer, laser engraving, Rp27jt–Rp650jt — tapi AI tidak bisa menemukan Anda karena jejak digital hampir tidak ada.
+
+**Solusinya:** Optimasi GEO/SEO agar Best Ink muncul saat customer cari via Google AI, ChatGPT, Perplexity. Dengan mesin senilai ratusan juta per unit, **1 penjualan tambahan dari AI search sudah mengubah permainan.**</textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>💰 Investasi</h2>
+        <div class="field">
+          <label>Performance-Based (per bulan, USD)</label>
+          <input id="b-perf-monthly" value="625">
+        </div>
+        <div class="field">
+          <label>Fixed Price (total 3 bulan, USD)</label>
+          <input id="b-fixed-total" value="1563">
+        </div>
+        <div class="field">
+          <label>Rev Share Rate</label>
+          <input id="b-revshare" value="10-30% dari keuntungan tambahan">
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📞 Kontak</h2>
+        <div class="field">
+          <label>Nama</label>
+          <input id="b-contact-name" value="Nell VH">
+        </div>
+        <div class="field">
+          <label>Jabatan</label>
+          <input id="b-contact-role" value="Founder & CEO, Pesat AI">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input id="b-contact-email" value="care@pesat.ai">
+        </div>
+        <div class="field">
+          <label>Telepon</label>
+          <input id="b-contact-phone" value="+62 812-9040-1240">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" onclick="generateMarkdown()">📋 Generate Markdown</button>
+        <button class="btn btn-secondary" onclick="copyMarkdown()">📄 Copy to Clipboard</button>
+        <button class="btn btn-secondary" onclick="downloadMarkdown()">💾 Download .md</button>
+      </div>
+      <div id="status" class="status"></div>
+
+      <div class="card" id="preview" style="display:none; margin-top:1rem;">
+        <h2>👁 Preview Markdown</h2>
+        <textarea id="md-output" rows="20" style="width:100%; font-family: monospace; font-size:0.8rem; border:1px solid #e5e7eb; border-radius:8px; padding:0.8rem;"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function generateMarkdown() {
+      const title = document.getElementById('b-title').value;
+      const client = document.getElementById('b-client').value;
+      const tagline = document.getElementById('b-tagline').value;
+      const summary = document.getElementById('b-summary').value;
+      const perfMonthly = document.getElementById('b-perf-monthly').value;
+      const fixedTotal = document.getElementById('b-fixed-total').value;
+      const revshare = document.getElementById('b-revshare').value;
+      const contactName = document.getElementById('b-contact-name').value;
+      const contactRole = document.getElementById('b-contact-role').value;
+      const contactEmail = document.getElementById('b-contact-email').value;
+      const contactPhone = document.getElementById('b-contact-phone').value;
+
+      const md = `---
+title: "${title}"
+client: "${client}"
+date: ${new Date().toISOString().split('T')[0]}
+validUntil: ${new Date(Date.now() + 31*24*60*60*1000).toISOString().split('T')[0]}
+draft: false
+---
+
+## Ringkasan
+
+${summary}
+
+---
+
+## Investasi
+
+> **Setup $0** — sudah di-waive.
+
+### Performance-Based
+
+| | Investasi |
+|---|---|
+| Per bulan | **$${perfMonthly}** |
+| Setup | **$0** (di-waive) |
+| Rev share | ${revshare} |
+| Minimum | 6 bulan, review di bulan ke-3 |
+
+### Harga Tetap
+
+| | Investasi |
+|---|---|
+| Total 3 bulan | **$${fixedTotal}** |
+| Rev share | Tidak ada |
+| Minimum | 3 bulan |
+
+---
+
+## Kontak
+
+**${contactName}** — ${contactRole}
+📧 ${contactEmail} | 📱 ${contactPhone}
+
+---
+
+*Semua investasi dalam USD.*
+`;
+
+      document.getElementById('md-output').value = md;
+      document.getElementById('preview').style.display = 'block';
+      showStatus('Markdown generated! Copy atau download di bawah.', 'success');
+    }
+
+    function copyMarkdown() {
+      generateMarkdown();
+      const md = document.getElementById('md-output').value;
+      navigator.clipboard.writeText(md).then(() => {
+        showStatus('✅ Markdown copied to clipboard! Paste ke file .md di project.', 'success');
+      }).catch(() => {
+        document.getElementById('md-output').select();
+        showStatus('⚠️ Select all text di bawah dan copy manual (Ctrl+C).', 'error');
+      });
+    }
+
+    function downloadMarkdown() {
+      generateMarkdown();
+      const md = document.getElementById('md-output').value;
+      const client = document.getElementById('b-client').value.toLowerCase().replace(/\s+/g, '-');
+      const blob = new Blob([md], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${client}.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showStatus('✅ File downloaded! Copy ke src/content/proposals/ lalu push.', 'success');
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('status');
+      el.textContent = msg;
+      el.className = 'status ' + type;
+      setTimeout(() => { el.className = 'status'; }, 5000);
+    }
+  </script>
 </body>
 </html>
