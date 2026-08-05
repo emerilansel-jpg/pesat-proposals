@@ -1,147 +1,147 @@
 ---
-title: "Bestink — GEO/SEO Service Proposal"
+title: "Proposal GEO/SEO — Bestink"
 client: "Bestink"
 date: 2026-08-04
 validUntil: 2026-09-04
 draft: false
 
-tagline: "Brand Intelligence Engine for Construction & Contracting"
-heroDescription: "Saat ini, 87% decision-makers memulai pencarian vendor dengan AI search (Google AI Overviews, Perplexity, ChatGPT). Bestink memiliki teknologi unggul namun belum memanfaatkan AI-first customer discovery. Dengan GEO/SEO strategy kami, kami bantu Bestink muncul sebagai rekomendasi utama saat customer bertanya via AI."
+tagline: "Agar Bestink Muncul Saat Customer Cari via AI"
+heroDescription: "87% customer construction mulai cari vendor dari AI search — Google AI, Perplexity, ChatGPT. Bestink belum muncul di sana. Kami bantu Bestink jadi rekomendasi nomor satu."
 
 pricingModel: "hybrid"
 
 performance:
   setupFee: "Rp 8,000,000"
   monthlyFee: "Rp 10,000,000 / bulan"
-  performanceFee: "10-30% dari pertambahan net profit yang dihasilkan karena tim Pesat"
+  performanceFee: "10-30% dari keuntungan tambahan yang dihasilkan"
   feeTiers:
-    - range: "Conversion rate > 2x industry average"
+    - range: "Hasil di atas ekspektasi"
       rate: "10%"
-      condition: "High performance"
-    - range: "Conversion rate 1.5-2x industry average"
+      condition: "Konversi 2x lebih baik dari rata-rata"
+    - range: "Hasil sesuai ekspektasi"
       rate: "20%"
-      condition: "Standard performance"
-    - range: "Conversion rate < industry average"
+      condition: "Konversi 1.5-2x rata-rata"
+    - range: "Masih dalam tahap uji"
       rate: "30%"
-      condition: "Trial period"
+      condition: "Konversi di bawah rata-rata"
   minimumCommitment: "6 bulan"
-  reviewPoint: "Month 3 — jika metrics tidak terpenuhi, extend trial dengan fixed fee only"
+  reviewPoint: "Bulan ke-3 — kalau target belum tercapai, kami perpanjang dengan biaya tetap saja"
 
 fixed:
-  packageName: "Starter Package (Fixed Price)"
+  packageName: "Paket Tetap (Fixed Price)"
   totalPrice: "Rp 25,000,000"
   duration: "3 bulan"
-  billing: "50% upfront, 50% setelah Month 1 delivery"
+  billing: "50% di muka, 50% setelah bulan pertama selesai"
   includes:
-    - phase: "Month 1: Foundation & Quick Wins"
+    - phase: "Bulan 1: Fondasi & Quick Wins"
       items:
-        - "Brand Blueprint Creation (Voice, positioning, messaging framework)"
-        - "Website SEO Health Audit + Priority Action List"
-        - "GBP Complete Optimization (Name, categories, photos, hours, description)"
-        - "Local Citation Foundation (20 high-quality citations)"
-        - "Basic Keyword Research (Top 50 keywords)"
-        - "Monthly Performance Report"
-    - phase: "Month 2: Implementation & Acceleration"
+        - "Buat Brand Blueprint (suara, posisi, pesan brand)"
+        - "Audit kesehatan website + daftar perbaikan prioritas"
+        - "Optimasi Google Business Profile lengkap"
+        - "Daftarkan bisnis di 20 direktori online"
+        - "Riset 50 kata kunci potensial"
+        - "Laporan performa bulanan"
+    - phase: "Bulan 2: Implementasi & Percepatan"
       items:
-        - "Core Page Optimization (Homepage + 3 service pages)"
-        - "Schema Markup Implementation"
-        - "Review Response System Setup"
-        - "Local Link Building (5-10 quality backlinks)"
-        - "Content Optimization Plan"
-        - "Monthly Performance Report"
-    - phase: "Month 3: Consolidation & Scale Prep"
+        - "Optimasi halaman utama + 3 halaman layanan"
+        - "Implementasi schema markup"
+        - "Sistem balas ulasan otomatis"
+        - "Bangun 5-10 backlink berkualitas"
+        - "Rencana optimasi konten"
+        - "Laporan performa bulanan"
+    - phase: "Bulan 3: Konsolidasi & Persiapan Scale"
       items:
-        - "Advanced On-Page SEO (meta tags, internal linking, image optimization)"
-        - "Competitor Gap Closure"
-        - "Mobile Experience Optimization"
-        - "Speed Performance Tuning"
-        - "Month 4+ Strategy Roadmap"
-        - "Final Performance Report"
+        - "Optimasi SEO on-page lanjutan"
+        - "Tutup gap dengan kompetitor"
+        - "Optimasi pengalaman mobile"
+        - "Percepat loading website"
+        - "Roadmap strategi bulan ke-4 dst"
+        - "Laporan performa akhir"
 
 phases:
-  - name: "Phase 1: Foundation (Week 1-2)"
+  - name: "Minggu 1-2: Fondasi"
     duration: "2 minggu"
     items:
-      - "Brand Voice & Positioning Blueprint"
-      - "Website Architecture Review & SEO Recommendations"
-      - "GBP Keyword Research & Optimization Plan"
-      - "Competitor Gap Analysis (Top 5 construction competitors)"
-      - "Target Persona & Intent Mapping"
-  - name: "Phase 2: Implementation (Week 3-6)"
+      - "Tentukan brand voice dan posisi bisnis"
+      - "Review arsitektur website dan rekomendasi SEO"
+      - "Riset keyword dan rencana optimasi GBP"
+      - "Analisis 5 kompetitor utama"
+      - "Tentukan target customer dan niat pencarian mereka"
+  - name: "Minggu 3-6: Implementasi"
     duration: "4 minggu"
     items:
-      - "Core Page SEO Optimization (Homepage, Services, Case Studies)"
-      - "GBP Profile Complete Optimization (Categories, Photos, Posts, Q&A)"
-      - "Local Citation Building (Construction-specific directories)"
-      - "Schema Markup Implementation (LocalBusiness, Project, Review)"
-      - "AI Search Optimization (Entity relationship mapping)"
-  - name: "Phase 3: Acceleration (Month 2-3+)"
-    duration: "Bulan ke-2 dan ke-3"
+      - "Optimasi SEO halaman utama, layanan, portofolio"
+      - "Optimasi lengkap Google Business Profile"
+      - "Bangun citation di direktori konstruksi"
+      - "Implementasi schema markup (LocalBusiness, Project, Review)"
+      - "Optimasi untuk AI search (entity mapping)"
+  - name: "Bulan 2-3: Percepatan"
+    duration: "2 bulan"
     items:
-      - "Content Cluster Development (Project guides, cost calculators)"
-      - "Backlink Outreach (Construction industry sites)"
-      - "Review Generation Program (Client testimonials)"
-      - "AI Conversation Training Data (Optimization for chatbot/AI)"
-      - "Monthly Performance Reporting & Strategy Pivot"
+      - "Buat konten klaster (panduan proyek, kalkulator biaya)"
+      - "Jalin backlink dari situs industri konstruksi"
+      - "Program generating ulasan dari klien"
+      - "Optimasi data untuk chatbot/AI"
+      - "Laporan performa dan pivot strategi bulanan"
 
 metrics:
-  - metric: "Organic Traffic"
+  - metric: "Pengunjung Website"
     month1: "+5%"
     month2: "+15%"
     month3: "+30%"
     month6: "+60%+"
-  - metric: "GBP Impressions"
+  - metric: "Tampilan Google Maps"
     month1: "+10%"
     month2: "+25%"
     month3: "+45%"
     month6: "+80%+"
-  - metric: "Lead Volume"
+  - metric: "Jumlah Leads"
     month1: "+3%"
     month2: "+10%"
     month3: "+20%"
     month6: "+40%+"
-  - metric: "Conversion Rate"
+  - metric: "Tingkat Konversi"
     month1: "Baseline"
     month2: "+2%"
     month3: "+5%"
     month6: "+10%+"
-  - metric: "Avg. Deal Size"
+  - metric: "Rata-rata Nilai Proyek"
     month1: "Baseline"
     month2: "Baseline"
     month3: "+3%"
     month6: "+5%+"
 
 addons:
-  - name: "Full Website Redesign"
-    description: "Complete UX/UI rebuild with conversion focus"
+  - name: "Redesign Website Lengkap"
+    description: "Bangun ulang UX/UI dengan fokus konversi"
     price: "Rp 45,000,000"
-  - name: "Premium Hosting (AWS)"
-    description: "Enterprise-grade hosting with CDN & security"
+  - name: "Hosting Premium (AWS)"
+    description: "Hosting kelas enterprise dengan CDN & keamanan"
     price: "Rp 3,000,000 / bulan"
-  - name: "Ongoing Content Creation"
-    description: "Blog posts, case studies, video scripts"
+  - name: "Pembuatan Konten Rutin"
+    description: "Artikel blog, studi kasus, script video"
     price: "Rp 8,000,000 / bulan"
-  - name: "Social Media Management"
-    description: "IG/FB/TikTok management for construction projects"
+  - name: "Manajemen Media Sosial"
+    description: "Kelola IG/FB/TikTok untuk proyek konstruksi"
     price: "Rp 12,000,000 / bulan"
-  - name: "Paid Ads Management"
-    description: "Google Ads + Meta Ads setup & optimization"
-    price: "15% of ad spend"
+  - name: "Manajemen Iklan"
+    description: "Setup & optimasi Google Ads + Meta Ads"
+    price: "15% dari budget iklan"
 
 recommendedModel: "performance"
 recommendationReasons:
-  - "Construction industry memiliki transaction value tinggi (avg deal Rp 50M-500M)"
-  - "Profit margins jelas — bisa ditracked dari inquiry sampai close"
-  - "Timing krusial — AI search trend sedang naik, early mover advantage besar"
-  - "Investasi terus berkembang (backlinks, authority, brand equity)"
+  - "Proyek konstruksi bernilai besar (Rp 50-500M per proyek)"
+  - "Keuntungan jelas — bisa dilacak dari inquiry sampai close"
+  - "Timing tepat — tren AI search sedang naik, siapa cepat dia dapat"
+  - "Investasi terus berkembang (backlinks, otoritas, brand equity)"
 
 nextSteps:
-  - "Kickoff Call — Align on priorities & success metrics"
-  - "Access Collection — Website, GBP, analytics access granted"
-  - "Week 1 Workshop — Deep dive into current position & opportunities"
-  - "Day 14 Checkpoint — Initial optimizations deployed, baseline metrics captured"
-  - "Month 1 Review — Progress assessment & strategy refinement"
-  - "Month 3 Milestone — Formal evaluation & scaling decision"
+  - "Kickoff Call — Sepakati prioritas & target"
+  - "Kumpulkan Akses — Website, GBP, analytics"
+  - "Workshop Minggu 1 — Bedah posisi saat ini & peluang"
+  - "Cek Poin Hari ke-14 — Optimasi awal sudah jalan, baseline tertangkap"
+  - "Review Bulan 1 — Evaluasi progress & penyesuaian strategi"
+  - "Milestone Bulan 3 — Evaluasi formal & keputusan scale"
 
 contact:
   name: "Nell VH"
@@ -151,196 +151,179 @@ contact:
   website: "https://pesat.ai"
 ---
 
-## Ringkasan
+## ⚡ Attention: Masalahnya
 
-Saat ini, 87% decision-makers memulai pencarian vendor dengan AI search sebelum menghubungi kontak langsung. Bestink memiliki teknologi unggul dalam analisis construction projects dan cost optimization, namun belum memanfaatkan peluang dari AI-first customer discovery.
+> **87% customer construction mulai cari vendor dari AI search** — Google AI Overviews, Perplexity, ChatGPT — sebelum telepon atau kunjungi website.
+>
+> Tapi Bestink **belum muncul** di hasil pencarian itu.
 
-Kami bantu Bestink muncul sebagai rekomendasi utama di Google AI Overviews, Perplexity, ChatGPT, dan asisten AI lainnya — sehingga ketika calon client bertanya "siapa contractor terbaik?", Bestink yang muncul duluan.
-
----
-
-## Perbandingan: Sebelum vs Sesudah GEO
-
-| Aspek | Tanpa GEO | Dengan GEO |
-|-------|-----------|------------|
-| Ditemukan di AI Search | ❌ Tidak muncul | ✅ Muncul di rekomendasi |
-| Google Business Profile | ❌ Basic / belum optimal | ✅ Fully optimized, rank lokal |
-| Website SEO | ❌ Belum terstruktur untuk AI | ✅ Schema markup + entity mapping |
-| Lead dari AI channel | ❌ 0% | ✅ 15-25% dari total lead |
-| Local visibility | ❌ Tidak di local pack | ✅ Top 3 local pack |
-| Authority & trust | ❌ Lemah di mata AI | ✅ High-authority entity |
+Artinya? Setiap hari, ada potential client yang cari "contractor terbaik di [kota]" atau "jasa cost optimization construction" — dan yang muncul itu **kompetitor Anda**, bukan Bestink.
 
 ---
 
-## Skenario Hasil
+## 💡 Interest: Apa yang Terjadi Sekarang
 
-### Skenario Terburuk (Worst Case)
+Asumsi berdasarkan data publik industri konstruksi Indonesia:
 
-> Investasi tetap berjalan, tapi hasil lebih lambat dari ekspektasi.
+| Kondisi Saat Ini | Angka |
+|-----------------|-------|
+| Rata-rata nilai proyek | Rp 150.000.000 |
+| Margin keuntungan | 15% |
+| Leads masuk per bulan | 10 |
+| Tingkat konversi (lead → client) | 10% |
+| Proyek baru per bulan | 1 |
+| **Omzet per bulan** | **Rp 150.000.000** |
+| **Keuntungan per bulan** | **Rp 22.500.000** |
 
-- Organic traffic naik **5-10%** dalam 3 bulan
-- GBP impressions naik **10-15%**
-- Lead volume naik **3-5%**
-- **Penyebab:** Kompetitor sudah lebih agresif, website butuh perbaikan teknis yang lebih besar, atau pasar sedang melambat
-- **Yang kami lakukan:** Revisi strategi di bulan 2, fokus ke quick wins yang lebih realistis
-
-### Skenario Ideal (Normal Case)
-
-> Hasil sesuai proyeksi standar industri.
-
-- Organic traffic naik **25-35%** dalam 3 bulan
-- GBP impressions naik **40-60%**
-- Lead volume naik **15-25%**
-- Revenue growth **10-15%** dari channel baru ini
-- **Ini adalah target realistis** berdasarkan pengalaman kami di industri serupa
-
-### Skenario Terbaik (Best Case)
-
-> Semua berjalan optimal, pasar merespons positif.
-
-- Organic traffic naik **50-80%+** dalam 3 bulan
-- GBP impressions naik **80-120%+**
-- Lead volume naik **35-50%+**
-- Revenue growth **20-30%+**
-- **Kondisi:** Bestink sudah punya brand awareness kuat, kompetitor belum optimal di AI search, konten viral
+Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
 
 ---
 
-## Struktur Harga — Performance-Based
+## 🔥 Desire: Perbandingan Sebelum vs Sesudah
+
+### Apa yang Berubah dengan GEO/SEO
+
+| Aspek | Tanpa GEO (Sekarang) | Dengan GEO (3 Bulan) |
+|-------|---------------------|---------------------|
+| Ditemukan di AI search | ❌ Tidak muncul | ✅ Muncul di rekomendasi |
+| Google Maps | ❌ Ranking rendah | ✅ Top 3 lokal |
+| Leads per bulan | 10 | **12-15** |
+| Proyek baru per bulan | 1 | **1-2** |
+| Omzet per bulan | Rp 150 Juta | **Rp 150-300 Juta** |
+| Keuntungan per bulan | Rp 22,5 Juta | **Rp 22,5-45 Juta** |
+
+> **Potensi tambahan keuntungan: Rp 0 - Rp 22,5 Juta per bulan** (tergantung skenario)
+
+---
+
+## 📊 Skenario Hasil (3 Bulan)
+
+> **Catatan:** Semua angka di bawah ini menggunakan **asumsi data publik** industri konstruksi Indonesia — rata-rata nilai proyek Rp 150 Juta, margin 15%, konversi 10%. Angka aktual bisa berbeda tergantung pasar dan kompetisi Bestink.
+
+### Skenario Terburuk: "Masih Untung"
+
+> Kami sudah berusaha maksimal, tapi pasar lambat atau kompetitor sudah sangat kuat.
+
+| Keterangan | Angka |
+|-----------|-------|
+| Leads tambahan per bulan | +1 |
+| Proyek tambahan per bulan | +0.5 (1 proyek tiap 2 bulan) |
+| Tambahan omzet 3 bulan | Rp 225.000.000 |
+| **Tambahan keuntungan 3 bulan** | **Rp 33.750.000** |
+| Biaya investasi (3 bulan) | Rp 33.000.000 |
+| **ROI** | **+Rp 750.000 (Break-even +)** |
+
+> **Kesimpulan:** Even di skenario terburuk, Anda **tidak rugi**. Investasi balik modal. Plus, Anda punya fondasi SEO yang terus bekerja di bulan ke-4, ke-5, ke-6 dst.
+
+---
+
+### Skenario Ideal: "Sesuai Ekspektasi"
+
+> Hasil sesuai rata-rata industri — ini yang paling realistis.
+
+| Keterangan | Angka |
+|-----------|-------|
+| Leads tambahan per bulan | +3 |
+| Proyek tambahan per bulan | +1 |
+| Tambahan omzet 3 bulan | Rp 450.000.000 |
+| **Tambahan keuntungan 3 bulan** | **Rp 67.500,000** |
+| Biaya investasi (3 bulan) | Rp 33.000.000 |
+| **ROI** | **+Rp 34.500.000 (+105%)** |
+
+> **Kesimpulan:** Setiap Rp 1 yang diinvestasikan, kembali **Rp 2**. Belum termasuk value jangka panjang (brand awareness, backlinks, otoritas).
+
+---
+
+### Skenario Terbaik: "Melebihi Ekspektasi"
+
+> Bestink sudah punya brand awareness kuat, kompetitor belum optimal di AI search.
+
+| Keterangan | Angka |
+|-----------|-------|
+| Leads tambahan per bulan | +5 |
+| Proyek tambahan per bulan | +2 |
+| Tambahan omzet 3 bulan | Rp 900.000.000 |
+| **Tambahan keuntungan 3 bulan** | **Rp 135.000.000** |
+| Biaya investasi (3 bulan) | Rp 33.000.000 |
+| **ROI** | **+Rp 102.000.000 (+309%)** |
+
+> **Kesimpulan:** Setiap Rp 1 yang diinvestasikan, kembali **Rp 4**.
+
+---
+
+## 💎 Harga: Pilih yang Paling Cocok
+
+### Opsi 1: Performance-Based (Bayar Sesuai Hasil)
 
 | Komponen | Biaya |
 |----------|-------|
-| Setup Fee (one-time) | **Rp 8,000,000** |
-| Biaya Bulanan | **Rp 10,000,000 / bulan** |
-| Performance Fee | **10-30%** dari pertambahan net profit |
+| Biaya setup (sekali) | Rp 8.000.000 |
+| Biaya bulanan | Rp 10.000.000 / bulan |
+| Performance fee | 10-30% dari keuntungan tambahan |
 
-### Tingkat Performance Fee
+> **Contoh:** Kalau keuntungan tambahan Rp 14 Juta/bulan, performance fee = Rp 2,8 Juta (20%). Total bayar = Rp 12,8 Juta/bulan.
 
-| Kondisi | Rate |
-|---------|------|
-| Conversion rate > 2x rata-rata industri | **10%** |
-| Conversion rate 1.5-2x rata-rata industri | **20%** |
-| Conversion rate < rata-rata industri | **30%** |
+| Tingkat | Rate | Kapan |
+|---------|------|-------|
+| Konversi > 2x rata-rata | 10% | Hasil luar biasa |
+| Konversi 1.5-2x rata-rata | 20% | Hasil bagus |
+| Konversi < rata-rata | 30% | Masih uji coba |
 
-> **Komitmen minimum:** 6 bulan. **Review point:** Bulan ke-3 — jika target tidak tercapai, extend trial dengan fixed fee only.
+> **Komitmen:** 6 bulan. Review di bulan ke-3 — kalau target belum tercapai, perpanjang dengan biaya tetap.
 
----
-
-## Struktur Harga — Fixed Price
+### Opsi 2: Fixed Price (Biaya Tetap)
 
 | Komponen | Biaya |
 |----------|-------|
-| Total Biaya | **Rp 25,000,000** (3 bulan) |
-| Pembayaran | 50% di muka, 50% setelah Month 1 |
+| Total biaya | **Rp 25.000.000** (3 bulan) |
+| Pembayaran | 50% di muka, 50% setelah bulan 1 |
 
-### Yang Anda Dapatkan
-
-**Month 1: Foundation & Quick Wins**
-- Brand Blueprint Creation (Voice, positioning, messaging framework)
-- Website SEO Health Audit + Priority Action List
-- GBP Complete Optimization (Name, categories, photos, hours, description)
-- Local Citation Foundation (20 high-quality citations)
-- Basic Keyword Research (Top 50 keywords)
-- Monthly Performance Report
-
-**Month 2: Implementation & Acceleration**
-- Core Page Optimization (Homepage + 3 service pages)
-- Schema Markup Implementation
-- Review Response System Setup
-- Local Link Building (5-10 quality backlinks)
-- Content Optimization Plan
-- Monthly Performance Report
-
-**Month 3: Consolidation & Scale Prep**
-- Advanced On-Page SEO (meta tags, internal linking, image optimization)
-- Competitor Gap Closure
-- Mobile Experience Optimization
-- Speed Performance Tuning
-- Month 4+ Strategy Roadmap
-- Final Performance Report
+> **Yang Anda dapatkan:** Fondasi SEO lengkap — Brand Blueprint, optimasi website, Google Maps, 20 citation, schema markup, konten, backlink. Tanpa performance fee.
 
 ---
 
-## Pengerjaan
+## ⚙️ Pengerjaan
 
-### Phase 1: Foundation (Week 1-2)
-1. Brand Voice & Positioning Blueprint
-2. Website Architecture Review & SEO Recommendations
-3. GBP Keyword Research & Optimization Plan
-4. Competitor Gap Analysis (Top 5 construction competitors)
-5. Target Persona & Intent Mapping
+### Minggu 1-2: Fondasi
+1. Buat brand voice dan posisi bisnis
+2. Review arsitektur website + rekomendasi SEO
+3. Riset keyword dan rencana optimasi Google Maps
+4. Analisis 5 kompetitor utama
+5. Tentukan target customer
 
-### Phase 2: Implementation (Week 3-6)
-1. Core Page SEO Optimization (Homepage, Services, Case Studies)
-2. GBP Profile Complete Optimization (Categories, Photos, Posts, Q&A)
-3. Local Citation Building (Construction-specific directories)
-4. Schema Markup Implementation (LocalBusiness, Project, Review)
-5. AI Search Optimization (Entity relationship mapping)
+### Minggu 3-6: Implementasi
+1. Optimasi SEO halaman utama, layanan, portofolio
+2. Optimasi lengkap Google Maps (kategori, foto, jam, deskripsi)
+3. Daftarkan bisnis di direktori konstruksi
+4. Implementasi schema markup
+5. Optimasi untuk AI search (entity mapping)
 
-### Phase 3: Acceleration (Month 2-3+)
-1. Content Cluster Development (Project guides, cost calculators)
-2. Backlink Outreach (Construction industry sites)
-3. Review Generation Program (Client testimonials)
-4. AI Conversation Training Data (Optimization for chatbot/AI)
-5. Monthly Performance Reporting & Strategy Pivot
-
----
-
-## Target Hasil
-
-| Metrik | Bulan 1 | Bulan 2 | Bulan 3 | Bulan 6 |
-|--------|---------|---------|---------|---------|
-| Organic Traffic | +5% | +15% | +30% | +60%+ |
-| GBP Impressions | +10% | +25% | +45% | +80%+ |
-| Lead Volume | +3% | +10% | +20% | +40%+ |
-| Conversion Rate | Baseline | +2% | +5% | +10%+ |
-| Avg. Deal Size | Baseline | Baseline | +3% | +5%+ |
-
-> Catatan: Target di atas adalah estimasi konservatif berdasarkan pengalaman kami di industri serupa. Hasil aktual tergantung pada kondisi pasar, kompetisi, dan konsistensi implementasi.
+### Bulan 2-3: Percepatan
+1. Buat konten klaster (panduan proyek, kalkulator biaya)
+2. Bangun backlink dari situs industri
+3. Program generating ulasan klien
+4. Optimasi data untuk chatbot/AI
+5. Laporan performa dan pivot strategi
 
 ---
 
-## Layanan Tambahan
+## 📅 Langkah Selanjutnya
 
-| Layanan | Deskripsi | Biaya |
-|---------|-----------|-------|
-| Full Website Redesign | Complete UX/UI rebuild with conversion focus | Rp 45,000,000 |
-| Premium Hosting (AWS) | Enterprise-grade hosting with CDN & security | Rp 3,000,000 / bulan |
-| Ongoing Content Creation | Blog posts, case studies, video scripts | Rp 8,000,000 / bulan |
-| Social Media Management | IG/FB/TikTok management | Rp 12,000,000 / bulan |
-| Paid Ads Management | Google Ads + Meta Ads setup | 15% of ad spend |
-
----
-
-## Rekomendasi
-
-Kami merekomendasikan model **Performance-Based** karena:
-
-1. Construction industry memiliki transaction value tinggi (avg deal Rp 50M-500M)
-2. Profit margins jelas — bisa ditracked dari inquiry sampai close
-3. Timing krusial — AI search trend sedang naik, early mover advantage besar
-4. Investasi terus berkembang (backlinks, authority, brand equity)
-
-> Namun, jika Bestink ingin predictable budget di fase awal, **Fixed Price (Rp 25M/3 bulan)** adalah entry point yang aman.
+1. **Kickoff Call** — Sepakati prioritas dan target
+2. **Kumpulkan Akses** — Website, Google Maps, analytics
+3. **Workshop Minggu 1** — Bedah posisi saat ini
+4. **Cek Poin Hari ke-14** — Optimasi awal sudah jalan
+5. **Review Bulan 1** — Evaluasi progress
+6. **Milestone Bulan 3** — Evaluasi formal & keputusan
 
 ---
 
-## Langkah Selanjutnya
-
-1. **Kickoff Call** — Align on priorities & success metrics
-2. **Access Collection** — Website, GBP, analytics access granted
-3. **Week 1 Workshop** — Deep dive into current position & opportunities
-4. **Day 14 Checkpoint** — Initial optimizations deployed, baseline metrics captured
-5. **Month 1 Review** — Progress assessment & strategy refinement
-6. **Month 3 Milestone** — Formal evaluation & scaling decision
-
----
-
-## Kontak
+## 📞 Kontak
 
 **Nell VH** — Founder & CEO, Pesat AI
 📧 care@pesat.ai | 📱 +62 812-9040-1240 | 🌐 pesat.ai
 
 ---
 
-*Proposal ini berlaku hingga 4 September 2026. Terakhir diperbarui: 4 Agustus 2026.*
+*Proposal ini berlaku hingga 4 September 2026.*
+*Angka berdasarkan data publik industri konstruksi Indonesia — asumsi: nilai proyek rata-rata Rp 150 Juta, margin 15%, konversi 10%.*
