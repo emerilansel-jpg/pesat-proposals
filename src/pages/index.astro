@@ -1,567 +1,250 @@
 ---
-import { site } from '@/meta/site';
 import Main from '@/layouts/Main.astro';
 import { getCollection } from 'astro:content';
 
-// Get all published proposals
 const proposals = await getCollection('proposals');
-const publishedProposals = proposals.filter(p => !p.data.draft);
-const latestProposal = publishedProposals.length > 0 ? publishedProposals[0] : null;
-
-// Get latest proposal data if available
-const latestData = latestProposal?.data;
+const published = proposals.filter(p => !p.data.draft);
+published.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const latest = published[0];
 ---
 
-<Main title="Pesat AI — GEO/SEO Agency" description="Geographic Entity Optimization for AI Search Era">
+<Main title="Pesat AI — GEO/SEO Agency" description="Geographic Entity Optimization untuk AI Search Era">
   <main class="landing">
-    <!-- Hero Section -->
+
+    <!-- Hero -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
           <span class="hero-badge">🚀 AI Search Ready</span>
-          <h1>Win on AI Search</h1>
+          <h1>Muncul di Hasil AI Search</h1>
           <p class="hero-tagline">Geographic Entity Optimization (GEO) untuk brand yang ingin muncul di Google AI Overviews, Perplexity, ChatGPT, dan asisten AI lainnya.</p>
-          <p class="hero-desc">Kami membantu bisnis konstruksi, contracting, dan professional services muncul sebagai top recommendation saat decision-maker bertanya via AI.</p>
-          
-          <div class="cta-buttons">
-            <a href="/proposals/" class="btn-primary">📋 Lihat Proposals</a>
-            <a href="#features" class="btn-secondary">Pelajari Lebih Lanjut</a>
+          <p class="hero-desc">Kami membantu bisnis Anda muncul sebagai rekomendasi utama saat customer bertanya via AI — bukan hanya di Google biasa.</p>
+          <div class="hero-actions">
+            <a href="/proposals/" class="btn btn-white">📋 Lihat Proposal</a>
+            <a href="mailto:hello@pesat.ai" class="btn btn-outline-white">📧 Hubungi Kami</a>
           </div>
         </div>
-        
-        {latestProposal && (
+        {latest && (
           <div class="hero-featured">
             <div class="featured-card">
-              <span class="featured-label">Latest Proposal</span>
-              <h3>{latestData.title}</h3>
-              <p class="featured-client">{latestData.client}</p>
-              <p class="featured-tagline">{latestData.tagline}</p>
-              <a href={`/proposal/${latestProposal.slug}/`} class="view-link">View Proposal →</a>
+              <span class="featured-label">Proposal Terbaru</span>
+              <h3>{latest.data.title}</h3>
+              <p class="featured-client">{latest.data.client}</p>
+              <a href={`/proposal/${latest.slug}/`} class="featured-link">Lihat Proposal →</a>
             </div>
           </div>
         )}
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features-section">
+    <!-- Stats -->
+    <section class="stats">
       <div class="container">
-        <h2>Peluang Besar untuk Construction & Contracting</h2>
-        <p class="section-desc">87% decision-makers memulai pencarian vendor dengan AI search sebelum menghubungi kontak langsung</p>
-        
-        <div class="features-grid">
-          <div class="feature-card">
-            <span class="feature-icon">✅</span>
-            <h3>Awareness Sudah Ada</h3>
-            <p>Bestink punya brand awareness dan portfolio projects yang valuable, perlu dioptimalkan untuk AI discovery.</p>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-number">87%</span>
+            <span class="stat-label">Decision-maker mulai dengan AI search</span>
           </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon">❌</span>
-            <h3>Belum Optimal di AI Search</h3>
-            <p>Tidak muncul di hasil AI Overviews atau Perplexity ketika client bertanya "best construction project manager".</p>
+          <div class="stat">
+            <span class="stat-number">35%</span>
+            <span class="stat-label">Peningkatan lead dalam 3 bulan</span>
           </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon">🎯</span>
-            <h3>Potensi Growth Tinggi</h3>
-            <p>Estimasi 35% increase qualified leads dalam 3 bulan + 15-25% revenue growth dari new channel.</p>
-          </div>
-          
-          <div class="feature-card">
-            <span class="feature-icon">⏰</span>
-            <h3>Market Urgency</h3>
-            <p>Momentum AI-first discovery sedang naik pesat — timing optimal untuk capture early advantage.</p>
+          <div class="stat">
+            <span class="stat-number">15-25%</span>
+            <span class="stat-label">Potensi pertumbuhan revenue</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- How It Works -->
-    <section class="process-section">
+    <section class="process">
       <div class="container">
-        <h2>Bagaimana GEO/SEO Bekerja?</h2>
-        
-        <div class="process-steps">
+        <div class="section-header">
+          <h2>Bagaimana Kami Bekerja?</h2>
+          <p>Proses sederhana — mulai dari audit hingga hasil terukur</p>
+        </div>
+        <div class="steps-grid">
           <div class="step">
-            <div class="step-number">1</div>
-            <h3>Brand Blueprint</h3>
-            <p>Kami definisikan positioning, voice, entity relationship mapping untuk AI understanding.</p>
+            <div class="step-num">1</div>
+            <h3>Audit & Strategi</h3>
+            <p>Kami analisis posisi brand Anda di AI search dan buat strategi yang tepat sasaran.</p>
           </div>
-          
           <div class="step">
-            <div class="step-number">2</div>
-            <h3>Tech SEO Foundation</h3>
-            <p>Optimize website, GBP, schema markup, citations agar mudah ditemukan oleh AI crawlers.</p>
+            <div class="step-num">2</div>
+            <h3>Implementasi</h3>
+            <p>Optimasi website, GBP, schema markup, dan konten untuk AI understanding.</p>
           </div>
-          
           <div class="step">
-            <div class="step-number">3</div>
-            <h3>AI Search Optimization</h3>
-            <p>Build authority dan signal untuk muncul di Google AI Overviews, Perplexity, ChatGPT responses.</p>
+            <div class="step-num">3</div>
+            <h3>Akselerasi</h3>
+            <p>Build authority dan signal agar brand muncul di Google AI, Perplexity, ChatGPT.</p>
           </div>
-          
           <div class="step">
-            <div class="step-number">4</div>
-            <h3>Measure & Scale</h3>
-            <p>Track performance metrics, attribution, ROI — scale dengan model performance-based atau fixed.</p>
+            <div class="step-num">4</div>
+            <h3>Ukur & Scale</h3>
+            <p>Track performa, attribution, ROI — scale dengan model yang terbukti.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Models Teaser -->
+    <!-- Pricing Teaser -->
     <section class="pricing-teaser">
       <div class="container">
-        <h2>Flexible Pricing Models</h2>
-        
-        <div class="pricing-comparison">
-          <div class="pricing-card-teaser">
-            <div class="pricing-header">
+        <div class="section-header">
+          <h2>Model Harga Fleksibel</h2>
+          <p>Pilih yang paling cocok untuk bisnis Anda</p>
+        </div>
+        <div class="pricing-compare">
+          <div class="pricing-option">
+            <div class="po-header">
               <h3>Performance-Based</h3>
-              <span class="badge recommended">Recommended</span>
+              <span class="po-badge">⭐ Recommended</span>
             </div>
-            <ul class="model-benefits">
-              <li>💵 Rp 8M Setup + Rp 10M/month</li>
-              <li>📊 Performance Fee: 10-30%</li>
-              <li>🎯 Aligned incentives</li>
-              <li>🚀 Scalable growth</li>
-              <li>🏆 Best untuk high-value deals</li>
+            <ul>
+              <li>Setup Rp 8 juta + Rp 10 juta/bulan</li>
+              <li>Performance fee: 10-30%</li>
+              <li>Bayar sesuai hasil</li>
+              <li>Cocok untuk deal size besar</li>
             </ul>
-            <a href="/proposals/#performance" class="btn-outline">Learn More →</a>
+            <a href="/proposals/" class="btn btn-primary btn-block">Pelajari Lebih Lanjut →</a>
           </div>
-          
-          <div class="pricing-card-teaser">
-            <div class="pricing-header">
+          <div class="pricing-option">
+            <div class="po-header">
               <h3>Fixed Price</h3>
             </div>
-            <ul class="model-benefits">
-              <li>💎 Rp 25M untuk 3 bulan</li>
-              <li>🛡️ No performance fee</li>
-              <li>📅 Predictable budget</li>
-              <li>🔄 Flexible ongoing work</li>
-              <li>⚡ Quick wins guarantee</li>
+            <ul>
+              <li>Rp 25 juta untuk 3 bulan</li>
+              <li>Tanpa performance fee</li>
+              <li>Budget predictable</li>
+              <li>Cocok untuk testing</li>
             </ul>
-            <a href="/proposals/#fixed" class="btn-outline">Learn More →</a>
+            <a href="/proposals/" class="btn btn-outline btn-block">Pelajari Lebih Lanjut →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonial/Stats -->
-    <section class="stats-section">
+    <!-- CTA -->
+    <section class="cta">
       <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <span class="stat-number">87%</span>
-            <span class="stat-label">Decision-makers start with AI search</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">35%</span>
-            <span class="stat-label">Qualified leads increase in 3 months</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">15-25%</span>
-            <span class="stat-label">Revenue growth potential</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Footer -->
-    <section class="final-cta">
-      <div class="container">
-        <h2>Siap Untuk AI-First Discovery?</h2>
-        <p>Konsultasikan bagaimana GEO/SEO dapat membantu business Anda muncul di top recommendations saat customer bertanya via AI.</p>
+        <h2>Siap Muncul di AI Search?</h2>
+        <p>Konsultasi gratis — kami bantu brand Anda menjadi rekomendasi utama di AI.</p>
         <div class="cta-actions">
-          <a href="mailto:hello@pesat.ai" class="btn-primary btn-large">📧 Contact Us</a>
-          <a href="/proposals/" class="btn-secondary btn-large">📋 Browse All Proposals</a>
+          <a href="mailto:hello@pesat.ai" class="btn btn-primary btn-large">📧 Hubungi Kami</a>
+          <a href="/proposals/" class="btn btn-outline btn-large">📋 Lihat Proposal</a>
         </div>
       </div>
     </section>
   </main>
 
   <style>
-    .landing {
-      min-height: 100vh;
-    }
-    
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #4f46e5 100%);
       color: white;
-      padding: 6rem 0 4rem;
-      margin-bottom: 4rem;
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
     }
-    
-    .hero .container {
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 4rem;
-      align-items: center;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
     }
-    
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-    
-    .hero h1 {
-      font-size: 3.5rem;
-      line-height: 1.1;
-      margin: 0 0 1rem;
-    }
-    
-    .hero-tagline {
-      font-size: 1.35rem;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      opacity: 0.95;
-    }
-    
-    .hero-desc {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    
-    .btn-primary, .btn-secondary {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-    }
-    
-    .btn-primary {
-      background: white;
-      color: var(--accent);
-    }
-    
-    .btn-secondary {
-      background: rgba(255,255,255,0.2);
-      color: white;
-      border: 2px solid rgba(255,255,255,0.3);
-    }
-    
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    
-    /* Featured Card */
+    .hero .container { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; align-items: center; position: relative; z-index: 1; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+    .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.03em; }
+    .hero-tagline { font-size: 1.2rem; font-weight: 500; opacity: 0.95; margin: 0 0 0.5rem; }
+    .hero-desc { font-size: 1rem; opacity: 0.8; margin: 0 0 1.5rem; max-width: 500px; }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
     .featured-card {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 2rem;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
       color: var(--text-primary);
       position: relative;
       overflow: hidden;
     }
-    
-    .featured-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), #8b5cf6);
-    }
-    
-    .featured-label {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-    }
-    
-    .featured-card h3 {
-      font-size: 1.5rem;
-      margin: 0.5rem 0 0.25rem;
-    }
-    
-    .featured-client {
-      color: var(--accent);
-      font-weight: 600;
-      margin: 0 0 0.5rem;
-    }
-    
-    .featured-tagline {
-      color: var(--text-secondary);
-      font-style: italic;
-      margin: 0 0 1rem;
-    }
-    
-    .view-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    
-    /* Features Section */
-    .features-section {
-      padding: 4rem 0;
-    }
-    
-    .features-section h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .section-desc {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    
-    .feature-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-    }
-    
-    .feature-icon {
-      font-size: 2.5rem;
-      display: block;
-      margin-bottom: 1rem;
-    }
-    
-    .feature-card h3 {
-      margin: 0 0 0.5rem;
-    }
-    
-    .feature-card p {
-      color: var(--text-secondary);
-      margin: 0;
-    }
-    
-    /* Process */
-    .process-section {
-      padding: 4rem 0;
-      background: var(--bg-secondary);
-    }
-    
-    .process-section h2 {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-    
-    .step {
-      text-align: center;
-      position: relative;
-    }
-    
-    .step-number {
-      width: 60px;
-      height: 60px;
-      background: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0 auto 1.5rem;
-    }
-    
-    .step h3 {
-      margin: 0 0 0.5rem;
-    }
-    
-    .step p {
-      color: var(--text-secondary);
-      margin: 0;
-      font-size: 0.9rem;
-    }
-    
-    /* Pricing Teaser */
-    .pricing-teaser {
-      padding: 4rem 0;
-    }
-    
-    .pricing-teaser h2 {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .pricing-comparison {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .pricing-card-teaser {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      position: relative;
-    }
-    
-    .pricing-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    
-    .pricing-card-teaser h3 {
-      margin: 0;
-    }
-    
-    .badge {
-      background: #10b981;
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 16px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    
-    .model-benefits {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.5rem;
-    }
-    
-    .model-benefits li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .model-benefits li:last-child {
-      border-bottom: none;
-    }
-    
-    .btn-outline {
-      display: inline-block;
-      width: 100%;
-      padding: 0.75rem 1.5rem;
-      border: 2px solid var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      text-align: center;
-      transition: background 0.2s, color 0.2s;
-    }
-    
-    .btn-outline:hover {
-      background: var(--accent);
-      color: white;
-    }
-    
+    .featured-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #7c3aed); }
+    .featured-label { font-size: 0.8rem; color: var(--text-muted); }
+    .featured-card h3 { margin: 0.5rem 0 0.25rem; font-size: 1.2rem; }
+    .featured-client { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin: 0 0 0.75rem; }
+    .featured-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.7rem 1.5rem; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; gap: 0.5rem; font-family: var(--font); }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-white { background: white; color: #1e40af; }
+    .btn-white:hover { background: #f0f0f0; }
+    .btn-outline { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+    .btn-outline:hover { background: var(--accent); color: white; }
+    .btn-outline-white { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.3); }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
+    .btn-block { width: 100%; }
+    .btn-large { padding: 1rem 2rem; font-size: 1.05rem; }
+
+    /* Section Header */
+    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .section-header h2 { font-size: 2rem; font-weight: 800; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+    .section-header p { color: var(--text-secondary); margin: 0; font-size: 1.05rem; }
+
     /* Stats */
-    .stats-section {
-      padding: 4rem 0;
-      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+    .stats { padding: 3rem 0; background: var(--bg-secondary); }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+    .stat-number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+    .stat-label { color: var(--text-secondary); font-size: 0.95rem; }
+
+    /* Process */
+    .process { padding: 4rem 0; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .step { text-align: center; }
+    .step-num { width: 48px; height: 48px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; margin: 0 auto 1rem; }
+    .step h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+    .step p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
+
+    /* Pricing Teaser */
+    .pricing-teaser { padding: 4rem 0; background: var(--bg-secondary); }
+    .pricing-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 700px; margin: 0 auto; }
+    .pricing-option { background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+    .po-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .po-header h3 { margin: 0; font-size: 1.1rem; }
+    .po-badge { font-size: 0.75rem; font-weight: 600; background: var(--green); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; }
+    .pricing-option ul { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+    .pricing-option li { padding: 0.4rem 0; font-size: 0.9rem; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .pricing-option li:last-child { border-bottom: none; }
+
+    /* CTA */
+    .cta { padding: 4rem 0; text-align: center; }
+    .cta h2 { font-size: 2rem; font-weight: 800; margin: 0 0 0.5rem; }
+    .cta p { color: var(--text-secondary); margin: 0 0 1.5rem; font-size: 1.05rem; }
+    .cta-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero .container { grid-template-columns: 1fr; }
+      .hero-featured { max-width: 400px; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
     }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-    
-    .stat-item {
-      text-align: center;
-    }
-    
-    .stat-number {
-      display: block;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    
-    .stat-label {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-    
-    /* Final CTA */
-    .final-cta {
-      padding: 4rem 0;
-      text-align: center;
-      background: var(--bg-secondary);
-    }
-    
-    .final-cta h2 {
-      font-size: 2.5rem;
-      margin: 0 0 1rem;
-    }
-    
-    .final-cta p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    
-    .cta-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .btn-large {
-      padding: 1.25rem 2.5rem;
-      font-size: 1.1rem;
-    }
-    
-    @media (max-width: 768px) {
-      .hero .container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .btn-large {
-        width: 100%;
-        max-width: 300px;
-      }
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 0 2rem; }
+      .hero h1 { font-size: 2rem; }
+      .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .stat-number { font-size: 2rem; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .pricing-compare { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; align-items: center; }
+      .btn-large { width: 100%; max-width: 300px; }
     }
   </style>
 </Main>
