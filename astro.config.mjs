@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pesat.ai',
+  site: 'https://proposal.pesat.ai',
   integrations: [
     mdx(),
   ],
