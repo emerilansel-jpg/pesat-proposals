@@ -5,246 +5,86 @@ import { getCollection } from 'astro:content';
 const proposals = await getCollection('proposals');
 const published = proposals.filter(p => !p.data.draft);
 published.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
-const latest = published[0];
 ---
 
-<Main title="Pesat AI — GEO/SEO Agency" description="Geographic Entity Optimization untuk AI Search Era">
-  <main class="landing">
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <span class="hero-badge">🚀 AI Search Ready</span>
-          <h1>Muncul di Hasil AI Search</h1>
-          <p class="hero-tagline">Geographic Entity Optimization (GEO) untuk brand yang ingin muncul di Google AI Overviews, Perplexity, ChatGPT, dan asisten AI lainnya.</p>
-          <p class="hero-desc">Kami membantu bisnis Anda muncul sebagai rekomendasi utama saat customer bertanya via AI — bukan hanya di Google biasa.</p>
-          <div class="hero-actions">
-            <a href="/proposals/" class="btn btn-white">📋 Lihat Proposal</a>
-            <a href="mailto:hello@pesat.ai" class="btn btn-outline-white">📧 Hubungi Kami</a>
-          </div>
-        </div>
-        {latest && (
-          <div class="hero-featured">
-            <div class="featured-card">
-              <span class="featured-label">Proposal Terbaru</span>
-              <h3>{latest.data.title}</h3>
-              <p class="featured-client">{latest.data.client}</p>
-              <a href={`/proposal/${latest.slug}/`} class="featured-link">Lihat Proposal →</a>
-            </div>
-          </div>
-        )}
+<Main title="Pesat AI — Proposal">
+  <div class="doc">
+    <header class="doc-header">
+      <div class="doc-brand">
+        <img src="/logo.svg" alt="Pesat AI" width="32" height="32" />
+        <span>PESAT AI</span>
       </div>
+      <h1>Proposal</h1>
+      <p>Geographic Entity Optimization & AI Search Strategy</p>
+    </header>
+    <section class="list">
+      {published.length === 0 ? (
+        <p class="empty">Belum ada proposal yang dipublikasikan.</p>
+      ) : (
+        <ul>
+          {published.map(p => (
+            <li>
+              <a href={`/p/${p.slug}/`}>
+                <strong>{p.data.client}</strong>
+                <span>{p.data.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
-
-    <!-- Stats -->
-    <section class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat">
-            <span class="stat-number">87%</span>
-            <span class="stat-label">Decision-maker mulai dengan AI search</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">35%</span>
-            <span class="stat-label">Peningkatan lead dalam 3 bulan</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">15-25%</span>
-            <span class="stat-label">Potensi pertumbuhan revenue</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="process">
-      <div class="container">
-        <div class="section-header">
-          <h2>Bagaimana Kami Bekerja?</h2>
-          <p>Proses sederhana — mulai dari audit hingga hasil terukur</p>
-        </div>
-        <div class="steps-grid">
-          <div class="step">
-            <div class="step-num">1</div>
-            <h3>Audit & Strategi</h3>
-            <p>Kami analisis posisi brand Anda di AI search dan buat strategi yang tepat sasaran.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <h3>Implementasi</h3>
-            <p>Optimasi website, GBP, schema markup, dan konten untuk AI understanding.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <h3>Akselerasi</h3>
-            <p>Build authority dan signal agar brand muncul di Google AI, Perplexity, ChatGPT.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <h3>Ukur & Scale</h3>
-            <p>Track performa, attribution, ROI — scale dengan model yang terbukti.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing Teaser -->
-    <section class="pricing-teaser">
-      <div class="container">
-        <div class="section-header">
-          <h2>Model Harga Fleksibel</h2>
-          <p>Pilih yang paling cocok untuk bisnis Anda</p>
-        </div>
-        <div class="pricing-compare">
-          <div class="pricing-option">
-            <div class="po-header">
-              <h3>Performance-Based</h3>
-              <span class="po-badge">⭐ Recommended</span>
-            </div>
-            <ul>
-              <li>Setup Rp 8 juta + Rp 10 juta/bulan</li>
-              <li>Performance fee: 10-30%</li>
-              <li>Bayar sesuai hasil</li>
-              <li>Cocok untuk deal size besar</li>
-            </ul>
-            <a href="/proposals/" class="btn btn-primary btn-block">Pelajari Lebih Lanjut →</a>
-          </div>
-          <div class="pricing-option">
-            <div class="po-header">
-              <h3>Fixed Price</h3>
-            </div>
-            <ul>
-              <li>Rp 25 juta untuk 3 bulan</li>
-              <li>Tanpa performance fee</li>
-              <li>Budget predictable</li>
-              <li>Cocok untuk testing</li>
-            </ul>
-            <a href="/proposals/" class="btn btn-outline btn-block">Pelajari Lebih Lanjut →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-      <div class="container">
-        <h2>Siap Muncul di AI Search?</h2>
-        <p>Konsultasi gratis — kami bantu brand Anda menjadi rekomendasi utama di AI.</p>
-        <div class="cta-actions">
-          <a href="mailto:hello@pesat.ai" class="btn btn-primary btn-large">📧 Hubungi Kami</a>
-          <a href="/proposals/" class="btn btn-outline btn-large">📋 Lihat Proposal</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    <footer class="doc-footer">
+      <p>Pesat AI &copy; {new Date().getFullYear()}</p>
+    </footer>
+  </div>
 
   <style>
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #4f46e5 100%);
-      color: white;
-      padding: 5rem 0 4rem;
-      position: relative;
-      overflow: hidden;
+    .doc { box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+    .doc-header {
+      border-bottom: 3px solid #1e40af;
+      padding: 2.5rem;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -40%;
-      right: -15%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-      border-radius: 50%;
+    .doc-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: #1e40af;
+      margin-bottom: 1.5rem;
     }
-    .hero .container { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; align-items: center; position: relative; z-index: 1; }
-    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
-    .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.03em; }
-    .hero-tagline { font-size: 1.2rem; font-weight: 500; opacity: 0.95; margin: 0 0 0.5rem; }
-    .hero-desc { font-size: 1rem; opacity: 0.8; margin: 0 0 1.5rem; max-width: 500px; }
-    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-
-    .featured-card {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      color: var(--text-primary);
-      position: relative;
-      overflow: hidden;
+    .doc-brand img { width: 28px; height: 28px; }
+    .doc-header h1 { font-size: 1.75rem; font-weight: 800; margin: 0 0 0.25rem; color: #0f172a; }
+    .doc-header p { color: #64748b; font-size: 0.95rem; margin: 0; }
+    .list { padding: 1.5rem 2.5rem; }
+    .list ul { list-style: none; padding: 0; margin: 0; }
+    .list li { border-bottom: 1px solid #e2e8f0; }
+    .list li:last-child { border-bottom: none; }
+    .list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      text-decoration: none;
+      color: #1a1a2e;
+      gap: 1rem;
     }
-    .featured-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #7c3aed); }
-    .featured-label { font-size: 0.8rem; color: var(--text-muted); }
-    .featured-card h3 { margin: 0.5rem 0 0.25rem; font-size: 1.2rem; }
-    .featured-client { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin: 0 0 0.75rem; }
-    .featured-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-
-    /* Buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.7rem 1.5rem; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; gap: 0.5rem; font-family: var(--font); }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-white { background: white; color: #1e40af; }
-    .btn-white:hover { background: #f0f0f0; }
-    .btn-outline { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
-    .btn-outline:hover { background: var(--accent); color: white; }
-    .btn-outline-white { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.3); }
-    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
-    .btn-block { width: 100%; }
-    .btn-large { padding: 1rem 2rem; font-size: 1.05rem; }
-
-    /* Section Header */
-    .section-header { text-align: center; margin-bottom: 2.5rem; }
-    .section-header h2 { font-size: 2rem; font-weight: 800; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
-    .section-header p { color: var(--text-secondary); margin: 0; font-size: 1.05rem; }
-
-    /* Stats */
-    .stats { padding: 3rem 0; background: var(--bg-secondary); }
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
-    .stat-number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
-    .stat-label { color: var(--text-secondary); font-size: 0.95rem; }
-
-    /* Process */
-    .process { padding: 4rem 0; }
-    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .step { text-align: center; }
-    .step-num { width: 48px; height: 48px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; margin: 0 auto 1rem; }
-    .step h3 { margin: 0 0 0.5rem; font-size: 1rem; }
-    .step p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
-
-    /* Pricing Teaser */
-    .pricing-teaser { padding: 4rem 0; background: var(--bg-secondary); }
-    .pricing-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 700px; margin: 0 auto; }
-    .pricing-option { background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
-    .po-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-    .po-header h3 { margin: 0; font-size: 1.1rem; }
-    .po-badge { font-size: 0.75rem; font-weight: 600; background: var(--green); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; }
-    .pricing-option ul { list-style: none; padding: 0; margin: 0 0 1.25rem; }
-    .pricing-option li { padding: 0.4rem 0; font-size: 0.9rem; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
-    .pricing-option li:last-child { border-bottom: none; }
-
-    /* CTA */
-    .cta { padding: 4rem 0; text-align: center; }
-    .cta h2 { font-size: 2rem; font-weight: 800; margin: 0 0 0.5rem; }
-    .cta p { color: var(--text-secondary); margin: 0 0 1.5rem; font-size: 1.05rem; }
-    .cta-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero .container { grid-template-columns: 1fr; }
-      .hero-featured { max-width: 400px; }
-      .steps-grid { grid-template-columns: 1fr 1fr; }
+    .list a:hover { color: #1e40af; }
+    .list strong { font-size: 0.95rem; }
+    .list span { font-size: 0.85rem; color: #64748b; text-align: right; }
+    .empty { padding: 2rem 0; text-align: center; color: #94a3b8; }
+    .doc-footer {
+      padding: 1.5rem 2.5rem;
+      border-top: 3px solid #1e40af;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
     }
     @media (max-width: 600px) {
-      .hero { padding: 3rem 0 2rem; }
-      .hero h1 { font-size: 2rem; }
-      .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .stat-number { font-size: 2rem; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .pricing-compare { grid-template-columns: 1fr; }
-      .cta-actions { flex-direction: column; align-items: center; }
-      .btn-large { width: 100%; max-width: 300px; }
+      .doc-header, .list, .doc-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .list a { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+      .list span { text-align: left; }
     }
   </style>
 </Main>

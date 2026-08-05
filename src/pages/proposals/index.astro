@@ -7,138 +7,88 @@ const published = proposals.filter(p => !p.data.draft);
 published.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
-<Main title="Semua Proposal | Pesat AI" description="Daftar proposal GEO/SEO untuk klien kami">
-  <section class="list-hero">
-    <div class="container">
-      <h1>Daftar Proposal</h1>
-      <p>Browse proposal yang telah kami buat untuk klien</p>
-    </div>
-  </section>
-
-  <section class="list-content">
-    <div class="container">
+<Main title="Semua Proposal | Pesat AI">
+  <div class="doc">
+    <header class="doc-header">
+      <div class="doc-brand">
+        <img src="/logo.svg" alt="Pesat AI" width="32" height="32" />
+        <span>PESAT AI</span>
+      </div>
+      <h1>Semua Proposal</h1>
+    </header>
+    <section class="list">
       {published.length === 0 ? (
-        <div class="empty">
-          <span class="empty-icon">📋</span>
-          <h2>Belum Ada Proposal</h2>
-          <p>Proposal yang dipublikasikan akan muncul di sini.</p>
-        </div>
+        <p class="empty">Belum ada proposal yang dipublikasikan.</p>
       ) : (
-        <div class="grid">
+        <ul>
           {published.map(p => {
-            const d = p.data;
-            const date = new Date(d.date).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' });
+            const date = new Date(p.data.date).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' });
             return (
-              <a href={`/proposal/${p.slug}/`} class="card">
-                <div class="card-top">
-                  <span class="card-client">{d.client}</span>
-                  {d.recommendedModel === 'performance' ? (
-                    <span class="card-badge perf">Performance</span>
-                  ) : (
-                    <span class="card-badge fixed">Fixed Price</span>
-                  )}
-                </div>
-                <h2>{d.title}</h2>
-                <p class="card-tagline">{d.tagline}</p>
-                <p class="card-desc">{d.heroDescription}</p>
-                <div class="card-footer">
-                  <span class="card-date">📅 {date}</span>
-                  <span class="card-arrow">Lihat →</span>
-                </div>
-              </a>
+              <li>
+                <a href={`/p/${p.slug}/`}>
+                  <div>
+                    <strong>{p.data.client}</strong>
+                    <span>{p.data.title}</span>
+                  </div>
+                  <span class="date">{date}</span>
+                </a>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
-    </div>
-  </section>
+    </section>
+    <footer class="doc-footer">
+      <p>Pesat AI &copy; {new Date().getFullYear()}</p>
+    </footer>
+  </div>
 
   <style>
-    .list-hero {
-      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #4f46e5 100%);
-      color: white;
-      padding: 3rem 0;
-      text-align: center;
+    .doc { box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+    .doc-header {
+      border-bottom: 3px solid #1e40af;
+      padding: 2.5rem;
     }
-    .list-hero h1 { margin: 0 0 0.5rem; font-size: 2rem; font-weight: 800; }
-    .list-hero p { margin: 0; opacity: 0.85; }
-
-    .list-content { padding: 2.5rem 0; }
-
-    .empty { text-align: center; padding: 4rem 2rem; color: var(--text-secondary); }
-    .empty-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
-    .empty h2 { margin: 0 0 0.5rem; color: var(--text-primary); }
-    .empty p { margin: 0; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.25rem;
-    }
-    .card {
+    .doc-brand {
       display: flex;
-      flex-direction: column;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: #1e40af;
+      margin-bottom: 1.5rem;
+    }
+    .doc-brand img { width: 28px; height: 28px; }
+    .doc-header h1 { font-size: 1.75rem; font-weight: 800; margin: 0; color: #0f172a; }
+    .list { padding: 0.5rem 2.5rem 1.5rem; }
+    .list ul { list-style: none; padding: 0; margin: 0; }
+    .list li { border-bottom: 1px solid #e2e8f0; }
+    .list li:last-child { border-bottom: none; }
+    .list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
       text-decoration: none;
-      color: var(--text-primary);
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      color: #1a1a2e;
+      gap: 1rem;
     }
-    .card:hover {
-      border-color: var(--accent);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
+    .list a:hover { color: #1e40af; }
+    .list strong { font-size: 0.95rem; display: block; }
+    .list span { font-size: 0.85rem; color: #64748b; }
+    .date { font-size: 0.8rem; white-space: nowrap; }
+    .empty { padding: 2rem 0; text-align: center; color: #94a3b8; }
+    .doc-footer {
+      padding: 1.5rem 2.5rem;
+      border-top: 3px solid #1e40af;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
     }
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-    }
-    .card-client {
-      background: var(--accent);
-      color: white;
-      padding: 0.2rem 0.6rem;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .card-badge {
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 12px;
-    }
-    .card-badge.perf { background: var(--accent-light); color: var(--accent); }
-    .card-badge.fixed { background: var(--green-light); color: var(--green); }
-    .card h2 { margin: 0 0 0.35rem; font-size: 1.1rem; font-weight: 700; }
-    .card-tagline { margin: 0 0 0.5rem; color: var(--accent); font-size: 0.85rem; font-style: italic; }
-    .card-desc {
-      margin: 0 0 1rem;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      flex: 1;
-    }
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--border);
-    }
-    .card-date { font-size: 0.8rem; color: var(--text-muted); }
-    .card-arrow { font-size: 0.85rem; font-weight: 600; color: var(--accent); }
-
     @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
-      .list-hero h1 { font-size: 1.5rem; }
+      .doc-header, .list, .doc-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .list a { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
     }
   </style>
 </Main>

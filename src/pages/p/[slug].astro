@@ -1,0 +1,390 @@
+---
+import { getCollection } from 'astro:content';
+import Main from '@/layouts/Main.astro';
+
+export async function getStaticPaths() {
+  const proposals = await getCollection('proposals');
+  return proposals.map((proposal) => ({
+    params: { slug: proposal.slug },
+    props: { proposal },
+  }));
+}
+
+const { proposal } = Astro.props;
+const d = proposal.data;
+const validDate = new Date(d.validUntil).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+const createdDate = new Date(d.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Main title={`${d.title} | Pesat AI`}>
+  <div class="doc">
+
+    <!-- Header -->
+    <header class="doc-header">
+      <div class="doc-header-inner">
+        <div class="doc-brand">
+          <img src="/logo.svg" alt="Pesat AI" width="32" height="32" />
+          <span>PESAT AI</span>
+        </div>
+        <div class="doc-title">
+          <h1>{d.title}</h1>
+          <p class="doc-client">{d.client}</p>
+        </div>
+        <div class="doc-meta">
+          <span>Direvisi: {createdDate}</span>
+          <span>Berlaku hingga: {validDate}</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Ringkasan Eksekutif -->
+    <section class="section">
+      <h2>Ringkasan</h2>
+      <p class="lead">{d.heroDescription}</p>
+    </section>
+
+    <!-- Struktur Harga -->
+    {d.pricingModel !== 'fixed' && d.performance && (
+      <section class="section">
+        <h2>Struktur Harga — Performance-Based</h2>
+        <table class="table">
+          <tbody>
+            <tr><td>Setup Fee (one-time)</td><td class="text-right"><strong>{d.performance.setupFee}</strong></td></tr>
+            <tr><td>Biaya Bulanan</td><td class="text-right"><strong>{d.performance.monthlyFee}</strong></td></tr>
+            <tr><td>Performance Fee</td><td class="text-right"><strong>{d.performance.performanceFee}</strong></td></tr>
+          </tbody>
+        </table>
+
+        {d.performance.feeTiers.length > 0 && (
+          <>
+            <h3>Tingkat Performance Fee</h3>
+            <table class="table">
+              <thead>
+                <tr><th>Kondisi</th><th class="text-right">Rate</th></tr>
+              </thead>
+              <tbody>
+                {d.performance.feeTiers.map((tier: any) => (
+                  <tr><td>{tier.condition}</td><td class="text-right"><strong>{tier.rate}</strong></td></tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        )}
+
+        <div class="note">
+          <strong>Komitmen minimum:</strong> {d.performance.minimumCommitment}.<br />
+          <strong>Review point:</strong> {d.performance.reviewPoint}.
+        </div>
+      </section>
+    )}
+
+    {d.pricingModel !== 'performance' && d.fixed && (
+      <section class="section">
+        <h2>Struktur Harga — Fixed Price</h2>
+        <table class="table">
+          <tbody>
+            <tr><td>Paket</td><td class="text-right"><strong>{d.fixed.packageName}</strong></td></tr>
+            <tr><td>Total Biaya</td><td class="text-right"><strong>{d.fixed.totalPrice}</strong> ({d.fixed.duration})</td></tr>
+            <tr><td>Pembayaran</td><td class="text-right">{d.fixed.billing}</td></tr>
+          </tbody>
+        </table>
+
+        {d.fixed.includes.length > 0 && d.fixed.includes.map((inc: any) => (
+          <div class="include-block">
+            <h3>{inc.phase}</h3>
+            <ul>
+              {inc.items.map((item: string) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </section>
+    )}
+
+    <!-- Pengerjaan -->
+    <section class="section">
+      <h2>Pengerjaan</h2>
+      {d.phases.map((phase: any, idx: number) => (
+        <div class="phase">
+          <div class="phase-head">
+            <span class="phase-num">{idx + 1}</span>
+            <div>
+              <h3>{phase.name}</h3>
+              <span class="phase-dur">{phase.duration}</span>
+            </div>
+          </div>
+          <ul>
+            {phase.items.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <!-- Target Hasil -->
+    {d.metrics.length > 0 && (
+      <section class="section">
+        <h2>Target Hasil</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Metrik</th>
+                <th class="text-right">Bulan 1</th>
+                <th class="text-right">Bulan 2</th>
+                <th class="text-right">Bulan 3</th>
+                <th class="text-right">Bulan 6</th>
+              </tr>
+            </thead>
+            <tbody>
+              {d.metrics.map((m: any) => (
+                <tr>
+                  <td>{m.metric}</td>
+                  <td class="text-right">{m.month1}</td>
+                  <td class="text-right">{m.month2}</td>
+                  <td class="text-right">{m.month3}</td>
+                  <td class="text-right highlight">{m.month6}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    <!-- Layanan Tambahan -->
+    {d.addons.length > 0 && (
+      <section class="section">
+        <h2>Layanan Tambahan</h2>
+        <table class="table">
+          <thead>
+            <tr><th>Layanan</th><th>Deskripsi</th><th class="text-right">Biaya</th></tr>
+          </thead>
+          <tbody>
+            {d.addons.map((a: any) => (
+              <tr>
+                <td><strong>{a.name}</strong></td>
+                <td>{a.description}</td>
+                <td class="text-right">{a.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    )}
+
+    <!-- Rekomendasi -->
+    <section class="section">
+      <h2>Rekomendasi</h2>
+      <p>Kami merekomendasikan model <strong>{d.recommendedModel === 'performance' ? 'Performance-Based' : 'Fixed Price'}</strong> karena:</p>
+      <ol>
+        {d.recommendationReasons.map((r: string) => <li>{r}</li>)}
+      </ol>
+    </section>
+
+    <!-- Langkah Selanjutnya -->
+    <section class="section">
+      <h2>Langkah Selanjutnya</h2>
+      <ol>
+        {d.nextSteps.map((s: string) => <li>{s}</li>)}
+      </ol>
+    </section>
+
+    <!-- Kontak -->
+    <section class="section contact">
+      <h2>Kontak</h2>
+      <p><strong>{d.contact.name}</strong> — {d.contact.role}</p>
+      <p>
+        <a href={`mailto:${d.contact.email}`}>{d.contact.email}</a>
+        &nbsp;|&nbsp;
+        <a href={`tel:${d.contact.phone}`}>{d.contact.phone}</a>
+        &nbsp;|&nbsp;
+        <a href={d.contact.website} target="_blank">{d.contact.website}</a>
+      </p>
+    </section>
+
+    <footer class="doc-footer">
+      <p>Pesat AI &copy; {new Date().getFullYear()} &mdash; Geographic Entity Optimization</p>
+      <p>Proposal ini berlaku hingga {validDate}</p>
+    </footer>
+  </div>
+
+  <style>
+    /* Document */
+    .doc {
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+
+    /* Header */
+    .doc-header {
+      border-bottom: 3px solid #1e40af;
+      padding: 2.5rem 2.5rem 2rem;
+    }
+    .doc-header-inner { max-width: 100%; }
+    .doc-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: #1e40af;
+      margin-bottom: 1.5rem;
+    }
+    .doc-brand img { width: 28px; height: 28px; }
+    .doc-title h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0 0 0.25rem;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+    .doc-client {
+      font-size: 1.1rem;
+      color: #1e40af;
+      font-weight: 600;
+      margin: 0 0 1rem;
+    }
+    .doc-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* Sections */
+    .section {
+      padding: 1.75rem 2.5rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .section:last-of-type { border-bottom: none; }
+    .section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      color: #0f172a;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .section h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 1.25rem 0 0.5rem;
+      color: #1e293b;
+    }
+    .section p, .section li {
+      font-size: 0.92rem;
+      color: #334155;
+    }
+    .section ol, .section ul {
+      padding-left: 1.25rem;
+      margin: 0.5rem 0;
+    }
+    .section li { margin-bottom: 0.35rem; }
+    .lead { font-size: 1rem; line-height: 1.7; color: #475569; }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0;
+      font-size: 0.9rem;
+    }
+    .table th, .table td {
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .table th {
+      font-weight: 600;
+      color: #64748b;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: #f8fafc;
+    }
+    .table td { color: #334155; }
+    .text-right { text-align: right; }
+    .highlight { color: #059669; font-weight: 700; }
+
+    /* Phases */
+    .phase {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .phase:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .phase-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .phase-num {
+      width: 28px;
+      height: 28px;
+      background: #1e40af;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .phase h3 { margin: 0; font-size: 0.95rem; }
+    .phase-dur { font-size: 0.8rem; color: #64748b; }
+    .phase ul { padding-left: 1.25rem; margin: 0.5rem 0 0; }
+    .phase li { font-size: 0.88rem; color: #475569; margin-bottom: 0.25rem; }
+
+    /* Note */
+    .note {
+      background: #f8fafc;
+      border-left: 3px solid #1e40af;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+      color: #475569;
+    }
+
+    /* Include block */
+    .include-block { margin: 0.75rem 0; }
+    .include-block h3 { margin: 0 0 0.35rem; font-size: 0.9rem; }
+    .include-block ul { padding-left: 1.25rem; margin: 0.25rem 0; }
+    .include-block li { font-size: 0.85rem; color: #475569; margin-bottom: 0.2rem; }
+
+    /* Contact */
+    .contact p { margin: 0.35rem 0; }
+    .contact a { color: #1e40af; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    /* Footer */
+    .doc-footer {
+      padding: 1.5rem 2.5rem;
+      border-top: 3px solid #1e40af;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .doc-footer p { margin: 0.15rem 0; }
+
+    /* Print */
+    @media print {
+      .doc { box-shadow: none; max-width: 100%; }
+      .section { break-inside: avoid; }
+      .doc-header, .doc-footer { break-inside: avoid; }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .doc-header { padding: 1.5rem 1.25rem 1.25rem; }
+      .doc-title h1 { font-size: 1.35rem; }
+      .doc-meta { flex-direction: column; gap: 0.25rem; }
+      .section { padding: 1.25rem; }
+      .table { font-size: 0.82rem; }
+      .table th, .table td { padding: 0.45rem 0.5rem; }
+      .doc-footer { padding: 1rem 1.25rem; }
+    }
+  </style>
+</Main>
