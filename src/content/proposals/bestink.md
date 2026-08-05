@@ -4,7 +4,6 @@ client: "Best Ink Online"
 date: 2026-08-04
 validUntil: 2026-09-04
 draft: false
-slug: "bestink"
 ---
 
 ## Ringkasan
