@@ -1,0 +1,21 @@
+{
+  "name": "pesat-proposal-cms",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Proposal management system with Astro + Decap CMS",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.1.0",
+    "astro": "^4.15.0",
+    "decap-cms-app": "^3.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

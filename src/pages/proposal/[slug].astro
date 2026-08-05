@@ -1,0 +1,691 @@
+---
+import { getCollection } from 'astro:content';
+import Main from '@/layouts/Main.astro';
+
+export async function getStaticPaths() {
+  const proposals = await getCollection('proposals');
+  // Generate paths for both draft and published, or just published.
+  // Since we want to preview drafts in local/CMS, let's generate for all,
+  // but we can filter by draft status if needed.
+  return proposals.map((proposal) => ({
+    params: { slug: proposal.slug },
+    props: { proposal },
+  }));
+}
+
+const { proposal } = Astro.props;
+const data = proposal.data;
+
+---
+
+<Main title={`${data.title} | Proposal`} description={data.heroDescription}>
+  <article class="proposal-page">
+    <!-- Hero Section -->
+    <header class="proposal-hero">
+      <div class="container">
+        <span class="proposal-tag">{data.client}</span>
+        <h1>{data.title}</h1>
+        <p class="tagline">{data.tagline}</p>
+        <p class="hero-desc">{data.heroDescription}</p>
+        
+        <div class="proposal-meta">
+          <span>📅 Created: {new Date(data.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>⏰ Valid until: {new Date(data.validUntil).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <button id="print-proposal" class="btn-secondary">🖨️ Print / Save as PDF</button>
+          <button id="share-proposal" class="btn-primary">🔗 Share URL</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Pricing Sections -->
+    <section class="pricing-sections">
+      <div class="container">
+        
+        {/* Performance-Based Pricing */}
+        {data.pricingModel !== 'fixed' && data.performance && (
+          <div class="pricing-card performance">
+            <div class="card-header">
+              <h2>💎 STRUKTUR HARGA 1: PERFORMANCE-BASED PRIME VALUE</h2>
+              <p class="model-description">Ideal untuk brands yang percaya pada outcome-based partnership</p>
+            </div>
+            
+            <div class="pricing-table">
+              <div class="price-row">
+                <span class="label">Setup Fee (One-time)</span>
+                <span class="value">{data.performance.setupFee}</span>
+              </div>
+              <div class="price-row">
+                <span class="label">Monthly Service Fee</span>
+                <span class="value">{data.performance.monthlyFee}</span>
+              </div>
+              <div class="price-row highlight">
+                <span class="label">Performance Fee</span>
+                <span class="value">{data.performance.performanceFee}</span>
+              </div>
+            </div>
+            
+            {data.performance.feeTiers.length > 0 && (
+              <div class="fee-tiers">
+                <h3>📈 Performance Fee Tiers</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Range</th>
+                      <th>Rate</th>
+                      <th>Condition</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.performance.feeTiers.map((tier: any) => (
+                      <tr>
+                        <td>{tier.range}</td>
+                        <td><strong>{tier.rate}</strong></td>
+                        <td>{tier.condition}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+        
+        {/* Fixed Pricing */}
+        {data.pricingModel !== 'performance' && data.fixed && (
+          <div class="pricing-card fixed">
+            <div class="card-header">
+              <h2>💎 STRUKTUR HARGA 2: LOW COST — IDEAL INVESTMENT</h2>
+              <p class="model-description">Skema ini cocok bila seluruh biaya ingin fixed dari awal, tanpa pembagian hasil sama sekali</p>
+            </div>
+            
+            <div class="pricing-table">
+              <div class="price-row">
+                <span class="label">Package</span>
+                <span class="value">{data.fixed.packageName} ({data.fixed.duration})</span>
+              </div>
+              <div class="price-row">
+                <span class="label">Total Fixed Fee</span>
+                <span class="value"><strong>{data.fixed.totalPrice}</strong></span>
+              </div>
+              <div class="price-row">
+                <span class="label">Billing Terms</span>
+                <span class="value">{data.fixed.billing}</span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Delivery Phases -->
+    <section class="phases-section">
+      <div class="container">
+        <h2>⚙️ DELIVERY SCOPE</h2>
+        <div class="phases-grid">
+          {data.phases.map((phase: any) => (
+            <div class="phase-card">
+              <h3>{phase.name}</h3>
+              <p class="duration">{phase.duration}</p>
+              <ul class="checklist">
+                {phase.items.map((item: string, idx: number) => (
+                  <li key={idx}>✅ {item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Metrics -->
+    {data.metrics.length > 0 && (
+      <section class="metrics-section">
+        <div class="container">
+          <h2>📊 SUCCESS METRICS & TIMELINE</h2>
+          <div class="metrics-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Month 1</th>
+                  <th>Month 2</th>
+                  <th>Month 3</th>
+                  <th>Month 6</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.metrics.map((metric: any) => (
+                  <tr>
+                    <td>{metric.metric}</td>
+                    <td>{metric.month1}</td>
+                    <td>{metric.month2}</td>
+                    <td>{metric.month3}</td>
+                    <td>{metric.month6}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Add-ons -->
+    {data.addons.length > 0 && (
+      <section class="addons-section">
+        <div class="container">
+          <h2>✨ OPTIONAL ADD-ONS</h2>
+          <div class="addons-grid">
+            {data.addons.map((addon: any) => (
+              <div class="addon-card">
+                <h3>{addon.name}</h3>
+                <p>{addon.description}</p>
+                <p class="price">{addon.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Recommendation -->
+    <section class="recommendation-section">
+      <div class="container">
+        <div class="recommended-badge">
+          🎯 OUR RECOMMENDATION
+        </div>
+        <h2>We recommend: <strong>{data.recommendedModel === 'performance' ? 'Performance-Based' : 'Fixed Price'}</strong></h2>
+        <ul class="reason-list">
+          {data.recommendationReasons.map((reason: string, idx: number) => (
+            <li key={idx}>✅ {reason}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="next-steps-section">
+      <div class="container">
+        <h2>📅 NEXT STEPS</h2>
+        <ol class="steps-list">
+          {data.nextSteps.map((step: string, idx: number) => (
+            <li key={idx}>{step}</li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <footer class="proposal-footer">
+      <div class="container">
+        <div class="contact-box">
+          <h3>Contact & Questions</h3>
+          <p class="contact-name">{data.contact.name}</p>
+          <p class="contact-role">{data.contact.role}</p>
+          <p class="contact-email">📧 {data.contact.email}</p>
+          <p class="contact-phone">📱 {data.contact.phone}</p>
+          <a href={data.contact.website} target="_blank" rel="noopener noreferrer" class="contact-website">{data.contact.website}</a>
+        </div>
+        <p class="disclaimer">Proposal valid until: {new Date(data.validUntil).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+      </div>
+    </footer>
+  </article>
+
+  <style>
+    .proposal-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+    
+    .proposal-hero {
+      background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .proposal-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .proposal-hero h1 {
+      font-size: 2.5rem;
+      margin: 1rem 0 0.5rem;
+      line-height: 1.2;
+    }
+    
+    .tagline {
+      font-size: 1.25rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-desc {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    .proposal-meta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .proposal-meta span {
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .btn-primary {
+      background: white;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .btn-secondary {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+    
+    .btn-primary:hover, .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* Pricing Cards */
+    .pricing-sections {
+      margin-bottom: 3rem;
+    }
+    
+    .pricing-card {
+      background: var(--bg-secondary);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pricing-card.performance {
+      border-color: #3b82f6;
+    }
+    
+    .pricing-card.fixed {
+      border-color: #10b981;
+    }
+    
+    .card-header {
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-header h2 {
+      margin: 0 0 0.5rem;
+      color: var(--text-primary);
+    }
+    
+    .model-description {
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+    
+    .pricing-table {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: var(--bg-primary);
+      border-radius: 6px;
+    }
+    
+    .price-row.highlight {
+      background: linear-gradient(135deg, #eff6ff 0%, #fef3c7 100%);
+      border-left: 4px solid var(--accent);
+    }
+    
+    .price-row .label {
+      font-weight: 600;
+    }
+    
+    .price-row .value {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .fee-tiers table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    
+    .fee-tiers th, .fee-tiers td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .fee-tiers th {
+      background: var(--bg-primary);
+      font-weight: 600;
+    }
+    
+    /* Phases */
+    .phases-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .phase-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    
+    .phase-card h3 {
+      margin: 0 0 0.25rem;
+    }
+    
+    .duration {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .checklist li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .checklist li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Metrics */
+    .metrics-section {
+      margin: 3rem 0;
+    }
+    
+    .metrics-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .metrics-table-wrapper {
+      overflow-x: auto;
+    }
+    
+    .metrics-table-wrapper table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .metrics-table-wrapper th, .metrics-table-wrapper td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .metrics-table-wrapper th {
+      background: var(--bg-secondary);
+      font-weight: 600;
+    }
+    
+    /* Add-ons */
+    .addons-section {
+      margin: 3rem 0;
+    }
+    
+    .addons-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .addon-card {
+      background: var(--bg-secondary);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    
+    .addon-card h3 {
+      margin: 0 0 0.5rem;
+    }
+    
+    .addon-card .price {
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+    
+    /* Recommendation */
+    .recommendation-section {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    
+    .recommended-badge {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .recommendation-section h2 {
+      margin: 0 0 1.5rem;
+    }
+    
+    .reason-list {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .reason-list li {
+      padding: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    
+    /* Next Steps */
+    .next-steps-section {
+      margin: 3rem 0;
+    }
+    
+    .next-steps-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .steps-list {
+      counter-reset: step-counter;
+      max-width: 700px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .steps-list li {
+      counter-increment: step-counter;
+      padding: 1rem 0 1rem 4rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .steps-list li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    
+    /* Footer */
+    .proposal-footer {
+      background: var(--bg-secondary);
+      padding: 3rem 0;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    .contact-box h3 {
+      margin: 0 0 0.5rem;
+    }
+    
+    .contact-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0.5rem 0;
+    }
+    
+    .contact-role {
+      color: var(--accent);
+      font-weight: 500;
+      margin: 0 0 0.5rem;
+    }
+    
+    .contact-email, .contact-phone {
+      margin: 0.25rem 0;
+    }
+    
+    .contact-website {
+      display: block;
+      margin: 0.5rem 0;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .disclaimer {
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .proposal-hero h1 {
+        font-size: 1.75rem;
+      }
+      
+      .proposal-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .phase-card, .pricing-card {
+        padding: 1rem;
+      }
+      
+      .metrics-table-wrapper {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</Main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const printBtn = document.getElementById('print-proposal');
+    const shareBtn = document.getElementById('share-proposal');
+    
+    if (printBtn) {
+      printBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
+    
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          shareBtn.textContent = '✓ URL copied!';
+          setTimeout(() => {
+            shareBtn.innerHTML = '🔗 Share URL';
+          }, 2000);
+        } catch {
+          // Fallback for older browsers
+          prompt('Copy this URL:', window.location.href);
+        }
+      });
+    }
+  });
+</script>
+
+<style media="print">
+  .proposal-hero, .site-header, .site-footer, .proposal-footer, button {
+    display: none !important;
+  }
+  
+  .proposal-page {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .pricing-card, .phase-card, .addon-card {
+    break-inside: avoid;
+    border: 1px solid #ccc !important;
+  }
+</style>

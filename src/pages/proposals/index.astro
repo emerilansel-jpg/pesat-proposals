@@ -1,0 +1,220 @@
+---
+import { getCollection } from 'astro:content';
+import Main from '@/layouts/Main.astro';
+
+// Get all published proposals
+const proposals = await getCollection('proposals');
+const publishedProposals = proposals.filter(p => !p.data.draft);
+
+// Sort by date (newest first)
+publishedProposals.sort((a, b) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Main title="All Proposals | Pesat AI" description="View our proposal templates and case studies">
+  <div class="list-page">
+    <header class="list-header">
+      <div class="container">
+        <h1>All Proposals</h1>
+        <p>Browse available proposal templates and past client engagements</p>
+      </div>
+    </header>
+    
+    <main class="list-content">
+      <div class="container">
+        {publishedProposals.length === 0 ? (
+          <div class="empty-state">
+            <h2>No proposals yet</h2>
+            <p>Draft proposals are hidden from public view.</p>
+          </div>
+        ) : (
+          <div class="proposal-grid">
+            {publishedProposals.map(proposal => {
+              const data = proposal.data;
+              return (
+                <article class="proposal-card">
+                  <div class="card-top">
+                    <span class="client-badge">{data.client}</span>
+                    {data.pricingModel === 'hybrid' ? (
+                      <span class="model-badge hybrid">Hybrid Model Available</span>
+                    ) : data.pricingModel === 'performance' ? (
+                      <span class="model-badge performance">Performance-Based</span>
+                    ) : (
+                      <span class="model-badge fixed">Fixed Price</span>
+                    )}
+                  </div>
+                  
+                  <h2>{data.title}</h2>
+                  <p class="tagline">{data.tagline}</p>
+                  <p class="description">{data.heroDescription}</p>
+                  
+                  <div class="card-meta">
+                    <span>📅 {new Date(data.date).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' })}</span>
+                    {data.recommendedModel && (
+                      <span>🎯 Recommended: {data.recommendedModel === 'performance' ? 'Performance' : 'Fixed'}</span>
+                    )}
+                  </div>
+                  
+                  <div class="card-actions">
+                    <a href={`/proposal/${proposal.slug}/`} class="btn-view">
+                      View Proposal →
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </main>
+  </div>
+
+  <style>
+    .list-page {
+      min-height: 100vh;
+    }
+    
+    .list-header {
+      background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .list-header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .list-content {
+      padding: 0 0 3rem;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-secondary);
+    }
+    
+    .proposal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .proposal-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .proposal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    
+    .client-badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .model-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .model-badge.performance {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .model-badge.fixed {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .model-badge.hybrid {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    
+    .proposal-card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+    }
+    
+    .tagline {
+      font-style: italic;
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+    }
+    
+    .description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .card-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .card-actions {
+      margin-top: auto;
+    }
+    
+    .btn-view {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    
+    .btn-view:hover {
+      background: var(--accent-hover);
+    }
+    
+    @media (max-width: 768px) {
+      .proposal-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .list-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</Main>

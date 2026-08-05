@@ -1,0 +1,12 @@
+# Netlify Identity Configuration
+# This file is optional but helps identify your site in the Netlify dashboard
+
+[identity]
+  # Enable signup - set to false if you only want existing users to access
+  enabled = true
+  
+  # Set to true if you want to require confirmation email before activation
+  # global_signup = false
+  
+  # Enable or disable pre-approval for new signups (requires approval from admin)
+  # pre_approval = true

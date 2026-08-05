@@ -1,0 +1,148 @@
+backend:
+  name: github
+  repo: "emerilansel-jpg/pesat-proposals"
+  branch: "main"
+
+local_backend: true
+  
+# Alternative: Use Netlify Identity if preferred
+# backend:
+#   name: identity
+#   site_url: https://your-site.netlify.app
+#   api_url: https://api.netlify.com
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: https://pesat.ai
+display_url: https://pesat.ai
+logo_url: https://pesat.ai/logo.png
+
+collections:
+  - name: "proposals"
+    label: "📋 Proposals"
+    folder: "src/content/proposals"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "proposal/{{slug}}"
+    editor:
+      preview: true
+    summary: "{{title}} — {{client}}"
+    sortable_fields: ['date', 'title', 'client']
+    view_filters:
+      - label: "Drafts"
+        field: draft
+        pattern: true
+      - label: "Published"
+        field: draft
+        pattern: false
+    fields:
+      # Meta
+      - { label: "📌 Title", name: "title", widget: "string", hint: "e.g., Bestink GEO/SEO Proposal" }
+      - { label: "🏢 Client", name: "client", widget: "string", hint: "Company name" }
+      - { label: "📅 Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, default: "" }
+      - { label: "⏰ Valid Until", name: "validUntil", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, default: "" }
+      - { label: "📝 Draft", name: "draft", widget: "boolean", default: true }
+      
+      # Hero
+      - { label: "🎯 Tagline", name: "tagline", widget: "string", hint: "e.g., Brand Intelligence Engine for Construction" }
+      - { label: "📝 Hero Description", name: "heroDescription", widget: "text", hint: "Main pitch/background paragraph" }
+      
+      # Pricing Model
+      - label: "💰 Pricing Model"
+        name: "pricingModel"
+        widget: "select"
+        options:
+          - { label: "Performance-Based", value: "performance" }
+          - { label: "Fixed Price", value: "fixed" }
+          - { label: "Hybrid (Both)", value: "hybrid" }
+        default: "hybrid"
+      
+      # Performance Pricing
+      - label: "📊 Performance Pricing"
+        name: "performance"
+        widget: "object"
+        collapsed: false
+        fields:
+          - { label: "Setup Fee", name: "setupFee", widget: "string" }
+          - { label: "Monthly Fee", name: "monthlyFee", widget: "string" }
+          - { label: "Performance Fee", name: "performanceFee", widget: "string", hint: "e.g., 10-30% of incremental profit" }
+          - label: "Fee Tiers"
+            name: "feeTiers"
+            widget: "list"
+            fields:
+              - { label: "Range", name: "range", widget: "string" }
+              - { label: "Rate", name: "rate", widget: "string" }
+              - { label: "Condition", name: "condition", widget: "string" }
+          - { label: "Min Commitment", name: "minimumCommitment", widget: "string" }
+          - { label: "Review Point", name: "reviewPoint", widget: "string" }
+      
+      # Fixed Pricing
+      - label: "💎 Fixed Pricing"
+        name: "fixed"
+        widget: "object"
+        collapsed: false
+        fields:
+          - { label: "Package Name", name: "packageName", widget: "string" }
+          - { label: "Total Price", name: "totalPrice", widget: "string" }
+          - { label: "Duration", name: "duration", widget: "string" }
+          - { label: "Billing", name: "billing", widget: "string" }
+          - label: "Included Phases"
+            name: "includes"
+            widget: "list"
+            fields:
+              - { label: "Phase", name: "phase", widget: "string" }
+              - { label: "Items", name: "items", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+      
+      # Scope Phases
+      - label: "⚙️ Delivery Phases"
+        name: "phases"
+        widget: "list"
+        fields:
+          - { label: "Phase Name", name: "name", widget: "string" }
+          - { label: "Duration", name: "duration", widget: "string" }
+          - { label: "Items", name: "items", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+      
+      # Metrics
+      - label: "📈 Success Metrics"
+        name: "metrics"
+        widget: "list"
+        fields:
+          - { label: "Metric", name: "metric", widget: "string" }
+          - { label: "Month 1", name: "month1", widget: "string" }
+          - { label: "Month 2", name: "month2", widget: "string" }
+          - { label: "Month 3", name: "month3", widget: "string" }
+          - { label: "Month 6", name: "month6", widget: "string" }
+      
+      # Add-ons
+      - label: "✨ Add-ons"
+        name: "addons"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Price", name: "price", widget: "string" }
+      
+      # Recommendation
+      - label: "🎯 Recommended Model"
+        name: "recommendedModel"
+        widget: "select"
+        options:
+          - { label: "Performance-Based", value: "performance" }
+          - { label: "Fixed Price", value: "fixed" }
+        default: "performance"
+      - { label: "Reasons", name: "recommendationReasons", widget: "list", field: { label: "Reason", name: "reason", widget: "string" } }
+      
+      # Next Steps
+      - { label: "📅 Next Steps", name: "nextSteps", widget: "list", field: { label: "Step", name: "step", widget: "string" } }
+      
+      # Contact
+      - label: "👤 Contact"
+        name: "contact"
+        widget: "object"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Role", name: "role", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Website", name: "website", widget: "string" }
