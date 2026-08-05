@@ -1,12 +1,12 @@
 ---
-title: "Proposal GEO/SEO — Bestink"
-client: "Bestink"
+title: "Proposal GEO/SEO — Best Ink Online"
+client: "Best Ink Online"
 date: 2026-08-04
 validUntil: 2026-09-04
 draft: false
 
-tagline: "Agar Bestink Muncul Saat Customer Cari via AI"
-heroDescription: "87% customer construction mulai cari vendor dari AI search — Google AI, Perplexity, ChatGPT. Bestink belum muncul di sana. Kami bantu Bestink jadi rekomendasi nomor satu."
+tagline: "Supplier Mesin Digital Printing & Finishing Equipment Indonesia"
+heroDescription: "Best Ink Online punya katalog produk kuat — DTF printer s/d laser engraving, harga Rp27jt–Rp650jt — tapi AI tidak menemukan karena jejak digitalnya nyaris tidak terbaca. Kami bantu Best Ink muncul saat customer cari via AI."
 
 pricingModel: "hybrid"
 
@@ -35,24 +35,24 @@ fixed:
   includes:
     - phase: "Bulan 1: Fondasi & Quick Wins"
       items:
-        - "Buat Brand Blueprint (suara, posisi, pesan brand)"
+        - "Brand Blueprint (suara, posisi, pesan Best Ink)"
         - "Audit kesehatan website + daftar perbaikan prioritas"
         - "Optimasi Google Business Profile lengkap"
         - "Daftarkan bisnis di 20 direktori online"
-        - "Riset 50 kata kunci potensial"
+        - "Riset 50 kata kunci potensial (mesin DTF, laser engraving, dll)"
         - "Laporan performa bulanan"
     - phase: "Bulan 2: Implementasi & Percepatan"
       items:
-        - "Optimasi halaman utama + 3 halaman layanan"
-        - "Implementasi schema markup"
+        - "Optimasi SEO halaman produk utama (DTF printer, laser, dll)"
+        - "Implementasi schema markup (Product, Offer, Review)"
         - "Sistem balas ulasan otomatis"
-        - "Bangun 5-10 backlink berkualitas"
+        - "Bangun 5-10 backlink dari situs industri printing"
         - "Rencana optimasi konten"
         - "Laporan performa bulanan"
     - phase: "Bulan 3: Konsolidasi & Persiapan Scale"
       items:
         - "Optimasi SEO on-page lanjutan"
-        - "Tutup gap dengan kompetitor"
+        - "Tutup gap dengan kompetitor (Sinar Digital, Dwi Warna, Solusindo)"
         - "Optimasi pengalaman mobile"
         - "Percepat loading website"
         - "Roadmap strategi bulan ke-4 dst"
@@ -62,27 +62,27 @@ phases:
   - name: "Minggu 1-2: Fondasi"
     duration: "2 minggu"
     items:
-      - "Tentukan brand voice dan posisi bisnis"
+      - "Tentukan brand voice dan posisi Best Ink"
       - "Review arsitektur website dan rekomendasi SEO"
-      - "Riset keyword dan rencana optimasi GBP"
-      - "Analisis 5 kompetitor utama"
+      - "Riset keyword (mesin DTF, laser engraving, digital printing)"
+      - "Analisis 5 kompetitor utama (Sinar Digital, Dwi Warna, Solusindo, dll)"
       - "Tentukan target customer dan niat pencarian mereka"
   - name: "Minggu 3-6: Implementasi"
     duration: "4 minggu"
     items:
-      - "Optimasi SEO halaman utama, layanan, portofolio"
-      - "Optimasi lengkap Google Business Profile"
-      - "Bangun citation di direktori konstruksi"
-      - "Implementasi schema markup (LocalBusiness, Project, Review)"
+      - "Optimasi SEO halaman produk utama"
+      - "Optimasi lengkap Google Maps (kategori, foto produk, jam, deskripsi)"
+      - "Daftarkan bisnis di direktori industri printing"
+      - "Implementasi schema markup (Product, LocalBusiness)"
       - "Optimasi untuk AI search (entity mapping)"
   - name: "Bulan 2-3: Percepatan"
     duration: "2 bulan"
     items:
-      - "Buat konten klaster (panduan proyek, kalkulator biaya)"
-      - "Jalin backlink dari situs industri konstruksi"
-      - "Program generating ulasan dari klien"
+      - "Buat konten klaster (panduan memilih mesin DTF, perbandingan harga)"
+      - "Bangun backlink dari situs industri printing"
+      - "Program generating ulasan dari pembeli"
       - "Optimasi data untuk chatbot/AI"
-      - "Laporan performa dan pivot strategi bulanan"
+      - "Laporan performa dan pivot strategi"
 
 metrics:
   - metric: "Pengunjung Website"
@@ -100,29 +100,24 @@ metrics:
     month2: "+10%"
     month3: "+20%"
     month6: "+40%+"
-  - metric: "Tingkat Konversi"
+  - metric: "Penjualan Mesin"
     month1: "Baseline"
-    month2: "+2%"
-    month3: "+5%"
-    month6: "+10%+"
-  - metric: "Rata-rata Nilai Proyek"
-    month1: "Baseline"
-    month2: "Baseline"
-    month3: "+3%"
-    month6: "+5%+"
+    month2: "+1 unit"
+    month3: "+2-3 unit"
+    month6: "+5+ unit"
 
 addons:
   - name: "Redesign Website Lengkap"
-    description: "Bangun ulang UX/UI dengan fokus konversi"
+    description: "Bangun ulang UX/UI dengan fokus konversi penjualan mesin"
     price: "Rp 45,000,000"
   - name: "Hosting Premium (AWS)"
     description: "Hosting kelas enterprise dengan CDN & keamanan"
     price: "Rp 3,000,000 / bulan"
   - name: "Pembuatan Konten Rutin"
-    description: "Artikel blog, studi kasus, script video"
+    description: "Artikel panduan, review mesin, tutorial"
     price: "Rp 8,000,000 / bulan"
   - name: "Manajemen Media Sosial"
-    description: "Kelola IG/FB/TikTok untuk proyek konstruksi"
+    description: "Kelola IG/TikTok/YouTube untuk produk printing"
     price: "Rp 12,000,000 / bulan"
   - name: "Manajemen Iklan"
     description: "Setup & optimasi Google Ads + Meta Ads"
@@ -130,14 +125,14 @@ addons:
 
 recommendedModel: "performance"
 recommendationReasons:
-  - "Proyek konstruksi bernilai besar (Rp 50-500M per proyek)"
-  - "Keuntungan jelas — bisa dilacak dari inquiry sampai close"
-  - "Timing tepat — tren AI search sedang naik, siapa cepat dia dapat"
-  - "Investasi terus berkembang (backlinks, otoritas, brand equity)"
+  - "Mesin printing bernilai besar (Rp 27-650jt per unit) — 1 penjualan tambahan sudah balik modal"
+  - "Kompetitor sudah 3 langkah di depan — Sinar Digital, Dwi Warna, Solusindo sudah muncul di AI"
+  - "Timing krusial — tren AI search sedang naik, siapa cepat dia dapat"
+  - "Produk Best Ink bagus (skor 88/100) — tinggal digital presence yang perlu diperbaiki"
 
 nextSteps:
   - "Kickoff Call — Sepakati prioritas & target"
-  - "Kumpulkan Akses — Website, GBP, analytics"
+  - "Kumpulkan Akses — Website, Google Maps, analytics"
   - "Workshop Minggu 1 — Bedah posisi saat ini & peluang"
   - "Cek Poin Hari ke-14 — Optimasi awal sudah jalan, baseline tertangkap"
   - "Review Bulan 1 — Evaluasi progress & penyesuaian strategi"
@@ -153,29 +148,38 @@ contact:
 
 ## ⚡ Attention: Masalahnya
 
-> **87% customer construction mulai cari vendor dari AI search** — Google AI Overviews, Perplexity, ChatGPT — sebelum telepon atau kunjungi website.
->
-> Tapi Bestink **belum muncul** di hasil pencarian itu.
+> **Pelanggan bertanya ke AI, Best Ink tidak disebut.**
 
-Artinya? Setiap hari, ada potential client yang cari "contractor terbaik di [kota]" atau "jasa cost optimization construction" — dan yang muncul itu **kompetitor Anda**, bukan Bestink.
+Saat calon buyer ketik "rekomendasi supplier mesin DTF printing Indonesia" di ChatGPT atau Google AI Overviews, yang muncul adalah **kompetitor** — Sinar Digital Printing, Dwi Warna Printindo, Solusindo.
+
+Best Ink Online? **Zero hasil.**
+
+Padahal Best Ink punya katalog produk kuat — dari DTF printer s/d laser engraving, harga Rp27jt–Rp650jt. Tapi AI tidak menemukan karena jejak digitalnya nyaris tidak terbaca.
 
 ---
 
-## 💡 Interest: Apa yang Terjadi Sekarang
+## 💡 Interest: Kenapa Ini Masalah Besar
 
-Asumsi berdasarkan data publik industri konstruksi Indonesia:
+| Fakta | Angka |
+|-------|-------|
+| Pengguna ChatGPT per minggu | 900 juta |
+| Konsumen mulai riset dari AI | 37% |
+| Klik posisi #1 Google turun | -58% (karena AI Overviews) |
 
-| Kondisi Saat Ini | Angka |
-|-----------------|-------|
-| Rata-rata nilai proyek | Rp 150.000.000 |
-| Margin keuntungan | 15% |
-| Leads masuk per bulan | 10 |
-| Tingkat konversi (lead → client) | 10% |
-| Proyek baru per bulan | 1 |
-| **Omzet per bulan** | **Rp 150.000.000** |
-| **Keuntungan per bulan** | **Rp 22.500.000** |
+Artinya: **37 dari 100 calon pembeli** sekarang mulai riset dari ChatGPT/Gemini — bukan Google. Dan Best Ink tidak ada di sana.
 
-Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
+### Kondisi Digital Best Ink Saat Ini
+
+| Aspek | Best Ink | Kompetitor |
+|-------|----------|------------|
+| Title website | Generik ("mesin digital printing") | Branded + keyword |
+| Blog/Konten | ❌ Tidak ada | Artikel teknik, panduan |
+| Instagram | 313 followers | 5.000–50.000 |
+| YouTube | ❌ Tidak ada | Demo mesin, tutorial |
+| Google Maps | Minimal | Fully optimized |
+| AI Visibility | ❌ Tidak disebut | Muncul di rekomendasi |
+
+> **Skor AI Readiness Best Ink: 28/100** — sementara katalog produknya sendiri skor 88/100. Produk bagus, tapi tidak bisa ditemukan.
 
 ---
 
@@ -187,18 +191,18 @@ Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
 |-------|---------------------|---------------------|
 | Ditemukan di AI search | ❌ Tidak muncul | ✅ Muncul di rekomendasi |
 | Google Maps | ❌ Ranking rendah | ✅ Top 3 lokal |
-| Leads per bulan | 10 | **12-15** |
-| Proyek baru per bulan | 1 | **1-2** |
-| Omzet per bulan | Rp 150 Juta | **Rp 150-300 Juta** |
-| Keuntungan per bulan | Rp 22,5 Juta | **Rp 22,5-45 Juta** |
+| Leads per bulan | 5 | **7-10** |
+| Penjualan mesin/bulan | Baseline | **+2-3 unit** |
+| Omzet tambahan/bulan | Rp 0 | **Rp 54-195 Juta** |
+| Profit tambahan/bulan | Rp 0 | **Rp 8-30 Juta** |
 
-> **Potensi tambahan keuntungan: Rp 0 - Rp 22,5 Juta per bulan** (tergantung skenario)
+> **Potensi tambahan profit: Rp 8 - Rp 30 Juta per bulan** (tergantung skenario)
 
 ---
 
 ## 📊 Skenario Hasil (3 Bulan)
 
-> **Catatan:** Semua angka di bawah ini menggunakan **asumsi data publik** industri konstruksi Indonesia — rata-rata nilai proyek Rp 150 Juta, margin 15%, konversi 10%. Angka aktual bisa berbeda tergantung pasar dan kompetisi Bestink.
+> **Catatan:** Semua angka di bawah ini menggunakan **asumsi data publik** — rata-rata harga mesin Rp 27-650jt, margin 15-20%, 3-5 penjualan per bulan. Angka aktual bisa berbeda tergantung pasar dan kompetisi.
 
 ### Skenario Terburuk: "Masih Untung"
 
@@ -206,14 +210,14 @@ Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
 
 | Keterangan | Angka |
 |-----------|-------|
-| Leads tambahan per bulan | +1 |
-| Proyek tambahan per bulan | +0.5 (1 proyek tiap 2 bulan) |
-| Tambahan omzet 3 bulan | Rp 225.000.000 |
-| **Tambahan keuntungan 3 bulan** | **Rp 33.750.000** |
+| Tambahan penjualan per bulan | +1 unit |
+| Rata-rata harga mesin | Rp 50.000.000 |
+| Tambahan omzet 3 bulan | Rp 150.000.000 |
+| **Tambahan keuntungan 3 bulan** | **Rp 22.500.000** (margin 15%) |
 | Biaya investasi (3 bulan) | Rp 33.000.000 |
-| **ROI** | **+Rp 750.000 (Break-even +)** |
+| **ROI** | **-Rp 10.500.000** |
 
-> **Kesimpulan:** Even di skenario terburuk, Anda **tidak rugi**. Investasi balik modal. Plus, Anda punya fondasi SEO yang terus bekerja di bulan ke-4, ke-5, ke-6 dst.
+> **Kesimpulan:** Di skenario terburuk, Anda rugi Rp 10,5 Juta. **Tapi** — fondasi SEO yang dibangun terus bekerja di bulan ke-4, ke-5, ke-6 dst. Satu penjualan lagi di bulan ke-4 sudah menutup kerugian. Plus, brand awareness naik yang tidak terukur.
 
 ---
 
@@ -223,10 +227,10 @@ Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
 
 | Keterangan | Angka |
 |-----------|-------|
-| Leads tambahan per bulan | +3 |
-| Proyek tambahan per bulan | +1 |
+| Tambahan penjualan per bulan | +2 unit |
+| Rata-rata harga mesin | Rp 75.000.000 |
 | Tambahan omzet 3 bulan | Rp 450.000.000 |
-| **Tambahan keuntungan 3 bulan** | **Rp 67.500,000** |
+| **Tambahan keuntungan 3 bulan** | **Rp 67.500.000** (margin 15%) |
 | Biaya investasi (3 bulan) | Rp 33.000.000 |
 | **ROI** | **+Rp 34.500.000 (+105%)** |
 
@@ -236,18 +240,18 @@ Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
 
 ### Skenario Terbaik: "Melebihi Ekspektasi"
 
-> Bestink sudah punya brand awareness kuat, kompetitor belum optimal di AI search.
+> Best Ink sudah punya produk bagus (skor 88/100), kompetitor belum optimal di AI search.
 
 | Keterangan | Angka |
 |-----------|-------|
-| Leads tambahan per bulan | +5 |
-| Proyek tambahan per bulan | +2 |
-| Tambahan omzet 3 bulan | Rp 900.000.000 |
-| **Tambahan keuntungan 3 bulan** | **Rp 135.000.000** |
+| Tambahan penjualan per bulan | +4 unit |
+| Rata-rata harga mesin | Rp 100.000.000 |
+| Tambahan omzet 3 bulan | Rp 1.200.000.000 |
+| **Tambahan keuntungan 3 bulan** | **Rp 180.000.000** (margin 15%) |
 | Biaya investasi (3 bulan) | Rp 33.000.000 |
-| **ROI** | **+Rp 102.000.000 (+309%)** |
+| **ROI** | **+Rp 147.000.000 (+445%)** |
 
-> **Kesimpulan:** Setiap Rp 1 yang diinvestasikan, kembali **Rp 4**.
+> **Kesimpulan:** Setiap Rp 1 yang diinvestasikan, kembali **Rp 5**. Satu mesin DTF premium (Rp 650jt) saja sudah menutup semua biaya.
 
 ---
 
@@ -285,23 +289,23 @@ Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
 ## ⚙️ Pengerjaan
 
 ### Minggu 1-2: Fondasi
-1. Buat brand voice dan posisi bisnis
+1. Tentukan brand voice dan posisi Best Ink
 2. Review arsitektur website + rekomendasi SEO
-3. Riset keyword dan rencana optimasi Google Maps
-4. Analisis 5 kompetitor utama
+3. Riset keyword (mesin DTF, laser engraving, digital printing)
+4. Analisis 5 kompetitor utama (Sinar Digital, Dwi Warna, Solusindo, dll)
 5. Tentukan target customer
 
 ### Minggu 3-6: Implementasi
-1. Optimasi SEO halaman utama, layanan, portofolio
-2. Optimasi lengkap Google Maps (kategori, foto, jam, deskripsi)
-3. Daftarkan bisnis di direktori konstruksi
-4. Implementasi schema markup
+1. Optimasi SEO halaman produk utama (DTF printer, laser, dll)
+2. Optimasi lengkap Google Maps (kategori, foto produk, jam, deskripsi)
+3. Daftarkan bisnis di direktori industri printing
+4. Implementasi schema markup (Product, LocalBusiness)
 5. Optimasi untuk AI search (entity mapping)
 
 ### Bulan 2-3: Percepatan
-1. Buat konten klaster (panduan proyek, kalkulator biaya)
-2. Bangun backlink dari situs industri
-3. Program generating ulasan klien
+1. Buat konten klaster (panduan memilih mesin DTF, perbandingan harga)
+2. Bangun backlink dari situs industri printing
+3. Program generating ulasan dari pembeli
 4. Optimasi data untuk chatbot/AI
 5. Laporan performa dan pivot strategi
 
@@ -326,4 +330,4 @@ Sekarang pertanyaannya: **Bagaimana kalau leads naik?**
 ---
 
 *Proposal ini berlaku hingga 4 September 2026.*
-*Angka berdasarkan data publik industri konstruksi Indonesia — asumsi: nilai proyek rata-rata Rp 150 Juta, margin 15%, konversi 10%.*
+*Angka berdasarkan data publik industri mesin digital printing Indonesia — asumsi: harga mesin Rp 27-650jt, margin 15-20%, 3-5 penjualan per bulan.*
