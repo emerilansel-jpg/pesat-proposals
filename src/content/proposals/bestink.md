@@ -12,7 +12,13 @@ Kami sudah melihat data digital Best Ink. Hasilnya? **Produknya bagus — tapi t
 
 Ketika calon buyer ketik "rekomendasi supplier mesin DTF printing Indonesia" di ChatGPT atau Google AI, yang muncul adalah kompetitor. Best Ink? Tidak ada.
 
-Ini bukan masalah produk. Ini masalah **visibility**. Dan itu bisa diperbaiki.
+**Yang perlu Anda waspadai:**
+
+- **Google Ads** = ketergantungan. Budget habis = leads hilang. Tidak membangun aset apapun.
+- **Social media** = algoritma berubah kapan saja. Instagram bisa turunkan reach 80% dalam semalam. Anda tidak punya kendali.
+- **Keduanya** = Anda menyewa, bukan memiliki. Tiap bulan harus bayar lagi dari nol.
+
+**GEO/SEO berbeda.** Ini membangun **aset jangka panjang** — backlinks, authority, brand equity — yang terus bekerja bahkan setelah Anda berhenti bayar.
 
 > Detail lengkap sudah dibahas di Business Audit sebelumnya.
 
@@ -22,37 +28,18 @@ Ini bukan masalah produk. Ini masalah **visibility**. Dan itu bisa diperbaiki.
 
 Kami menawarkan dua model. Keduanya tanpa setup fee.
 
-### Model A: Small Retainer + Rev Share
-
-| Komponen | Investasi |
-|---|---|
-| Retainer per bulan | **Rp 10.000.000** |
-| Setup | **Rp 0** (di-waive) |
-| Rev share | 10-30% dari keuntungan tambahan |
-| Kapan diambil? | Hanya kalau ada keuntungan baru |
-| Minimum | 6 bulan, review di bulan ke-3 |
-
-> Contoh: Bulan ke-3, 1 penjualan mesin tambahan (Rp 75 Jt, margin 15% = untung Rp 11,25 Jt). Rev share 20% = Rp 2,25 Jt. Total bayar = Rp 12,25 Jt. Anda tetap untung **Rp 9 Jt**.
-
-### Model B: Harga Tetap
-
-| Komponen | Investasi |
-|---|---|
-| Total 3 bulan | **Rp 25.000.000** |
-| Per bulan | ~Rp 8.300.000 |
-| Rev share | Tidak ada |
-| Minimum | 3 bulan |
-
-### Perbandingan Kedua Model
-
-| | Model A (Retainer + Rev Share) | Model B (Harga Tetap) |
+| | **Model A: Retainer + Rev Share** | **Model B: Harga Tetap** |
 |---|---|---|
-| Setup | Rp 0 | Rp 0 |
+| Setup | Rp 0 (di-waive) | Rp 0 (di-waive) |
 | Per bulan | Rp 10.000.000 | ~Rp 8.300.000 |
 | Total 3 bulan | ~Rp 30-40 Juta | **Rp 25.000.000** |
 | Rev share | 10-30% dari untung tambahan | Tidak ada |
+| Kapan rev share diambil? | Hanya kalau ada keuntungan baru | — |
 | Minimum komitmen | 6 bulan | 3 bulan |
-| Cocok untuk | Yang percaya hasil akan besar | Yang ingin budget pasti |
+| Review | Bulan ke-3 | — |
+| Cocok untuk | Percaya hasil akan besar | Ingin budget pasti |
+
+> Contoh Model A: 1 penjualan mesin tambahan (Rp 75 Jt, margin 15% = untung Rp 11,25 Jt). Rev share 20% = Rp 2,25 Jt. Total bayar = Rp 12,25 Jt. Anda tetap untung **Rp 9 Jt**.
 
 > Catatan: Pembayaran dapat dilakukan dalam **USD** sesuai kurs berlaku.
 
@@ -110,38 +97,33 @@ Kami menawarkan dua model. Keduanya tanpa setup fee.
 
 > Paling Rendah: Hampir balik modal di 3 bulan. Bulan ke-4 sudah untung.
 
-> Sesuai Target: Setiap Rp 1 jadi Rp 2. Target realistis.
+> Sesuai Target: Setiap Rp 1 jadi Rp 2.
 
-> Melebihi Target: Setiap Rp 1 jadi Rp 5. Satu mesin premium sudah menutup semua.
+> Melebihi Target: Setiap Rp 1 jadi Rp 5.
 
 ---
 
 ## Perbandingan: 3 Opsi
 
-| Opsi | Google Ads | Inhouse GEO Staff | Bersama Pesat AI |
+| | Google Ads | Inhouse GEO Staff | Bersama Pesat AI |
 |---|---|---|---|
 | Investasi / bulan | Rp 6.000.000 (ads spend) | Rp 15-25 Jt (gaji + tools) | **Rp 10.000.000** |
 | Hasil | Leads turun tiap bulan | Tergantung skill | **+2-3 mesin/bulan** |
 | Waktu hasil | Instan tapi budget habis = stop | 6-12 bulan | **3 bulan** |
 | Risiko | Budget habis = leads hilang | Hiring salah, turnover | **Review tiap bulan** |
-| Tools & software | Beli sendiri | Beli sendiri | **Sudah termasuk** |
-| Update AI | Tidak ada (iklan ≠ SEO) | Harus update sendiri | **Tim update terus** |
-| Fokus Anda | Full bisnis | Terbagi: bisnis + kelola tim | **Full bisnis** |
+| Tools | Beli sendiri | Beli sendiri | **Sudah termasuk** |
+| Update AI | Tidak ada | Harus sendiri | **Tim update terus** |
+| Fokus Anda | Full bisnis | Terbagi | **Full bisnis** |
+| **Investasi 3 bln** | **Rp 18 Jt** | **Rp 45-75 Jt** | **Rp 30 Jt** |
+| **Potensi untung (3 bln)** | **Rp 0** | **Rp 0-67,5 Jt** | **Rp 22,5-180 Jt** |
+| **ROI** | **-100%** | **0-90%** | **+105-445%** |
+| **Aset setelah 3 bln** | **Tidak ada** | **Tidak pasti** | **Backlinks + authority** |
 
-### Kesimpulan Perbandingan
+> Google Ads: Rp 6 Jt/bulan. Uang keluar, tidak ada aset. Kalau berhenti, leads hilang.
 
-| | Google Ads | Inhouse GEO Staff | Bersama Pesat AI |
-|---|---|---|---|
-| Investasi 3 bulan | Rp 18 Jt | Rp 45-75 Jt | **Rp 30 Jt** |
-| Potensi untung tambahan (3 bln) | Rp 0 (leads berhenti saat budget habis) | Rp 0-67,5 Jt (belum tentu) | **Rp 22,5-180 Jt** |
-| ROI 3 bulan | **-100%** (uang keluar, aset nol) | **0-90%** (belum tentu untung) | **+105-445%** |
-| Status aset setelah 3 bulan | Tidak ada (iklan = sewa) | Tidak pasti (tergantung turnover) | **Backlinks, authority, brand equity** |
+> Inhouse: Rp 15-25 Jt/bulan. Belum tentu hasil. Kalau staff resign, knowledge hilang.
 
-> Google Ads: Rp 6 Jt/bulan = Rp 18 Jt/3 bulan. Uang keluar, tidak ada aset yang dibangun. Kalau berhenti iklan, leads langsung hilang.
-
-> Inhouse GEO Staff: Rp 15-25 Jt/bulan = Rp 45-75 Jt/3 bulan. Belum tentu hasil. Kalau staff resign, knowledge hilang.
-
-> Pesat AI: Rp 10 Jt/bulan = Rp 30 Jt/3 bulan. **Lebih murah dari inhouse, lebih sustainable dari Google Ads.** Dan yang dibangun adalah aset jangka panjang.
+> Pesat AI: Rp 10 Jt/bulan. **Lebih murah dari inhouse.** Yang dibangun adalah aset jangka panjang.
 
 ---
 
