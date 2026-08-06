@@ -7,61 +7,64 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #f5f5f5; color: #111; min-height: 100vh; }
-    .admin { max-width: 960px; margin: 0 auto; padding: 1rem; }
-    .header { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
-    .header h1 { font-size: 1.3rem; font-weight: 800; }
-    .header p { color: #666; font-size: 0.85rem; margin-top: 0.25rem; }
-    .lock-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
-    .lock-box { background: #fff; border-radius: 16px; padding: 2rem; width: 90%; max-width: 360px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
-    .lock-box h2 { font-size: 1.2rem; margin-bottom: 1rem; }
-    .lock-box input { width: 100%; padding: 0.7rem 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; text-align: center; letter-spacing: 0.2em; }
-    .lock-box input:focus { outline: none; border-color: #00d4aa; }
-    .lock-box button { margin-top: 0.75rem; width: 100%; padding: 0.7rem; background: #00d4aa; color: #0a0a2e; border: none; border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
-    .lock-box .error { color: #ef4444; font-size: 0.82rem; margin-top: 0.5rem; display: none; }
-    .hidden { display: none !important; }
-    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-    .tab { padding: 0.5rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
-    .tab.active { background: #00d4aa; color: #0a0a2e; border-color: #00d4aa; }
-    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.25rem; margin-bottom: 0.75rem; }
-    .card h2 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: #00d4aa; }
-    .field { margin-bottom: 0.75rem; }
-    .field label { display: block; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.25rem; color: #666; }
-    .field input { width: 100%; padding: 0.55rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.88rem; }
-    .field input:focus { outline: none; border-color: #00d4aa; box-shadow: 0 0 0 2px rgba(0,212,170,0.12); }
-    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-    .toolbar { display: flex; align-items: center; gap: 0; padding: 0.4rem 0.5rem; background: #1a1a2e; border-radius: 8px 8px 0 0; flex-wrap: wrap; }
-    .toolbar button { padding: 0.4rem 0.55rem; border: none; border-radius: 4px; background: transparent; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #ccc; min-width: 28px; text-align: center; }
-    .toolbar button:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .toolbar .sep { width: 1px; height: 20px; background: rgba(255,255,255,0.15); margin: 0 0.25rem; }
-    .toolbar select { background: #0a0a2e; color: #ccc; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 0.3rem 0.4rem; font-size: 0.82rem; font-family: 'Inter', sans-serif; }
-    .wysiwyg { min-height: 500px; padding: 1.25rem; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px; font-size: 0.92rem; line-height: 1.7; outline: none; overflow-y: auto; }
-    .wysiwyg:focus { border-color: #00d4aa; }
-    .wysiwyg h1 { font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.5rem; }
-    .wysiwyg h2 { font-size: 1.2rem; font-weight: 700; margin: 1rem 0 0.5rem; color: #00d4aa; }
-    .wysiwyg h3 { font-size: 1rem; font-weight: 700; margin: 0.75rem 0 0.35rem; }
-    .wysiwyg p { margin-bottom: 0.5rem; }
-    .wysiwyg ul, .wysiwyg ol { padding-left: 1.5rem; margin-bottom: 0.5rem; }
-    .wysiwyg li { margin-bottom: 0.25rem; }
-    .wysiwyg blockquote { border-left: 3px solid #00d4aa; padding-left: 0.75rem; margin: 0.5rem 0; color: #666; font-style: italic; }
-    .wysiwyg table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
-    .wysiwyg th, .wysiwyg td { border: 1px solid #e5e7eb; padding: 0.5rem 0.6rem; text-align: left; }
-    .wysiwyg th { background: #f0fdf9; font-weight: 700; color: #00d4aa; }
-    .wysiwyg hr { border: none; border-top: 1px solid #e5e7eb; margin: 1rem 0; }
-    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; align-items: center; }
-    .btn { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.88rem; cursor: pointer; }
-    .btn-save { background: #00d4aa; color: #0a0a2e; }
-    .btn-save:hover { background: #00b894; }
-    .btn-secondary { background: #f3f4f6; color: #374151; }
-    .btn-secondary:hover { background: #e5e7eb; }
-    .deploy-status { font-size: 0.82rem; color: #666; margin-left: 0.5rem; }
-    .deploy-status.ok { color: #059669; }
-    .deploy-status.err { color: #dc2626; }
-    .deploy-status.loading { color: #d97706; }
-    .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); background: #0a0a2e; color: #fff; padding: 0.6rem 1.2rem; border-radius: 10px; font-size: 0.85rem; font-weight: 600; opacity: 0; transition: opacity 0.3s; z-index: 200; pointer-events: none; }
-    .toast.show { opacity: 1; }
-    @media (max-width: 640px) { .admin { padding: 0.5rem; } .card { padding: 1rem; } .row2 { grid-template-columns: 1fr; } .wysiwyg { min-height: 350px; } .toolbar { gap: 0.15rem; } .toolbar button { padding: 0.35rem 0.45rem; font-size: 0.78rem; } }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f5;color:#111;min-height:100vh}
+    .admin{max-width:960px;margin:0 auto;padding:1rem}
+    .header{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.5rem;margin-bottom:1rem;text-align:center}
+    .header h1{font-size:1.3rem;font-weight:800}
+    .header p{color:#666;font-size:0.85rem;margin-top:0.25rem}
+    .lock-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:100}
+    .lock-box{background:#fff;border-radius:16px;padding:2rem;width:90%;max-width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+    .lock-box h2{font-size:1.2rem;margin-bottom:1rem}
+    .lock-box input{width:100%;padding:0.7rem 1rem;border:2px solid #e5e7eb;border-radius:10px;font-size:1rem;text-align:center;letter-spacing:0.2em}
+    .lock-box input:focus{outline:none;border-color:#00d4aa}
+    .lock-box button{margin-top:0.75rem;width:100%;padding:0.7rem;background:#00d4aa;color:#0a0a2e;border:none;border-radius:10px;font-weight:700;font-size:0.95rem;cursor:pointer}
+    .lock-box .error{color:#ef4444;font-size:0.82rem;margin-top:0.5rem;display:none}
+    .hidden{display:none!important}
+    .tabs{display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap}
+    .tab{padding:0.5rem 1rem;border:1px solid #e5e7eb;border-radius:8px;background:#fff;cursor:pointer;font-size:0.85rem;font-weight:600}
+    .tab.active{background:#00d4aa;color:#0a0a2e;border-color:#00d4aa}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.25rem;margin-bottom:0.75rem}
+    .card h2{font-size:0.95rem;font-weight:700;margin-bottom:0.75rem;color:#00d4aa}
+    .field{margin-bottom:0.75rem}
+    .field label{display:block;font-size:0.78rem;font-weight:600;margin-bottom:0.25rem;color:#666}
+    .field input{width:100%;padding:0.55rem 0.75rem;border:1px solid #e5e7eb;border-radius:8px;font-family:'Inter',sans-serif;font-size:0.88rem}
+    .field input:focus{outline:none;border-color:#00d4aa;box-shadow:0 0 0 2px rgba(0,212,170,0.12)}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+    .toolbar{display:flex;align-items:center;gap:0;padding:0.4rem 0.5rem;background:#1a1a2e;border-radius:8px 8px 0 0;flex-wrap:wrap}
+    .toolbar button{padding:0.4rem 0.55rem;border:none;border-radius:4px;background:transparent;cursor:pointer;font-size:0.85rem;font-weight:600;color:#ccc;min-width:28px;text-align:center}
+    .toolbar button:hover{background:rgba(255,255,255,0.1);color:#fff}
+    .toolbar .sep{width:1px;height:20px;background:rgba(255,255,255,0.15);margin:0 0.25rem}
+    .toolbar select{background:#0a0a2e;color:#ccc;border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:0.3rem 0.4rem;font-size:0.82rem;font-family:'Inter',sans-serif}
+    .wysiwyg{min-height:500px;padding:1.25rem;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 8px 8px;font-size:0.92rem;line-height:1.7;outline:none;overflow-y:auto}
+    .wysiwyg:focus{border-color:#00d4aa}
+    .wysiwyg h1{font-size:1.5rem;font-weight:800;margin:1rem 0 0.5rem}
+    .wysiwyg h2{font-size:1.2rem;font-weight:700;margin:1rem 0 0.5rem;color:#00d4aa}
+    .wysiwyg h3{font-size:1rem;font-weight:700;margin:0.75rem 0 0.35rem}
+    .wysiwyg p{margin-bottom:0.5rem}
+    .wysiwyg ul,.wysiwyg ol{padding-left:1.5rem;margin-bottom:0.5rem}
+    .wysiwyg li{margin-bottom:0.25rem}
+    .wysiwyg blockquote{border-left:3px solid #00d4aa;padding-left:0.75rem;margin:0.5rem 0;color:#666;font-style:italic}
+    .wysiwyg table{width:100%;border-collapse:collapse;margin:0.75rem 0;font-size:0.88rem}
+    .wysiwyg th,.wysiwyg td{border:1px solid #e5e7eb;padding:0.5rem 0.6rem;text-align:left}
+    .wysiwyg th{background:#f0fdf9;font-weight:700;color:#00d4aa}
+    .wysiwyg hr{border:none;border-top:1px solid #e5e7eb;margin:1rem 0}
+    .actions{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem;align-items:center}
+    .btn{padding:0.6rem 1.2rem;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.88rem;cursor:pointer}
+    .btn-save{background:#00d4aa;color:#0a0a2e}
+    .btn-save:hover{background:#00b894}
+    .btn-save:disabled{opacity:0.5;cursor:not-allowed}
+    .btn-secondary{background:#f3f4f6;color:#374151}
+    .btn-secondary:hover{background:#e5e7eb}
+    .deploy-status{font-size:0.82rem;color:#666;margin-left:0.5rem}
+    .deploy-status.ok{color:#059669}
+    .deploy-status.err{color:#dc2626}
+    .deploy-status.loading{color:#d97706}
+    .token-setup{background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:1rem;margin-bottom:1rem;font-size:0.85rem}
+    .token-setup input{width:100%;padding:0.5rem;border:1px solid #e5e7eb;border-radius:6px;font-size:0.85rem;margin-top:0.5rem}
+    .toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#0a0a2e;color:#fff;padding:0.6rem 1.2rem;border-radius:10px;font-size:0.85rem;font-weight:600;opacity:0;transition:opacity 0.3s;z-index:200;pointer-events:none}
+    .toast.show{opacity:1}
+    @media(max-width:640px){.admin{padding:0.5rem}.card{padding:1rem}.row2{grid-template-columns:1fr}.wysiwyg{min-height:350px}.toolbar{gap:0.15rem}.toolbar button{padding:0.35rem 0.45rem;font-size:0.78rem}}
   </style>
 </head>
 <body>
@@ -77,10 +80,19 @@
   <div class="admin hidden" id="cms">
     <div class="header">
       <h1>Pesat AI — CMS Proposal</h1>
-      <p>Edit proposal langsung. Save = otomatis deploy ke live.</p>
+      <p>Edit proposal. Save = otomatis deploy ke live.</p>
     </div>
+
+    <div class="token-setup" id="token-setup">
+      <b>GitHub Token (sekali setup)</b>
+      <p style="margin-top:0.25rem;color:#92400e;">Masukkan GitHub Personal Access Token untuk auto-deploy. Token tersimpan di browser Anda saja.</p>
+      <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxx">
+      <button class="btn btn-save" style="margin-top:0.5rem;font-size:0.82rem;padding:0.4rem 0.8rem;" onclick="saveToken()">Simpan Token</button>
+    </div>
+
     <div class="tabs" id="tabs"></div>
     <div id="editor"></div>
+
     <div class="actions">
       <button class="btn btn-save" id="save-btn" onclick="saveAndDeploy()">Save & Deploy</button>
       <button class="btn btn-secondary" onclick="copyHtml()">Copy HTML</button>
@@ -92,8 +104,9 @@
   <script>
     const PASSWORD = 'jdp123';
     const STORAGE_KEY = 'pesat_proposals';
+    const TOKEN_KEY = 'pesat_gh_token';
+    const GITHUB_REPO = 'emerilansel-jpg/pesat-proposals';
 
-    // Latest proposal content as HTML (pre-rendered)
     const LATEST_HTML = `<h2>Kenapa Proposal Ini Ada</h2>
 <p>Kami sudah melihat data digital Best Ink. Hasilnya? <b>Produknya bagus — tapi tidak bisa ditemukan.</b></p>
 <p>Ketika calon buyer ketik "rekomendasi supplier mesin DTF printing Indonesia" di ChatGPT atau Google AI, yang muncul adalah kompetitor. Best Ink? Tidak ada.</p>
@@ -126,39 +139,13 @@
 <hr>
 <h2>Apa yang Anda Dapatkan</h2>
 <h3>Bulan 1: Fondasi</h3>
-<ul>
-<li>Brand Blueprint</li>
-<li>Audit website + rekomendasi prioritas</li>
-<li>Optimasi Google Business Profile</li>
-<li>Pendaftaran 20 direktori online</li>
-<li>Riset 50 kata kunci potensial</li>
-</ul>
+<ul><li>Brand Blueprint</li><li>Audit website + rekomendasi prioritas</li><li>Optimasi Google Business Profile</li><li>Pendaftaran 20 direktori online</li><li>Riset 50 kata kunci potensial</li></ul>
 <h3>Bulan 2: Implementasi</h3>
-<ul>
-<li>Optimasi SEO halaman produk utama</li>
-<li>Schema markup (Product, Offer, Review)</li>
-<li>Sistem balas ulasan otomatis</li>
-<li>5-10 backlink dari situs industri</li>
-</ul>
+<ul><li>Optimasi SEO halaman produk utama</li><li>Schema markup (Product, Offer, Review)</li><li>Sistem balas ulasan otomatis</li><li>5-10 backlink dari situs industri</li></ul>
 <h3>Bulan 3: Konsolidasi</h3>
-<ul>
-<li>SEO on-page lanjutan</li>
-<li>Tutup gap kompetitor</li>
-<li>Optimasi mobile &amp; speed</li>
-<li>Roadmap strategi bulan ke-4</li>
-</ul>
+<ul><li>SEO on-page lanjutan</li><li>Tutup gap kompetitor</li><li>Optimasi mobile &amp; speed</li><li>Roadmap strategi bulan ke-4</li></ul>
 <h3>Yang Kami Kelola Setiap Bulan</h3>
-<ul>
-<li>Monitoring ranking di Google &amp; AI search</li>
-<li>Update strategi berdasarkan data performa</li>
-<li>Optimasi konten website berkala</li>
-<li>Update Google Business Profile</li>
-<li>Riset keyword baru &amp; peluang konten</li>
-<li>Review performa kompetitor</li>
-<li>Maintenance teknis SEO</li>
-<li>Pelaporan bulanan</li>
-<li>Meeting strategi (bi-weekly, 30 menit)</li>
-</ul>
+<ul><li>Monitoring ranking di Google &amp; AI search</li><li>Update strategi berdasarkan data performa</li><li>Optimasi konten website berkala</li><li>Update Google Business Profile</li><li>Riset keyword baru &amp; peluang konten</li><li>Review performa kompetitor</li><li>Maintenance teknis SEO</li><li>Pelaporan bulanan</li><li>Meeting strategi (bi-weekly, 30 menit)</li></ul>
 <hr>
 <h2>Skenario Hasil (3 Bulan)</h2>
 <blockquote>Angka berdasarkan data publik — harga mesin Rp 27-650 Juta, margin 15%, 3-5 penjualan/bulan.</blockquote>
@@ -192,33 +179,14 @@
 <hr>
 <h2>Pengerjaan</h2>
 <h3>Minggu 1-2: Fondasi</h3>
-<ol>
-<li>Brand voice dan posisi Best Ink</li>
-<li>Review website + rekomendasi SEO</li>
-<li>Riset keyword (mesin DTF, laser engraving, digital printing)</li>
-<li>Analisis 5 kompetitor utama</li>
-<li>Target customer dan niat pencarian</li>
-</ol>
+<ol><li>Brand voice dan posisi Best Ink</li><li>Review website + rekomendasi SEO</li><li>Riset keyword (mesin DTF, laser engraving, digital printing)</li><li>Analisis 5 kompetitor utama</li><li>Target customer dan niat pencarian</li></ol>
 <h3>Minggu 3-6: Implementasi</h3>
-<ol>
-<li>Optimasi SEO halaman produk utama</li>
-<li>Optimasi Google Maps (kategori, foto, deskripsi)</li>
-<li>Daftarkan di direktori industri printing</li>
-<li>Schema markup (Product, LocalBusiness)</li>
-<li>Optimasi untuk AI search</li>
-</ol>
+<ol><li>Optimasi SEO halaman produk utama</li><li>Optimasi Google Maps (kategori, foto, deskripsi)</li><li>Daftarkan di direktori industri printing</li><li>Schema markup (Product, LocalBusiness)</li><li>Optimasi untuk AI search</li></ol>
 <h3>Bulan 2-3: Percepatan</h3>
-<ol>
-<li>Konten klaster (panduan memilih mesin, perbandingan harga)</li>
-<li>Backlink dari situs industri printing</li>
-<li>Program generating ulasan pembeli</li>
-<li>Optimasi data untuk chatbot/AI</li>
-<li>Laporan performa dan pivot strategi</li>
-</ol>
+<ol><li>Konten klaster (panduan memilih mesin, perbandingan harga)</li><li>Backlink dari situs industri printing</li><li>Program generating ulasan pembeli</li><li>Optimasi data untuk chatbot/AI</li><li>Laporan performa dan pivot strategi</li></ol>
 <hr>
 <h2>Kontak</h2>
-<p><b>Nell VH</b> — Founder &amp; CEO, Pesat AI<br>
-care@pesat.ai | +62 812-9040-1240</p>
+<p><b>Nell VH</b> — Founder &amp; CEO, Pesat AI<br>care@pesat.ai | +62 812-9040-1240</p>
 <blockquote>Proposal berlaku hingga 4 September 2026. Pembayaran dapat dalam USD sesuai kurs berlaku.</blockquote>`;
 
     let proposals = {};
@@ -242,24 +210,34 @@ care@pesat.ai | +62 812-9040-1240</p>
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         proposals = JSON.parse(saved);
-        // Migrate: if content starts with ## it's markdown, convert to HTML
         Object.keys(proposals).forEach(slug => {
           if (proposals[slug].content && proposals[slug].content.trim().startsWith('##')) {
             proposals[slug].content = mdToHtml(proposals[slug].content);
           }
         });
-        // Always update bestink with latest content
-        if (proposals.bestink) {
-          proposals.bestink.content = LATEST_HTML;
-        } else {
-          proposals.bestink = { title: 'Proposal GEO/SEO — Best Ink Online', client: 'Best Ink Online', date: '2026-08-04', validUntil: '2026-09-04', slug: 'bestink', content: LATEST_HTML };
-        }
+        if (proposals.bestink) proposals.bestink.content = LATEST_HTML;
+        else proposals.bestink = { title: 'Proposal GEO/SEO — Best Ink Online', client: 'Best Ink Online', date: '2026-08-04', validUntil: '2026-09-04', slug: 'bestink', content: LATEST_HTML };
       } else {
         proposals = { bestink: { title: 'Proposal GEO/SEO — Best Ink Online', client: 'Best Ink Online', date: '2026-08-04', validUntil: '2026-09-04', slug: 'bestink', content: LATEST_HTML } };
       }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(proposals));
+
+      // Show/hide token setup
+      const token = localStorage.getItem(TOKEN_KEY);
+      document.getElementById('token-setup').style.display = token ? 'none' : 'block';
+      if (token) document.getElementById('gh-token').value = token;
+
       renderTabs();
       renderEditor(currentSlug);
+    }
+
+    function saveToken() {
+      const t = document.getElementById('gh-token').value.trim();
+      if (t) {
+        localStorage.setItem(TOKEN_KEY, t);
+        document.getElementById('token-setup').style.display = 'none';
+        toast('Token tersimpan!');
+      }
     }
 
     function renderTabs() {
@@ -350,56 +328,86 @@ care@pesat.ai | +62 812-9040-1240</p>
         return '| ' + c.replace(/\n/g, ' ') + ' |\n';
       });
       md = md.replace(/<[^>]+>/g, '');
-      md = md.replace(/&amp;/g, '&');
-      md = md.replace(/&lt;/g, '<');
-      md = md.replace(/&gt;/g, '>');
-      md = md.replace(/&quot;/g, '"');
+      md = md.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
       md = md.replace(/\n{3,}/g, '\n\n');
       return md.trim();
     }
 
     function mdToHtml(md) {
-      let html = md;
-      html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-      html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-      html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-      html = html.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-      html = html.replace(/\*(.*?)\*/g, '<i>$1</i>');
-      html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
-      html = html.replace(/^---$/gim, '<hr>');
-      html = html.replace(/^- (.*$)/gim, '<li>$1</li>');
-      html = html.replace(/\n\n/g, '</p><p>');
-      html = '<p>' + html + '</p>';
-      html = html.replace(/<\/p><p><h/g, '<h');
-      html = html.replace(/<\/h([1-3])><\/p>/g, '</h$1>');
-      html = html.replace(/<p><\/p>/g, '');
-      return html;
+      let h = md;
+      h = h.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+      h = h.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+      h = h.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+      h = h.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      h = h.replace(/\*(.*?)\*/g, '<i>$1</i>');
+      h = h.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
+      h = h.replace(/^---$/gim, '<hr>');
+      h = h.replace(/^- (.*$)/gim, '<li>$1</li>');
+      h = h.replace(/\n\n/g, '</p><p>');
+      h = '<p>' + h + '</p>';
+      h = h.replace(/<\/p><p><h/g, '<h');
+      h = h.replace(/<\/h([1-3])><\/p>/g, '</h$1>');
+      h = h.replace(/<p><\/p>/g, '');
+      return h;
     }
 
+    // === SAVE & DEPLOY via GitHub API ===
     async function saveAndDeploy() {
       saveLocal();
       const p = proposals[currentSlug];
       const md = `---\ntitle: "${p.title}"\nclient: "${p.client}"\ndate: ${p.date}\nvalidUntil: ${p.validUntil}\ndraft: false\n---\n\n${htmlToMd(p.content)}`;
+
+      const token = localStorage.getItem(TOKEN_KEY);
+      if (!token) {
+        toast('Masukkan GitHub token dulu!');
+        document.getElementById('token-setup').style.display = 'block';
+        return;
+      }
+
       const status = document.getElementById('deploy-status');
       const btn = document.getElementById('save-btn');
       status.textContent = 'Deploying...';
       status.className = 'deploy-status loading';
       btn.disabled = true;
       btn.textContent = 'Deploying...';
+
       try {
-        const resp = await fetch('/api/deploy', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug: p.slug, content: md }) });
-        const data = await resp.json();
-        if (resp.ok && data.success) { status.textContent = 'Deployed!'; status.className = 'deploy-status ok'; toast('Deployed!'); }
-        else throw new Error(data.error || 'Failed');
+        // Get current file SHA
+        let sha = null;
+        const getResp = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/src/content/proposals/${p.slug}.md`, {
+          headers: { Authorization: `token ${token}`, 'User-Agent': 'PesatCMS' }
+        });
+        if (getResp.ok) {
+          const data = await getResp.json();
+          sha = data.sha;
+        }
+
+        // Create or update file
+        const body = { message: `Update ${p.slug} via CMS`, content: btoa(unescape(encodeURIComponent(md))) };
+        if (sha) body.sha = sha;
+
+        const putResp = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/src/content/proposals/${p.slug}.md`, {
+          method: 'PUT',
+          headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json', 'User-Agent': 'PesatCMS' },
+          body: JSON.stringify(body)
+        });
+
+        if (putResp.ok) {
+          status.textContent = 'Deployed! Cloudflare rebuilds in ~60s.';
+          status.className = 'deploy-status ok';
+          toast('Deployed!');
+        } else {
+          const err = await putResp.json();
+          throw new Error(err.message || 'GitHub API error');
+        }
       } catch (e) {
-        await navigator.clipboard.writeText(md);
-        status.textContent = 'Copied! Deploy manual.';
+        status.textContent = 'Error: ' + e.message;
         status.className = 'deploy-status err';
-        toast('Copied!');
+        toast('Deploy failed!');
       } finally {
         btn.disabled = false;
         btn.textContent = 'Save & Deploy';
-        setTimeout(() => { status.textContent = ''; status.className = 'deploy-status'; }, 5000);
+        setTimeout(() => { status.textContent = ''; status.className = 'deploy-status'; }, 8000);
       }
     }
 
