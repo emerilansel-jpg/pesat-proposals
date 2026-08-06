@@ -87,42 +87,34 @@ const { Content } = await proposal.render();
   .doc-for strong { color: #111; }
   .doc-meta { font-size: 0.78rem; color: #999; }
 
-  /* Body */
-  .doc-body { padding: 1.5rem 1.25rem 2rem; }
+  /* Body — match CMS WYSIWYG styling */
+  .doc-body { padding: 1.5rem 1.25rem 2rem; font-size: 0.92rem; line-height: 1.7; }
 
-  .doc-body h2 {
-    font-size: 1.15rem; font-weight: 800; color: #111;
-    border-left: 3px solid #00d4aa; padding-left: 0.7rem;
-    margin: 2.5rem 0 0.75rem;
-  }
+  .doc-body h1 { font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.5rem; color: #111; }
+  .doc-body h2 { font-size: 1.2rem; font-weight: 700; margin: 1rem 0 0.5rem; color: #00d4aa; }
   .doc-body h2:first-child { margin-top: 0; }
-  .doc-body h3 { font-size: 0.95rem; font-weight: 700; color: #00d4aa; margin: 1.5rem 0 0.5rem; }
-  .doc-body h4 { font-size: 0.88rem; font-weight: 700; color: #111; margin: 1rem 0 0.35rem; }
-  .doc-body p { color: #444; margin-bottom: 0.7rem; }
-  .doc-body ul, .doc-body ol { color: #444; padding-left: 1.25rem; margin-bottom: 0.7rem; }
-  .doc-body li { margin-bottom: 0.35rem; }
+  .doc-body h3 { font-size: 1rem; font-weight: 700; margin: 0.75rem 0 0.35rem; color: #111; }
+  .doc-body p { margin-bottom: 0.5rem; color: #333; }
+  .doc-body ul, .doc-body ol { padding-left: 1.5rem; margin-bottom: 0.5rem; color: #333; }
+  .doc-body li { margin-bottom: 0.25rem; }
   .doc-body strong { color: #111; }
-  .doc-body hr { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
+  .doc-body hr { border: none; border-top: 1px solid #e5e7eb; margin: 1rem 0; }
 
-  /* Tables */
+  /* Tables — match CMS */
   .doc-body table {
-    width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.25rem; font-size: 0.82rem;
-    border: 2px solid #d1d5db; border-radius: 8px; overflow: hidden;
+    width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem;
   }
-  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; border: 1px solid #d1d5db; white-space: nowrap; }
-  .doc-body th { font-weight: 700; color: #00d4aa; background: #f0fdf9; }
-  .doc-body td { color: #444; }
-  .doc-body td:first-child { color: #111; font-weight: 600; white-space: normal; min-width: 120px; }
-  .doc-body tr:last-child td { border-bottom: none; }
+  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; border: 1px solid #e5e7eb; }
+  .doc-body th { background: #f0fdf9; font-weight: 700; color: #00d4aa; }
+  .doc-body td { color: #333; }
 
-  /* Blockquote */
+  /* Blockquote — match CMS */
   .doc-body blockquote {
-    background: #f0fdf9; border-left: 3px solid #00d4aa;
-    margin: 0.75rem 0; padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0;
-    font-size: 0.82rem; color: #444;
+    border-left: 3px solid #00d4aa; padding-left: 0.75rem;
+    margin: 0.5rem 0; color: #666; font-style: italic;
   }
   .doc-body blockquote p { margin-bottom: 0.25rem; }
-  .doc-body blockquote strong { color: #00d4aa; }
+  .doc-body blockquote strong { color: #00d4aa; font-style: normal; }
 
   /* Footer */
   .doc-footer {
@@ -143,10 +135,9 @@ const { Content } = await proposal.render();
     .doc { box-shadow: none; }
     .doc-header { padding: 1.25rem 1rem 1rem; }
     .doc-header h1 { font-size: 1.15rem; }
-    .doc-body { padding: 1rem 0.75rem 1.5rem; }
-    .doc-body h2 { font-size: 1rem; }
-    .doc-body h3 { font-size: 0.88rem; }
-    .doc-body table { font-size: 0.75rem; min-width: 500px; }
-    .doc-body th, .doc-body td { padding: 0.35rem 0.4rem; }
+    .doc-body { padding: 1rem 0.75rem 1.5rem; font-size: 0.88rem; }
+    .doc-body h2 { font-size: 1.05rem; }
+    .doc-body h3 { font-size: 0.92rem; }
+    .doc-body table { font-size: 0.82rem; min-width: 500px; display: block; overflow-x: auto; }
   }
 </style>
