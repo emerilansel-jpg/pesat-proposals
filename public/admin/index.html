@@ -8,227 +8,260 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #f5f5f5; color: #111; padding: 1rem; }
-    .admin { max-width: 800px; margin: 0 auto; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #f5f5f5; color: #111; padding: 1rem; min-height: 100vh; }
+    .admin { max-width: 900px; margin: 0 auto; }
     .header { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
     .header h1 { font-size: 1.3rem; font-weight: 800; }
     .header p { color: #666; font-size: 0.85rem; margin-top: 0.25rem; }
+    .lock-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
+    .lock-box { background: #fff; border-radius: 16px; padding: 2rem; width: 90%; max-width: 360px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+    .lock-box h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+    .lock-box input { width: 100%; padding: 0.7rem 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 1rem; text-align: center; letter-spacing: 0.2em; }
+    .lock-box input:focus { outline: none; border-color: #00d4aa; }
+    .lock-box button { margin-top: 0.75rem; width: 100%; padding: 0.7rem; background: #00d4aa; color: #0a0a2e; border: none; border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
+    .lock-box .error { color: #ef4444; font-size: 0.82rem; margin-top: 0.5rem; display: none; }
+    .hidden { display: none !important; }
     .tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
     .tab { padding: 0.5rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
     .tab.active { background: #00d4aa; color: #0a0a2e; border-color: #00d4aa; }
-    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
-    .card h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: #00d4aa; }
-    .field { margin-bottom: 1rem; }
-    .field label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.3rem; color: #444; }
-    .field input, .field textarea { width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.9rem; }
-    .field textarea { min-height: 80px; resize: vertical; }
-    .field input:focus, .field textarea:focus { outline: none; border-color: #00d4aa; box-shadow: 0 0 0 2px rgba(0,212,170,0.15); }
-    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; }
-    .btn-primary { background: #00d4aa; color: #0a0a2e; }
-    .btn-primary:hover { background: #00b894; }
-    .btn-secondary { background: #f3f4f6; color: #374151; }
-    .btn-secondary:hover { background: #e5e7eb; }
-    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
-    .status { padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.82rem; font-weight: 600; margin-top: 0.5rem; display: none; }
-    .status.success { display: block; background: #ecfdf5; color: #065f46; }
-    .status.error { display: block; background: #fef2f2; color: #991b1b; }
-    .hidden { display: none; }
-    @media (max-width: 640px) { body { padding: 0.5rem; } .card { padding: 1rem; } }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.25rem; margin-bottom: 0.75rem; }
+    .card h2 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: #00d4aa; }
+    .field { margin-bottom: 0.75rem; }
+    .field label { display: block; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.25rem; color: #666; }
+    .field input, .field textarea { width: 100%; padding: 0.55rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.88rem; }
+    .field textarea { min-height: 300px; resize: vertical; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.82rem; line-height: 1.6; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: #00d4aa; box-shadow: 0 0 0 2px rgba(0,212,170,0.12); }
+
+    /* Toolbar */
+    .toolbar { display: flex; gap: 0.3rem; flex-wrap: wrap; padding: 0.5rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px 8px 0 0; border-bottom: none; }
+    .toolbar button { padding: 0.35rem 0.6rem; border: 1px solid #e5e7eb; border-radius: 4px; background: #fff; cursor: pointer; font-size: 0.78rem; font-weight: 600; color: #374151; }
+    .toolbar button:hover { background: #00d4aa; color: #0a0a2e; border-color: #00d4aa; }
+    .toolbar .sep { width: 1px; background: #e5e7eb; margin: 0 0.2rem; }
+    .editor-wrap textarea { border-radius: 0 0 8px 8px; }
+
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .btn { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.88rem; cursor: pointer; }
+    .btn-save { background: #00d4aa; color: #0a0a2e; }
+    .btn-save:hover { background: #00b894; }
+    .btn-copy { background: #f3f4f6; color: #374151; }
+    .btn-copy:hover { background: #e5e7eb; }
+    .btn-deploy { background: #0a0a2e; color: #fff; }
+    .btn-deploy:hover { background: #1a1a4a; }
+
+    .deploy-panel { background: #0a0a2e; color: #fff; border-radius: 12px; padding: 1.25rem; margin-top: 0.75rem; display: none; }
+    .deploy-panel h3 { font-size: 0.95rem; margin-bottom: 0.75rem; color: #00d4aa; }
+    .deploy-panel code { display: block; background: #1a1a4a; padding: 0.75rem; border-radius: 8px; font-size: 0.82rem; margin-bottom: 0.5rem; white-space: pre-wrap; word-break: break-all; }
+    .deploy-panel .copy-btn { background: #00d4aa; color: #0a0a2e; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 600; font-size: 0.82rem; cursor: pointer; }
+
+    .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); background: #0a0a2e; color: #fff; padding: 0.6rem 1.2rem; border-radius: 10px; font-size: 0.85rem; font-weight: 600; opacity: 0; transition: opacity 0.3s; z-index: 200; pointer-events: none; }
+    .toast.show { opacity: 1; }
+
+    @media (max-width: 640px) { body { padding: 0.5rem; } .card { padding: 1rem; } .toolbar { gap: 0.2rem; } .toolbar button { padding: 0.3rem 0.45rem; font-size: 0.72rem; } }
   </style>
 </head>
 <body>
-  <div class="admin">
-    <div class="header">
-      <h1>📋 Pesat AI — CMS Proposal</h1>
-      <p>Edit proposal tanpa GitHub. Edit → Copy → Paste ke project.</p>
-    </div>
 
-    <div class="tabs">
-      <button class="tab active" onclick="showTab('bestink')">Best Ink Online</button>
-    </div>
-
-    <!-- Bestink Form -->
-    <div id="bestink" class="editor">
-      <div class="card">
-        <h2>📝 Info Dasar</h2>
-        <div class="field">
-          <label>Judul Proposal</label>
-          <input id="b-title" value="Proposal GEO/SEO — Best Ink Online">
-        </div>
-        <div class="field">
-          <label>Nama Klien</label>
-          <input id="b-client" value="Best Ink Online">
-        </div>
-        <div class="field">
-          <label>Tagline</label>
-          <input id="b-tagline" value="Supplier Mesin Digital Printing & Finishing Equipment Indonesia">
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>📊 Ringkasan</h2>
-        <div class="field">
-          <label>Ringkasan (Markdown)</label>
-          <textarea id="b-summary" rows="6">Pelanggan bertanya ke AI "rekomendasi supplier mesin DTF printing Indonesia" — yang muncul adalah **kompetitor** (Sinar Digital, Dwi Warna, Solusindo). Best Ink? **Zero hasil.**
-
-Padahal Best Ink punya produk bagus — DTF printer, laser engraving, Rp27jt–Rp650jt — tapi AI tidak bisa menemukan Anda karena jejak digital hampir tidak ada.
-
-**Solusinya:** Optimasi GEO/SEO agar Best Ink muncul saat customer cari via Google AI, ChatGPT, Perplexity. Dengan mesin senilai ratusan juta per unit, **1 penjualan tambahan dari AI search sudah mengubah permainan.**</textarea>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>💰 Investasi</h2>
-        <div class="field">
-          <label>Performance-Based (per bulan, USD)</label>
-          <input id="b-perf-monthly" value="625">
-        </div>
-        <div class="field">
-          <label>Fixed Price (total 3 bulan, USD)</label>
-          <input id="b-fixed-total" value="1563">
-        </div>
-        <div class="field">
-          <label>Rev Share Rate</label>
-          <input id="b-revshare" value="10-30% dari keuntungan tambahan">
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>📞 Kontak</h2>
-        <div class="field">
-          <label>Nama</label>
-          <input id="b-contact-name" value="Nell VH">
-        </div>
-        <div class="field">
-          <label>Jabatan</label>
-          <input id="b-contact-role" value="Founder & CEO, Pesat AI">
-        </div>
-        <div class="field">
-          <label>Email</label>
-          <input id="b-contact-email" value="care@pesat.ai">
-        </div>
-        <div class="field">
-          <label>Telepon</label>
-          <input id="b-contact-phone" value="+62 812-9040-1240">
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="btn btn-primary" onclick="generateMarkdown()">📋 Generate Markdown</button>
-        <button class="btn btn-secondary" onclick="copyMarkdown()">📄 Copy to Clipboard</button>
-        <button class="btn btn-secondary" onclick="downloadMarkdown()">💾 Download .md</button>
-      </div>
-      <div id="status" class="status"></div>
-
-      <div class="card" id="preview" style="display:none; margin-top:1rem;">
-        <h2>👁 Preview Markdown</h2>
-        <textarea id="md-output" rows="20" style="width:100%; font-family: monospace; font-size:0.8rem; border:1px solid #e5e7eb; border-radius:8px; padding:0.8rem;"></textarea>
-      </div>
+  <!-- Password Gate -->
+  <div class="lock-overlay" id="lock">
+    <div class="lock-box">
+      <h2>🔐 Masukkan Password</h2>
+      <input type="password" id="pwd-input" placeholder="••••••" autofocus>
+      <button onclick="unlock()">Masuk</button>
+      <p class="error" id="pwd-error">Password salah</p>
     </div>
   </div>
 
+  <!-- Main CMS -->
+  <div class="admin hidden" id="cms">
+    <div class="header">
+      <h1>📋 Pesat AI — CMS Proposal</h1>
+      <p>Edit proposal. Save otomatis tersimpan di browser. Deploy ke live dengan satu klik.</p>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+
+    <div id="editor"></div>
+
+    <div class="actions">
+      <button class="btn btn-save" onclick="saveCurrent()">💾 Save</button>
+      <button class="btn btn-copy" onclick="copyMd()">📋 Copy Markdown</button>
+      <button class="btn btn-deploy" onclick="showDeploy()">🚀 Deploy ke Live</button>
+    </div>
+
+    <div class="deploy-panel" id="deploy-panel">
+      <h3>🚀 Deploy ke Live</h3>
+      <p style="font-size:0.82rem;color:#94a3b8;margin-bottom:0.75rem;">Copy paste command di bawah ke terminal untuk update proposal di website live.</p>
+      <code id="deploy-commands"></code>
+      <button class="copy-btn" onclick="copyDeploy()">📋 Copy Commands</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
   <script>
-    function showTab(tab) {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      event.target.classList.add('active');
+    const PASSWORD = 'jdp123';
+    const STORAGE_KEY = 'pesat_proposals';
+
+    const defaultProposals = {
+      bestink: {
+        title: 'Proposal GEO/SEO — Best Ink Online',
+        client: 'Best Ink Online',
+        date: '2026-08-04',
+        validUntil: '2026-09-04',
+        slug: 'bestink',
+        content: '## Kenapa Proposal Ini Ada\n\nKami sudah melihat data digital Best Ink. Hasilnya? **Produknya bagus — tapi tidak bisa ditemukan.**\n\nKetika calon buyer ketik "rekomendasi supplier mesin DTF printing Indonesia" di ChatGPT atau Google AI, yang muncul adalah Sinar Digital, Dwi Warna, Solusindo. Best Ink? Tidak ada.\n\nIni bukan masalah produk. Ini masalah **visibility**. Dan itu bisa diperbaiki.\n\n> Detail lengkap sudah dibahas di Business Audit sebelumnya.\n\n---\n\n## 💰 Investasi\n\nKami menawarkan dua model. Keduanya tanpa setup fee.\n\n### 🎯 Performance-Based: Small Retainer + Rev Share\n\n| Komponen | Investasi |\n|---|---|\n| Retainer per bulan | **Rp 10.000.000** |\n| Setup | **Rp 0** (di-waive) |\n| Rev share | 10-30% dari keuntungan tambahan |\n| Kapan diambil? | **Hanya kalau ada keuntungan baru** |\n| Minimum | 6 bulan, review di bulan ke-3 |\n\n### 📦 Harga Tetap\n\n| Komponen | Investasi |\n|---|---|\n| Total 3 bulan | **Rp 25.000.000** |\n| Per bulan | ~Rp 8.300.000 |\n| Rev share | Tidak ada |\n| Minimum | 3 bulan |\n\n> 💱 Pembayaran dapat dalam **USD** sesuai kurs berlaku.\n\n---\n\n## 📊 Skenario Hasil (3 Bulan)\n\n| Metrik | Paling Rendah | Sesuai Target | Melebihi Target |\n|---|---|---|---|\n| Tambahan penjualan/bln | +1 unit | +2 unit | +4 unit |\n| Tambahan keuntungan (3 bln) | Rp 22,5 Jt | Rp 67,5 Jt | Rp 180 Jt |\n| **ROI** | **Balik modal** | **+Rp 34,5 Jt (+105%)** | **+Rp 147 Jt (+445%)** |\n\n---\n\n## ⚖️ Perbandingan: 3 Opsi\n\n| Opsi | 📢 Google Ads | 👨‍💼 Inhouse GEO Staff | 🤝 Bersama Pesat AI |\n|---|---|---|---|\n| Investasi | Rp 15-50 Jt/bulan | Rp 15-25 Jt/bulan | **Dari Rp 10 Jt/bulan** |\n| Hasil | Leads turun setiap bulan | Tergantung skill tim | **+2-3 mesin/bulan** |\n| Waktu hasil | Instan tapi berhenti kalau budget habis | 6-12 bulan | **3 bulan** |\n| Risiko | Budget habis = leads hilang | Hiring salah, turnover | **Review tiap bulan** |\n| Fokus Anda | Full bisnis | Terbagi | **Full bisnis** |\n\n> 📢 **Google Ads:** Results berhenti kalau budget habis. Iklan = sewa, bukan aset.\n> 👨‍💼 **Inhouse:** Rp 15-25 Jt/bulan + 6-12 bulan learning curve.\n> 🤝 **Pesat AI:** Rp 10 Jt/bulan, hasil 3 bulan. Investasi membangun aset.\n\n---\n\n## 📞 Kontak\n\n**Nell VH** — Founder & CEO, Pesat AI\n📧 care@pesat.ai | 📱 +62 812-9040-1240\n\n---\n*Proposal berlaku hingga 4 September 2026. Pembayaran dapat dalam USD sesuai kurs berlaku.*'
+      }
+    };
+
+    let proposals = {};
+    let currentSlug = 'bestink';
+
+    // === PASSWORD ===
+    function unlock() {
+      if (document.getElementById('pwd-input').value === PASSWORD) {
+        document.getElementById('lock').classList.add('hidden');
+        document.getElementById('cms').classList.remove('hidden');
+        init();
+      } else {
+        document.getElementById('pwd-error').style.display = 'block';
+        document.getElementById('pwd-input').value = '';
+      }
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !document.getElementById('lock').classList.contains('hidden')) unlock();
+    });
+
+    // === INIT ===
+    function init() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      proposals = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(defaultProposals));
+      if (!saved) localStorage.setItem(STORAGE_KEY, JSON.stringify(proposals));
+      renderTabs();
+      renderEditor(currentSlug);
     }
 
-    function generateMarkdown() {
-      const title = document.getElementById('b-title').value;
-      const client = document.getElementById('b-client').value;
-      const tagline = document.getElementById('b-tagline').value;
-      const summary = document.getElementById('b-summary').value;
-      const perfMonthly = document.getElementById('b-perf-monthly').value;
-      const fixedTotal = document.getElementById('b-fixed-total').value;
-      const revshare = document.getElementById('b-revshare').value;
-      const contactName = document.getElementById('b-contact-name').value;
-      const contactRole = document.getElementById('b-contact-role').value;
-      const contactEmail = document.getElementById('b-contact-email').value;
-      const contactPhone = document.getElementById('b-contact-phone').value;
+    // === TABS ===
+    function renderTabs() {
+      document.getElementById('tabs').innerHTML = Object.keys(proposals).map(s =>
+        `<button class="tab ${s===currentSlug?'active':''}" onclick="switchTab('${s}')">${proposals[s].client}</button>`
+      ).join('');
+    }
+    function switchTab(slug) { saveCurrent(); currentSlug = slug; renderTabs(); renderEditor(slug); }
 
-      const md = `---
-title: "${title}"
-client: "${client}"
-date: ${new Date().toISOString().split('T')[0]}
-validUntil: ${new Date(Date.now() + 31*24*60*60*1000).toISOString().split('T')[0]}
-draft: false
----
-
-## Ringkasan
-
-${summary}
-
----
-
-## Investasi
-
-> **Setup $0** — sudah di-waive.
-
-### Performance-Based
-
-| | Investasi |
-|---|---|
-| Per bulan | **$${perfMonthly}** |
-| Setup | **$0** (di-waive) |
-| Rev share | ${revshare} |
-| Minimum | 6 bulan, review di bulan ke-3 |
-
-### Harga Tetap
-
-| | Investasi |
-|---|---|
-| Total 3 bulan | **$${fixedTotal}** |
-| Rev share | Tidak ada |
-| Minimum | 3 bulan |
-
----
-
-## Kontak
-
-**${contactName}** — ${contactRole}
-📧 ${contactEmail} | 📱 ${contactPhone}
-
----
-
-*Semua investasi dalam USD.*
-`;
-
-      document.getElementById('md-output').value = md;
-      document.getElementById('preview').style.display = 'block';
-      showStatus('Markdown generated! Copy atau download di bawah.', 'success');
+    // === EDITOR ===
+    function renderEditor(slug) {
+      const p = proposals[slug];
+      document.getElementById('editor').innerHTML = `
+        <div class="card">
+          <h2>📝 Info Dasar</h2>
+          <div class="field"><label>Judul</label><input id="f-title" value="${esc(p.title)}"></div>
+          <div class="field"><label>Klien</label><input id="f-client" value="${esc(p.client)}"></div>
+          <div class="field"><label>Slug (URL)</label><input id="f-slug" value="${esc(p.slug)}"></div>
+          <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+            <div><label>Tanggal</label><input id="f-date" type="date" value="${p.date}"></div>
+            <div><label>Berlaku Hingga</label><input id="f-valid" type="date" value="${p.validUntil}"></div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>📄 Konten Proposal</h2>
+          <div class="toolbar">
+            <button onclick="md('## ')" title="Heading 2">H2</button>
+            <button onclick="md('### ')" title="Heading 3">H3</button>
+            <div class="sep"></div>
+            <button onclick="md('**','**')" title="Bold"><b>B</b></button>
+            <button onclick="md('*','*')" title="Italic"><i>I</i></button>
+            <button onclick="md('~~','~~')" title="Strikethrough"><s>S</s></button>
+            <div class="sep"></div>
+            <button onclick="md('- ')" title="List">• List</button>
+            <button onclick="md('1. ')" title="Numbered List">1. List</button>
+            <button onclick="md('> ')" title="Blockquote">❝ Quote</button>
+            <div class="sep"></div>
+            <button onclick="md('---\n')" title="Divider">— Line</button>
+            <button onclick="md('[','](url)')" title="Link">🔗 Link</button>
+            <button onclick="md('**💡 Contoh:** ')" title="Example">💡 Contoh</button>
+            <div class="sep"></div>
+            <button onclick="mdTable()" title="Insert Table">📊 Table</button>
+            <button onclick="mdChecklist()" title="Insert Checklist">✅ Checklist</button>
+          </div>
+          <div class="editor-wrap">
+            <textarea id="f-content">${esc(p.content)}</textarea>
+          </div>
+        </div>
+      `;
     }
 
-    function copyMarkdown() {
-      generateMarkdown();
-      const md = document.getElementById('md-output').value;
-      navigator.clipboard.writeText(md).then(() => {
-        showStatus('✅ Markdown copied to clipboard! Paste ke file .md di project.', 'success');
-      }).catch(() => {
-        document.getElementById('md-output').select();
-        showStatus('⚠️ Select all text di bawah dan copy manual (Ctrl+C).', 'error');
-      });
+    // === TOOLBAR ACTIONS ===
+    function md(before, after='') {
+      const ta = document.getElementById('f-content');
+      const start = ta.selectionStart, end = ta.selectionEnd;
+      const sel = ta.value.substring(start, end) || 'text';
+      ta.value = ta.value.substring(0, start) + before + sel + after + ta.value.substring(end);
+      ta.focus();
+      ta.setSelectionRange(start + before.length, start + before.length + sel.length);
+    }
+    function mdTable() {
+      md('\n| Column 1 | Column 2 | Column 3 |\n|---|---|---|\n| Data | Data | Data |\n');
+    }
+    function mdChecklist() {
+      md('\n- ✅ Item 1\n- ✅ Item 2\n- ✅ Item 3\n');
     }
 
-    function downloadMarkdown() {
-      generateMarkdown();
-      const md = document.getElementById('md-output').value;
-      const client = document.getElementById('b-client').value.toLowerCase().replace(/\s+/g, '-');
-      const blob = new Blob([md], { type: 'text/markdown' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${client}.md`;
-      a.click();
-      URL.revokeObjectURL(url);
-      showStatus('✅ File downloaded! Copy ke src/content/proposals/ lalu push.', 'success');
+    // === SAVE ===
+    function saveCurrent() {
+      proposals[currentSlug] = {
+        title: document.getElementById('f-title').value,
+        client: document.getElementById('f-client').value,
+        date: document.getElementById('f-date').value,
+        validUntil: document.getElementById('f-valid').value,
+        slug: document.getElementById('f-slug').value,
+        content: document.getElementById('f-content').value,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(proposals));
+      toast('✅ Tersimpan!');
     }
 
-    function showStatus(msg, type) {
-      const el = document.getElementById('status');
-      el.textContent = msg;
-      el.className = 'status ' + type;
-      setTimeout(() => { el.className = 'status'; }, 5000);
+    // === EXPORT ===
+    function generateMd() {
+      saveCurrent();
+      const p = proposals[currentSlug];
+      return `---\ntitle: "${p.title}"\nclient: "${p.client}"\ndate: ${p.date}\nvalidUntil: ${p.validUntil}\ndraft: false\n---\n\n${p.content}`;
     }
+    function copyMd() { navigator.clipboard.writeText(generateMd()).then(() => toast('📋 Copied!')); }
+    function downloadMd() {
+      const b = new Blob([generateMd()], {type:'text/markdown'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(b);
+      a.download = `${currentSlug}.md`; a.click(); toast('⬇ Downloaded!');
+    }
+
+    // === DEPLOY ===
+    function showDeploy() {
+      saveCurrent();
+      const slug = proposals[currentSlug].slug;
+      const md = generateMd();
+      const cmds = `# 1. Update file proposal
+cat > src/content/proposals/${slug}.md << 'EOF'
+${md}
+EOF
+
+# 2. Build & push
+cd "D:/Claude Cowork/Pesat Business Audit/proposal-cms"
+npx astro build
+git add -A && git commit -m "Update ${slug}" && git push
+
+# 3. Deploy ke Cloudflare Pages
+export CLOUDFLARE_API_TOKEN="YOUR_CLOUDFLARE_TOKEN"
+export CLOUDFLARE_ACCOUNT_ID="YOUR_ACCOUNT_ID"
+npx wrangler pages deploy dist --project-name=pesat-proposals`;
+      document.getElementById('deploy-commands').textContent = cmds;
+      document.getElementById('deploy-panel').style.display = 'block';
+    }
+    function copyDeploy() {
+      navigator.clipboard.writeText(document.getElementById('deploy-commands').textContent).then(() => toast('📋 Commands copied! Paste ke terminal.'));
+    }
+
+    // === UTILS ===
+    function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function toast(msg) { const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2500); }
   </script>
 </body>
 </html>
