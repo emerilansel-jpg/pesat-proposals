@@ -13,8 +13,6 @@
     .header { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
     .header h1 { font-size: 1.3rem; font-weight: 800; }
     .header p { color: #666; font-size: 0.85rem; margin-top: 0.25rem; }
-
-    /* Lock */
     .lock-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
     .lock-box { background: #fff; border-radius: 16px; padding: 2rem; width: 90%; max-width: 360px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
     .lock-box h2 { font-size: 1.2rem; margin-bottom: 1rem; }
@@ -23,13 +21,9 @@
     .lock-box button { margin-top: 0.75rem; width: 100%; padding: 0.7rem; background: #00d4aa; color: #0a0a2e; border: none; border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
     .lock-box .error { color: #ef4444; font-size: 0.82rem; margin-top: 0.5rem; display: none; }
     .hidden { display: none !important; }
-
-    /* Tabs */
     .tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
     .tab { padding: 0.5rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
     .tab.active { background: #00d4aa; color: #0a0a2e; border-color: #00d4aa; }
-
-    /* Cards */
     .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.25rem; margin-bottom: 0.75rem; }
     .card h2 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: #00d4aa; }
     .field { margin-bottom: 0.75rem; }
@@ -37,16 +31,11 @@
     .field input { width: 100%; padding: 0.55rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.88rem; }
     .field input:focus { outline: none; border-color: #00d4aa; box-shadow: 0 0 0 2px rgba(0,212,170,0.12); }
     .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-
-    /* WYSIWYG Toolbar */
     .toolbar { display: flex; align-items: center; gap: 0; padding: 0.4rem 0.5rem; background: #1a1a2e; border-radius: 8px 8px 0 0; flex-wrap: wrap; }
     .toolbar button { padding: 0.4rem 0.55rem; border: none; border-radius: 4px; background: transparent; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #ccc; min-width: 28px; text-align: center; }
     .toolbar button:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .toolbar button.active { background: rgba(0,212,170,0.2); color: #00d4aa; }
     .toolbar .sep { width: 1px; height: 20px; background: rgba(255,255,255,0.15); margin: 0 0.25rem; }
     .toolbar select { background: #0a0a2e; color: #ccc; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 0.3rem 0.4rem; font-size: 0.82rem; font-family: 'Inter', sans-serif; }
-
-    /* WYSIWYG Editor */
     .wysiwyg { min-height: 500px; padding: 1.25rem; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px; font-size: 0.92rem; line-height: 1.7; outline: none; overflow-y: auto; }
     .wysiwyg:focus { border-color: #00d4aa; }
     .wysiwyg h1 { font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.5rem; }
@@ -60,8 +49,6 @@
     .wysiwyg th, .wysiwyg td { border: 1px solid #e5e7eb; padding: 0.5rem 0.6rem; text-align: left; }
     .wysiwyg th { background: #f0fdf9; font-weight: 700; color: #00d4aa; }
     .wysiwyg hr { border: none; border-top: 1px solid #e5e7eb; margin: 1rem 0; }
-
-    /* Actions */
     .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; align-items: center; }
     .btn { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.88rem; cursor: pointer; }
     .btn-save { background: #00d4aa; color: #0a0a2e; }
@@ -72,16 +59,12 @@
     .deploy-status.ok { color: #059669; }
     .deploy-status.err { color: #dc2626; }
     .deploy-status.loading { color: #d97706; }
-
-    /* Toast */
     .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); background: #0a0a2e; color: #fff; padding: 0.6rem 1.2rem; border-radius: 10px; font-size: 0.85rem; font-weight: 600; opacity: 0; transition: opacity 0.3s; z-index: 200; pointer-events: none; }
     .toast.show { opacity: 1; }
-
     @media (max-width: 640px) { .admin { padding: 0.5rem; } .card { padding: 1rem; } .row2 { grid-template-columns: 1fr; } .wysiwyg { min-height: 350px; } .toolbar { gap: 0.15rem; } .toolbar button { padding: 0.35rem 0.45rem; font-size: 0.78rem; } }
   </style>
 </head>
 <body>
-
   <div class="lock-overlay" id="lock">
     <div class="lock-box">
       <h2>Masukkan Password</h2>
@@ -96,38 +79,151 @@
       <h1>Pesat AI — CMS Proposal</h1>
       <p>Edit proposal langsung. Save = otomatis deploy ke live.</p>
     </div>
-
     <div class="tabs" id="tabs"></div>
     <div id="editor"></div>
-
     <div class="actions">
       <button class="btn btn-save" id="save-btn" onclick="saveAndDeploy()">Save & Deploy</button>
       <button class="btn btn-secondary" onclick="copyHtml()">Copy HTML</button>
-      <button class="btn btn-secondary" onclick="downloadMd()">Download .md</button>
       <span class="deploy-status" id="deploy-status"></span>
     </div>
   </div>
-
   <div class="toast" id="toast"></div>
 
   <script>
     const PASSWORD = 'jdp123';
     const STORAGE_KEY = 'pesat_proposals';
 
-    const defaultContent = `<h2>Kenapa Proposal Ini Ada</h2>
+    // Latest proposal content as HTML (pre-rendered)
+    const LATEST_HTML = `<h2>Kenapa Proposal Ini Ada</h2>
 <p>Kami sudah melihat data digital Best Ink. Hasilnya? <b>Produknya bagus — tapi tidak bisa ditemukan.</b></p>
 <p>Ketika calon buyer ketik "rekomendasi supplier mesin DTF printing Indonesia" di ChatGPT atau Google AI, yang muncul adalah kompetitor. Best Ink? Tidak ada.</p>
+<p><b>Yang perlu Anda waspadai:</b></p>
+<ul>
+<li><b>Google Ads</b> = ketergantungan. Budget habis = leads hilang. Tidak membangun aset apapun.</li>
+<li><b>Social media</b> = algoritma berubah kapan saja. Instagram bisa turunkan reach 80% dalam semalam. Anda tidak punya kendali.</li>
+<li><b>Keduanya</b> = Anda menyewa, bukan memiliki. Tiap bulan harus bayar lagi dari nol.</li>
+</ul>
+<p><b>GEO/SEO berbeda.</b> Ini membangun <b>aset jangka panjang</b> — backlinks, authority, brand equity — yang terus bekerja bahkan setelah Anda berhenti bayar.</p>
 <blockquote>Detail lengkap sudah dibahas di Business Audit sebelumnya.</blockquote>
 <hr>
 <h2>Investasi</h2>
 <p>Kami menawarkan dua model. Keduanya tanpa setup fee.</p>
-<table><tr><th></th><th>Model A: Retainer + Rev Share</th><th>Model B: Harga Tetap</th></tr><tr><td>Setup</td><td>Rp 0 (di-waive)</td><td>Rp 0 (di-waive)</td></tr><tr><td>Per bulan</td><td>Rp 10.000.000</td><td>~Rp 8.300.000</td></tr><tr><td>Total 3 bulan</td><td>~Rp 30-40 Juta</td><td><b>Rp 25.000.000</b></td></tr><tr><td>Rev share</td><td>10-30% dari untung tambahan</td><td>Tidak ada</td></tr><tr><td>Minimum</td><td>6 bulan</td><td>3 bulan</td></tr></table>
-<blockquote>Catatan: Pembayaran dapat dilakukan dalam USD sesuai kurs berlaku.</blockquote>`;
+<table>
+<tr><th></th><th>Model A: Retainer + Rev Share</th><th>Model B: Harga Tetap</th></tr>
+<tr><td>Setup</td><td>Rp 0 (di-waive)</td><td>Rp 0 (di-waive)</td></tr>
+<tr><td>Per bulan</td><td><b>Rp 6.000.000</b></td><td>~Rp 8.300.000</td></tr>
+<tr><td>Total 3 bulan</td><td>~Rp 18-28 Juta</td><td><b>Rp 25.000.000</b></td></tr>
+<tr><td>Rev share</td><td>10-30% dari untung tambahan</td><td>Tidak ada</td></tr>
+<tr><td>Kapan diambil?</td><td>Hanya kalau ada keuntungan baru</td><td>—</td></tr>
+<tr><td>Minimum</td><td>6 bulan</td><td>3 bulan</td></tr>
+<tr><td>Review</td><td>Bulan ke-3</td><td>—</td></tr>
+<tr><td>Cocok untuk</td><td>Percaya hasil akan besar</td><td>Ingin budget pasti</td></tr>
+</table>
+<blockquote>Contoh Model A: 1 penjualan mesin tambahan (Rp 75 Jt, margin 15% = untung Rp 11,25 Jt). Rev share 20% = Rp 2,25 Jt. Total bayar = Rp 8,25 Jt. Anda tetap untung <b>Rp 9 Jt</b>.</blockquote>
+<blockquote>Catatan: Pembayaran dapat dilakukan dalam USD sesuai kurs berlaku.</blockquote>
+<h3>Yang Tidak Termasuk</h3>
+<blockquote>Investasi pihak ketiga (media coverage, backlinks, influencer) bukan fee Pesat AI. Anggaran: Rp 500-5 Juta/bulan per kebutuhan.</blockquote>
+<hr>
+<h2>Apa yang Anda Dapatkan</h2>
+<h3>Bulan 1: Fondasi</h3>
+<ul>
+<li>Brand Blueprint</li>
+<li>Audit website + rekomendasi prioritas</li>
+<li>Optimasi Google Business Profile</li>
+<li>Pendaftaran 20 direktori online</li>
+<li>Riset 50 kata kunci potensial</li>
+</ul>
+<h3>Bulan 2: Implementasi</h3>
+<ul>
+<li>Optimasi SEO halaman produk utama</li>
+<li>Schema markup (Product, Offer, Review)</li>
+<li>Sistem balas ulasan otomatis</li>
+<li>5-10 backlink dari situs industri</li>
+</ul>
+<h3>Bulan 3: Konsolidasi</h3>
+<ul>
+<li>SEO on-page lanjutan</li>
+<li>Tutup gap kompetitor</li>
+<li>Optimasi mobile &amp; speed</li>
+<li>Roadmap strategi bulan ke-4</li>
+</ul>
+<h3>Yang Kami Kelola Setiap Bulan</h3>
+<ul>
+<li>Monitoring ranking di Google &amp; AI search</li>
+<li>Update strategi berdasarkan data performa</li>
+<li>Optimasi konten website berkala</li>
+<li>Update Google Business Profile</li>
+<li>Riset keyword baru &amp; peluang konten</li>
+<li>Review performa kompetitor</li>
+<li>Maintenance teknis SEO</li>
+<li>Pelaporan bulanan</li>
+<li>Meeting strategi (bi-weekly, 30 menit)</li>
+</ul>
+<hr>
+<h2>Skenario Hasil (3 Bulan)</h2>
+<blockquote>Angka berdasarkan data publik — harga mesin Rp 27-650 Juta, margin 15%, 3-5 penjualan/bulan.</blockquote>
+<table>
+<tr><th>Metrik</th><th>Paling Rendah</th><th>Sesuai Target</th><th>Melebihi Target</th></tr>
+<tr><td>Tambahan penjualan / bln</td><td>+1 unit</td><td>+2 unit</td><td>+4 unit</td></tr>
+<tr><td>Rata-rata harga mesin</td><td>Rp 50 Jt</td><td>Rp 75 Jt</td><td>Rp 100 Jt</td></tr>
+<tr><td>Tambahan omzet (3 bln)</td><td>Rp 150 Jt</td><td>Rp 450 Jt</td><td>Rp 1,2 M</td></tr>
+<tr><td>Tambahan keuntungan (3 bln)</td><td>Rp 22,5 Jt</td><td>Rp 67,5 Jt</td><td>Rp 180 Jt</td></tr>
+<tr><td><b>ROI</b></td><td><b>Hampir balik modal</b></td><td><b>+Rp 34,5 Jt (+105%)</b></td><td><b>+Rp 147 Jt (+445%)</b></td></tr>
+</table>
+<hr>
+<h2>Perbandingan: 3 Opsi</h2>
+<table>
+<tr><th></th><th>Google Ads</th><th>Inhouse GEO Staff</th><th>Bersama Pesat AI</th></tr>
+<tr><td>Investasi / bulan</td><td>Rp 6.000.000 (ads spend)</td><td>Rp 15-25 Jt (gaji + tools)</td><td><b>Rp 6.000.000</b></td></tr>
+<tr><td>Hasil</td><td>Leads turun tiap bulan</td><td>Tergantung skill</td><td><b>+2-3 mesin/bulan</b></td></tr>
+<tr><td>Waktu hasil</td><td>Instan tapi budget habis = stop</td><td>6-12 bulan</td><td><b>3 bulan</b></td></tr>
+<tr><td>Risiko</td><td>Budget habis = leads hilang</td><td>Hiring salah, turnover</td><td><b>Review tiap bulan</b></td></tr>
+<tr><td>Tools</td><td>Beli sendiri</td><td>Beli sendiri</td><td><b>Sudah termasuk</b></td></tr>
+<tr><td>Update AI</td><td>Tidak ada</td><td>Harus sendiri</td><td><b>Tim update terus</b></td></tr>
+<tr><td>Fokus Anda</td><td>Full bisnis</td><td>Terbagi</td><td><b>Full bisnis</b></td></tr>
+<tr><td><b>Investasi 3 bln</b></td><td><b>Rp 18 Jt</b></td><td><b>Rp 45-75 Jt</b></td><td><b>Rp 18 Jt</b></td></tr>
+<tr><td><b>Potensi untung (3 bln)</b></td><td><b>Rp 0</b></td><td><b>Rp 0-67,5 Jt</b></td><td><b>Rp 22,5-180 Jt</b></td></tr>
+<tr><td><b>ROI</b></td><td><b>-100%</b></td><td><b>0-90%</b></td><td><b>+105-445%</b></td></tr>
+<tr><td><b>Aset setelah 3 bln</b></td><td><b>Tidak ada</b></td><td><b>Tidak pasti</b></td><td><b>Backlinks + authority</b></td></tr>
+</table>
+<blockquote>Google Ads: Rp 6 Jt/bulan. Uang keluar, tidak ada aset. Kalau berhenti, leads hilang.</blockquote>
+<blockquote>Inhouse: Rp 15-25 Jt/bulan. Belum tentu hasil. Kalau staff resign, knowledge hilang.</blockquote>
+<blockquote>Pesat AI: Rp 6 Jt/bulan. <b>Lebih murah dari inhouse.</b> Yang dibangun adalah aset jangka panjang.</blockquote>
+<hr>
+<h2>Pengerjaan</h2>
+<h3>Minggu 1-2: Fondasi</h3>
+<ol>
+<li>Brand voice dan posisi Best Ink</li>
+<li>Review website + rekomendasi SEO</li>
+<li>Riset keyword (mesin DTF, laser engraving, digital printing)</li>
+<li>Analisis 5 kompetitor utama</li>
+<li>Target customer dan niat pencarian</li>
+</ol>
+<h3>Minggu 3-6: Implementasi</h3>
+<ol>
+<li>Optimasi SEO halaman produk utama</li>
+<li>Optimasi Google Maps (kategori, foto, deskripsi)</li>
+<li>Daftarkan di direktori industri printing</li>
+<li>Schema markup (Product, LocalBusiness)</li>
+<li>Optimasi untuk AI search</li>
+</ol>
+<h3>Bulan 2-3: Percepatan</h3>
+<ol>
+<li>Konten klaster (panduan memilih mesin, perbandingan harga)</li>
+<li>Backlink dari situs industri printing</li>
+<li>Program generating ulasan pembeli</li>
+<li>Optimasi data untuk chatbot/AI</li>
+<li>Laporan performa dan pivot strategi</li>
+</ol>
+<hr>
+<h2>Kontak</h2>
+<p><b>Nell VH</b> — Founder &amp; CEO, Pesat AI<br>
+care@pesat.ai | +62 812-9040-1240</p>
+<blockquote>Proposal berlaku hingga 4 September 2026. Pembayaran dapat dalam USD sesuai kurs berlaku.</blockquote>`;
 
     let proposals = {};
     let currentSlug = 'bestink';
 
-    // === PASSWORD ===
     function unlock() {
       if (document.getElementById('pwd-input').value === PASSWORD) {
         document.getElementById('lock').classList.add('hidden');
@@ -142,25 +238,30 @@
       if (e.key === 'Enter' && !document.getElementById('lock').classList.contains('hidden')) unlock();
     });
 
-    // === INIT ===
     function init() {
       const saved = localStorage.getItem(STORAGE_KEY);
-      proposals = saved ? JSON.parse(saved) : {
-        bestink: {
-          title: 'Proposal GEO/SEO — Best Ink Online',
-          client: 'Best Ink Online',
-          date: '2026-08-04',
-          validUntil: '2026-09-04',
-          slug: 'bestink',
-          content: defaultContent
+      if (saved) {
+        proposals = JSON.parse(saved);
+        // Migrate: if content starts with ## it's markdown, convert to HTML
+        Object.keys(proposals).forEach(slug => {
+          if (proposals[slug].content && proposals[slug].content.trim().startsWith('##')) {
+            proposals[slug].content = mdToHtml(proposals[slug].content);
+          }
+        });
+        // Always update bestink with latest content
+        if (proposals.bestink) {
+          proposals.bestink.content = LATEST_HTML;
+        } else {
+          proposals.bestink = { title: 'Proposal GEO/SEO — Best Ink Online', client: 'Best Ink Online', date: '2026-08-04', validUntil: '2026-09-04', slug: 'bestink', content: LATEST_HTML };
         }
-      };
-      if (!saved) localStorage.setItem(STORAGE_KEY, JSON.stringify(proposals));
+      } else {
+        proposals = { bestink: { title: 'Proposal GEO/SEO — Best Ink Online', client: 'Best Ink Online', date: '2026-08-04', validUntil: '2026-09-04', slug: 'bestink', content: LATEST_HTML } };
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(proposals));
       renderTabs();
       renderEditor(currentSlug);
     }
 
-    // === TABS ===
     function renderTabs() {
       document.getElementById('tabs').innerHTML = Object.keys(proposals).map(s =>
         `<button class="tab ${s===currentSlug?'active':''}" onclick="switchTab('${s}')">${proposals[s].client}</button>`
@@ -168,7 +269,6 @@
     }
     function switchTab(slug) { saveLocal(); currentSlug = slug; renderTabs(); renderEditor(slug); }
 
-    // === EDITOR (WYSIWYG) ===
     function renderEditor(slug) {
       const p = proposals[slug];
       document.getElementById('editor').innerHTML = `
@@ -204,24 +304,17 @@
             <button onmousedown="insertTable()" title="Table">⊞</button>
             <button onmousedown="insertHr()" title="Divider">—</button>
             <div class="sep"></div>
-            <button onmousedown="execCmd('removeFormat')" title="Clear Format">✕</button>
+            <button onmousedown="execCmd('removeFormat')" title="Clear">✕</button>
           </div>
           <div class="wysiwyg" id="wysiwyg" contenteditable="true">${p.content}</div>
         </div>
       `;
     }
 
-    // === WYSIWYG COMMANDS ===
-    function execCmd(cmd, val=null) {
-      document.execCommand(cmd, false, val);
-      document.getElementById('wysiwyg').focus();
-    }
-    function insertTable() {
-      execCmd('insertHTML', '<table><tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr><tr><td>Data</td><td>Data</td><td>Data</td></tr><tr><td>Data</td><td>Data</td><td>Data</td></tr></table><p></p>');
-    }
+    function execCmd(cmd, val=null) { document.execCommand(cmd, false, val); document.getElementById('wysiwyg').focus(); }
+    function insertTable() { execCmd('insertHTML', '<table><tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr><tr><td>Data</td><td>Data</td><td>Data</td></tr><tr><td>Data</td><td>Data</td><td>Data</td></tr></table><p></p>'); }
     function insertHr() { execCmd('insertHTML', '<hr><p></p>'); }
 
-    // === SAVE ===
     function saveLocal() {
       const p = proposals[currentSlug];
       p.title = document.getElementById('f-title').value;
@@ -233,7 +326,6 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(proposals));
     }
 
-    // === HTML → MARKDOWN ===
     function htmlToMd(html) {
       let md = html;
       md = md.replace(/<h1[^>]*>(.*?)<\/h1>/gi, '# $1\n\n');
@@ -244,7 +336,6 @@
       md = md.replace(/<i[^>]*>(.*?)<\/i>/gi, '*$1*');
       md = md.replace(/<em[^>]*>(.*?)<\/em>/gi, '*$1*');
       md = md.replace(/<u[^>]*>(.*?)<\/u>/gi, '__$1__');
-      md = md.replace(/<s[^>]*>(.*?)<\/s>/gi, '~~$1~~');
       md = md.replace(/<blockquote[^>]*>(.*?)<\/blockquote>/gi, '> $1\n\n');
       md = md.replace(/<hr[^>]*>/gi, '---\n\n');
       md = md.replace(/<br[^>]*>/gi, '\n');
@@ -252,20 +343,12 @@
       md = md.replace(/<li[^>]*>(.*?)<\/li>/gi, '- $1\n');
       md = md.replace(/<\/?ul[^>]*>/gi, '\n');
       md = md.replace(/<\/?ol[^>]*>/gi, '\n');
-      // Table
       md = md.replace(/<table[^>]*>/gi, '\n');
       md = md.replace(/<\/table>/gi, '\n');
-      md = md.replace(/<thead[^>]*>/gi, '');
-      md = md.replace(/<\/thead>/gi, '');
-      md = md.replace(/<tbody[^>]*>/gi, '');
-      md = md.replace(/<\/tbody>/gi, '');
       md = md.replace(/<tr[^>]*>(.*?)<\/tr>/gi, (_, cells) => {
         const c = cells.replace(/<t[hd][^>]*>(.*?)<\/t[hd]>/gi, '$1').trim();
-        return '| ' + c.replace(/\|/g, '\\|').replace(/\n/g, ' ') + ' |\n';
+        return '| ' + c.replace(/\n/g, ' ') + ' |\n';
       });
-      md = md.replace(/<th[^>]*>(.*?)<\/th>/gi, '$1');
-      md = md.replace(/<td[^>]*>(.*?)<\/td>/gi, '$1');
-      // Clean
       md = md.replace(/<[^>]+>/g, '');
       md = md.replace(/&amp;/g, '&');
       md = md.replace(/&lt;/g, '<');
@@ -275,39 +358,44 @@
       return md.trim();
     }
 
-    // === SAVE & DEPLOY ===
+    function mdToHtml(md) {
+      let html = md;
+      html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+      html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+      html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+      html = html.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      html = html.replace(/\*(.*?)\*/g, '<i>$1</i>');
+      html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
+      html = html.replace(/^---$/gim, '<hr>');
+      html = html.replace(/^- (.*$)/gim, '<li>$1</li>');
+      html = html.replace(/\n\n/g, '</p><p>');
+      html = '<p>' + html + '</p>';
+      html = html.replace(/<\/p><p><h/g, '<h');
+      html = html.replace(/<\/h([1-3])><\/p>/g, '</h$1>');
+      html = html.replace(/<p><\/p>/g, '');
+      return html;
+    }
+
     async function saveAndDeploy() {
       saveLocal();
       const p = proposals[currentSlug];
       const md = `---\ntitle: "${p.title}"\nclient: "${p.client}"\ndate: ${p.date}\nvalidUntil: ${p.validUntil}\ndraft: false\n---\n\n${htmlToMd(p.content)}`;
-
       const status = document.getElementById('deploy-status');
       const btn = document.getElementById('save-btn');
       status.textContent = 'Deploying...';
       status.className = 'deploy-status loading';
       btn.disabled = true;
       btn.textContent = 'Deploying...';
-
       try {
-        const resp = await fetch('/api/deploy', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ slug: p.slug, content: md })
-        });
+        const resp = await fetch('/api/deploy', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug: p.slug, content: md }) });
         const data = await resp.json();
-        if (resp.ok && data.success) {
-          status.textContent = 'Deployed! Check live site.';
-          status.className = 'deploy-status ok';
-          toast('Deployed!');
-        } else {
-          throw new Error(data.error || 'Deploy failed');
-        }
+        if (resp.ok && data.success) { status.textContent = 'Deployed!'; status.className = 'deploy-status ok'; toast('Deployed!'); }
+        else throw new Error(data.error || 'Failed');
       } catch (e) {
-        // Fallback: copy to clipboard
         await navigator.clipboard.writeText(md);
-        status.textContent = 'Worker error. Copied to clipboard — deploy manual.';
+        status.textContent = 'Copied! Deploy manual.';
         status.className = 'deploy-status err';
-        toast('Copied! Deploy manual.');
+        toast('Copied!');
       } finally {
         btn.disabled = false;
         btn.textContent = 'Save & Deploy';
@@ -315,22 +403,7 @@
       }
     }
 
-    // === EXPORT ===
-    function copyHtml() {
-      saveLocal();
-      const content = document.getElementById('wysiwyg').innerHTML;
-      navigator.clipboard.writeText(content).then(() => toast('HTML copied!'));
-    }
-    function downloadMd() {
-      saveLocal();
-      const p = proposals[currentSlug];
-      const md = `---\ntitle: "${p.title}"\nclient: "${p.client}"\ndate: ${p.date}\nvalidUntil: ${p.validUntil}\ndraft: false\n---\n\n${htmlToMd(p.content)}`;
-      const b = new Blob([md], {type:'text/markdown'});
-      const a = document.createElement('a'); a.href = URL.createObjectURL(b);
-      a.download = `${p.slug}.md`; a.click(); toast('Downloaded!');
-    }
-
-    // === UTILS ===
+    function copyHtml() { saveLocal(); navigator.clipboard.writeText(document.getElementById('wysiwyg').innerHTML).then(() => toast('Copied!')); }
     function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
     function toast(msg) { const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2500); }
   </script>

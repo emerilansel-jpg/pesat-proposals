@@ -31,15 +31,15 @@ Kami menawarkan dua model. Keduanya tanpa setup fee.
 | | **Model A: Retainer + Rev Share** | **Model B: Harga Tetap** |
 |---|---|---|
 | Setup | Rp 0 (di-waive) | Rp 0 (di-waive) |
-| Per bulan | Rp 10.000.000 | ~Rp 8.300.000 |
-| Total 3 bulan | ~Rp 30-40 Juta | **Rp 25.000.000** |
+| Per bulan | Rp 6.000.000 | ~Rp 8.300.000 |
+| Total 3 bulan | ~Rp 18-28 Juta | **Rp 25.000.000** |
 | Rev share | 10-30% dari untung tambahan | Tidak ada |
 | Kapan rev share diambil? | Hanya kalau ada keuntungan baru | — |
 | Minimum komitmen | 6 bulan | 3 bulan |
 | Review | Bulan ke-3 | — |
 | Cocok untuk | Percaya hasil akan besar | Ingin budget pasti |
 
-> Contoh Model A: 1 penjualan mesin tambahan (Rp 75 Jt, margin 15% = untung Rp 11,25 Jt). Rev share 20% = Rp 2,25 Jt. Total bayar = Rp 12,25 Jt. Anda tetap untung **Rp 9 Jt**.
+> Contoh Model A: 1 penjualan mesin tambahan (Rp 75 Jt, margin 15% = untung Rp 11,25 Jt). Rev share 20% = Rp 2,25 Jt. Total bayar = Rp 8,25 Jt. Anda tetap untung **Rp 9 Jt**.
 
 > Catatan: Pembayaran dapat dilakukan dalam **USD** sesuai kurs berlaku.
 
@@ -107,14 +107,14 @@ Kami menawarkan dua model. Keduanya tanpa setup fee.
 
 | | Google Ads | Inhouse GEO Staff | Bersama Pesat AI |
 |---|---|---|---|
-| Investasi / bulan | Rp 6.000.000 (ads spend) | Rp 15-25 Jt (gaji + tools) | **Rp 10.000.000** |
+| Investasi / bulan | Rp 6.000.000 (ads spend) | Rp 15-25 Jt (gaji + tools) | **Rp 6.000.000** |
 | Hasil | Leads turun tiap bulan | Tergantung skill | **+2-3 mesin/bulan** |
 | Waktu hasil | Instan tapi budget habis = stop | 6-12 bulan | **3 bulan** |
 | Risiko | Budget habis = leads hilang | Hiring salah, turnover | **Review tiap bulan** |
 | Tools | Beli sendiri | Beli sendiri | **Sudah termasuk** |
 | Update AI | Tidak ada | Harus sendiri | **Tim update terus** |
 | Fokus Anda | Full bisnis | Terbagi | **Full bisnis** |
-| **Investasi 3 bln** | **Rp 18 Jt** | **Rp 45-75 Jt** | **Rp 30 Jt** |
+| **Investasi 3 bln** | **Rp 18 Jt** | **Rp 45-75 Jt** | **Rp 18 Jt** |
 | **Potensi untung (3 bln)** | **Rp 0** | **Rp 0-67,5 Jt** | **Rp 22,5-180 Jt** |
 | **ROI** | **-100%** | **0-90%** | **+105-445%** |
 | **Aset setelah 3 bln** | **Tidak ada** | **Tidak pasti** | **Backlinks + authority** |
@@ -123,7 +123,7 @@ Kami menawarkan dua model. Keduanya tanpa setup fee.
 
 > Inhouse: Rp 15-25 Jt/bulan. Belum tentu hasil. Kalau staff resign, knowledge hilang.
 
-> Pesat AI: Rp 10 Jt/bulan. **Lebih murah dari inhouse.** Yang dibangun adalah aset jangka panjang.
+> Pesat AI: Rp 6 Jt/bulan. **Lebih murah dari inhouse.** Yang dibangun adalah aset jangka panjang.
 
 ---
 

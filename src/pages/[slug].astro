@@ -107,11 +107,10 @@ const { Content } = await proposal.render();
   /* Tables */
   .doc-body table {
     width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.25rem; font-size: 0.82rem;
-    display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
-    border: 1px solid #e5e7eb; border-radius: 8px;
+    border: 2px solid #d1d5db; border-radius: 8px; overflow: hidden;
   }
-  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; border: 1px solid #e5e7eb; white-space: nowrap; }
-  .doc-body th { font-weight: 700; color: #00d4aa; background: #f0fdf9; position: sticky; top: 0; }
+  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; border: 1px solid #d1d5db; white-space: nowrap; }
+  .doc-body th { font-weight: 700; color: #00d4aa; background: #f0fdf9; }
   .doc-body td { color: #444; }
   .doc-body td:first-child { color: #111; font-weight: 600; white-space: normal; min-width: 120px; }
   .doc-body tr:last-child td { border-bottom: none; }
