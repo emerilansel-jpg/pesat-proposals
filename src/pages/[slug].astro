@@ -90,31 +90,31 @@ const { Content } = await proposal.render();
   /* Body — match CMS WYSIWYG styling */
   .doc-body { padding: 1.5rem 1.25rem 2rem; font-size: 0.92rem; line-height: 1.7; }
 
-  .doc-body h1 { font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.5rem; color: #111; }
-  .doc-body h2 { font-size: 1.2rem; font-weight: 700; margin: 1rem 0 0.5rem; color: #00d4aa; }
-  .doc-body h2:first-child { margin-top: 0; }
-  .doc-body h3 { font-size: 1rem; font-weight: 700; margin: 0.75rem 0 0.35rem; color: #111; }
-  .doc-body p { margin-bottom: 0.5rem; color: #333; }
-  .doc-body ul, .doc-body ol { padding-left: 1.5rem; margin-bottom: 0.5rem; color: #333; }
-  .doc-body li { margin-bottom: 0.25rem; }
-  .doc-body strong { color: #111; }
-  .doc-body hr { border: none; border-top: 1px solid #e5e7eb; margin: 1rem 0; }
+  :global(.doc-body h1) { font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.5rem; color: #111; }
+  :global(.doc-body h2) { font-size: 1.2rem; font-weight: 700; margin: 1rem 0 0.5rem; color: #00d4aa; }
+  :global(.doc-body h2:first-child) { margin-top: 0; }
+  :global(.doc-body h3) { font-size: 1rem; font-weight: 700; margin: 0.75rem 0 0.35rem; color: #111; }
+  :global(.doc-body p) { margin-bottom: 0.5rem; color: #333; }
+  :global(.doc-body ul), :global(.doc-body ol) { padding-left: 1.5rem; margin-bottom: 0.5rem; color: #333; }
+  :global(.doc-body li) { margin-bottom: 0.25rem; }
+  :global(.doc-body strong) { color: #111; }
+  :global(.doc-body hr) { border: none; border-top: 1px solid #e5e7eb; margin: 1rem 0; }
 
   /* Tables — match CMS */
-  .doc-body table {
+  :global(.doc-body table) {
     width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem;
   }
-  .doc-body th, .doc-body td { padding: 0.5rem 0.6rem; text-align: left; border: 1px solid #e5e7eb; }
-  .doc-body th { background: #f0fdf9; font-weight: 700; color: #00d4aa; }
-  .doc-body td { color: #333; }
+  :global(.doc-body th), :global(.doc-body td) { padding: 0.5rem 0.6rem; text-align: left; border: 1px solid #e5e7eb; }
+  :global(.doc-body th) { background: #f0fdf9; font-weight: 700; color: #00d4aa; }
+  :global(.doc-body td) { color: #333; }
 
   /* Blockquote — match CMS */
-  .doc-body blockquote {
+  :global(.doc-body blockquote) {
     border-left: 3px solid #00d4aa; padding-left: 0.75rem;
     margin: 0.5rem 0; color: #666; font-style: italic;
   }
-  .doc-body blockquote p { margin-bottom: 0.25rem; }
-  .doc-body blockquote strong { color: #00d4aa; font-style: normal; }
+  :global(.doc-body blockquote p) { margin-bottom: 0.25rem; }
+  :global(.doc-body blockquote strong) { color: #00d4aa; font-style: normal; }
 
   /* Footer */
   .doc-footer {
