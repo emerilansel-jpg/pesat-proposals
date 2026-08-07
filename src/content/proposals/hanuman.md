@@ -6,6 +6,8 @@ validUntil: 2026-09-07
 draft: false
 ---
 
+<div style="text-align:center;margin:0 0 24px"><a href="/hanuman/demo/" style="display:inline-block;padding:14px 32px;background:#00d4aa;color:#0a0a2e;font-weight:700;border-radius:12px;text-decoration:none;font-size:16px;box-shadow:0 4px 16px rgba(0,212,170,0.3)">🚀 Lihat Live Demo</a></div>
+
 ## Masalah: Broker Fee Makan Margin Anda
 
 Hanuman Expo punya portofolio kelas atas — TOTO, Honda, Canon, UNIQLO, Asian Games 2018, BRI, Fortinet. **Tapi Anda masih bergantung pada broker untuk mendapatkan proyek.**
@@ -164,3 +166,5 @@ Contoh email: "Kami baru saja menyelesaikan booth Honda di pameran otomotif terb
 ---
 
 *Proposal berlaku hingga 7 September 2026. Pembayaran dapat dalam USD sesuai kurs berlaku.*
+
+<div style="text-align:center;margin:24px 0 0"><a href="/hanuman/demo/" style="display:inline-block;padding:14px 32px;background:#00d4aa;color:#0a0a2e;font-weight:700;border-radius:12px;text-decoration:none;font-size:16px;box-shadow:0 4px 16px rgba(0,212,170,0.3)">🚀 Lihat Live Demo</a></div>

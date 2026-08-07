@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI Cold Email Demo — Hanuman Expo | Pesat AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#00d4aa;--dark:#0a0a2e;--bg:#f5f5f5;--card:#fff;--text:#333;--muted:#999;--red:#ef4444;--blue:#3b82f6;--green:#22c55e;--orange:#f59e0b;--purple:#8b5cf6}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.app{max-width:480px;margin:0 auto;min-height:100vh;background:var(--card);position:relative;overflow:hidden}
+
+/* Header */
+.header{background:var(--dark);color:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
+.header .logo{width:32px;height:32px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:var(--dark)}
+.header .brand{font-weight:700;font-size:14px}
+.header .step-badge{margin-left:auto;background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600}
+
+/* Progress */
+.progress{height:3px;background:#e5e7eb;position:sticky;top:64px;z-index:99}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--blue));transition:width 0.6s cubic-bezier(0.4,0,0.2,1);width:0%}
+
+/* Steps */
+.step{display:none;padding:24px 20px 100px;animation:fadeUp 0.5s ease}
+.step.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes checkmark{0%{stroke-dashoffset:50}100%{stroke-dashoffset:0}}
+@keyframes ripple{0%{transform:scale(0);opacity:1}100%{transform:scale(4);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+@keyframes sendFly{0%{transform:translate(0,0) scale(1);opacity:1}50%{transform:translate(100px,-50px) scale(0.8);opacity:0.8}100%{transform:translate(200px,-100px) scale(0.5);opacity:0}}
+@keyframes popIn{0%{transform:scale(0);opacity:0}60%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+@keyframes slideRight{from{transform:translateX(-100%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glow{0%,100%{box-shadow:0 0 5px var(--primary)}50%{box-shadow:0 0 20px var(--primary),0 0 40px rgba(0,212,170,0.3)}}
+
+.section-title{font-size:13px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px}
+.step h2{font-size:22px;font-weight:800;color:var(--dark);line-height:1.3;margin-bottom:6px}
+.step .subtitle{font-size:14px;color:#666;margin-bottom:20px;line-height:1.5}
+
+/* Cards */
+.card{background:var(--card);border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:12px;transition:all 0.3s}
+.card:hover{border-color:var(--primary);box-shadow:0 4px 12px rgba(0,212,170,0.1)}
+.card.selected{border-color:var(--primary);background:#f0fdf9;animation:pulse 0.3s}
+
+/* Industry choices */
+.industry-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.industry-card{background:var(--card);border:2px solid #e5e7eb;border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden}
+.industry-card:active{transform:scale(0.97)}
+.industry-card.selected{border-color:var(--primary);background:#f0fdf9}
+.industry-card .icon{font-size:28px;margin-bottom:6px}
+.industry-card .name{font-size:13px;font-weight:700;color:var(--dark)}
+.industry-card .count{font-size:11px;color:var(--muted);margin-top:2px}
+.industry-card:nth-child(5){grid-column:span 2}
+
+/* Company list */
+.company-list{max-height:300px;overflow-y:auto;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:16px}
+.company-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #f3f4f6;font-size:13px;animation:slideIn 0.3s ease backwards}
+.company-item:nth-child(1){animation-delay:0s}
+.company-item:nth-child(2){animation-delay:0.05s}
+.company-item:nth-child(3){animation-delay:0.1s}
+.company-item:nth-child(4){animation-delay:0.15s}
+.company-item:nth-child(5){animation-delay:0.2s}
+.company-item:nth-child(6){animation-delay:0.25s}
+.company-item:nth-child(7){animation-delay:0.3s}
+.company-item:nth-child(8){animation-delay:0.35s}
+.company-item .avatar{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;flex-shrink:0}
+.company-item .info{flex:1;min-width:0}
+.company-item .cname{font-weight:600;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.company-item .cloc{font-size:11px;color:var(--muted)}
+.company-item .badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;flex-shrink:0}
+.badge-found{background:#dcfce7;color:#166534}
+.badge-email{background:#dbeafe;color:#1e40af}
+
+/* Email preview */
+.email-box{background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;margin-bottom:16px}
+.email-header{background:#f3f4f6;padding:12px 14px;border-bottom:1px solid #e5e7eb;font-size:12px}
+.email-header .field{display:flex;gap:8px;margin-bottom:4px}
+.email-header .label{color:var(--muted);font-weight:600;min-width:45px}
+.email-header .value{color:var(--dark);font-weight:500}
+.email-body{padding:14px;font-size:13px;line-height:1.7;color:#444}
+.email-body .highlight{background:linear-gradient(12deg,rgba(0,212,170,0.15),rgba(59,130,246,0.15));padding:1px 4px;border-radius:4px;font-weight:600;color:var(--dark)}
+.email-body p{margin-bottom:10px}
+
+/* Sending animation */
+.send-container{display:flex;flex-direction:column;align-items:center;gap:16px;padding:20px 0}
+.send-progress{width:100%;background:#e5e7eb;border-radius:20px;height:8px;overflow:hidden}
+.send-progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--blue));border-radius:20px;transition:width 0.3s;width:0%}
+.send-stats{display:flex;gap:16px;justify-content:center}
+.send-stat{text-align:center}
+.send-stat .num{font-size:24px;font-weight:800;color:var(--dark)}
+.send-stat .label{font-size:11px;color:var(--muted)}
+.email-fly{position:absolute;font-size:24px;animation:sendFly 1.5s ease-in-out forwards;pointer-events:none}
+
+/* Report */
+.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.report-card{background:linear-gradient(135deg,#f0fdf9,#ecfdf5);border:1px solid #d1fae5;border-radius:12px;padding:16px;text-align:center}
+.report-card .num{font-size:28px;font-weight:800;color:var(--primary)}
+.report-card .label{font-size:11px;color:#666;margin-top:4px}
+.report-card.wide{grid-column:span 2}
+
+/* Inbox */
+.inbox-item{background:var(--card);border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin-bottom:10px;animation:popIn 0.4s ease backwards;position:relative;overflow:hidden}
+.inbox-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green)}
+.inbox-item:nth-child(1){animation-delay:0.1s}
+.inbox-item:nth-child(2){animation-delay:0.3s}
+.inbox-item:nth-child(3){animation-delay:0.5s}
+.inbox-from{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.inbox-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.inbox-name{font-weight:700;font-size:13px;color:var(--dark)}
+.inbox-time{font-size:11px;color:var(--muted);margin-left:auto}
+.inbox-subject{font-weight:600;font-size:13px;color:var(--dark);margin-bottom:4px}
+.inbox-preview{font-size:12px;color:#666;line-height:1.5}
+.inbox-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-top:8px}
+.tag-hot{background:#fef2f2;color:#dc2626}
+.tag-warm{background:#fff7ed;color:#ea580c}
+.tag-reply{background:#f0fdf9;color:#16a34a}
+
+/* Buttons */
+.btn{display:block;width:100%;padding:16px;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.3s;text-align:center;font-family:inherit}
+.btn:active{transform:scale(0.97)}
+.btn-primary{background:var(--primary);color:var(--dark)}
+.btn-primary:hover{background:#00c49d;box-shadow:0 4px 16px rgba(0,212,170,0.3)}
+.btn-dark{background:var(--dark);color:#fff}
+.btn-dark:hover{background:#1a1a4e}
+.btn-outline{background:transparent;border:2px solid #e5e7eb;color:var(--dark)}
+.btn-outline:hover{border-color:var(--primary)}
+.btn-group{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+
+/* Loading */
+.loading-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.95);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.loading-overlay.show{opacity:1;pointer-events:auto}
+.spinner{width:48px;height:48px;border:3px solid #e5e7eb;border-top-color:var(--primary);border-radius:50%;animation:spin 0.8s linear infinite}
+.loading-text{font-size:14px;color:#666;text-align:center}
+.loading-detail{font-size:12px;color:var(--muted);text-align:center;max-width:280px}
+
+/* Confetti */
+.confetti{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:300}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall 3s ease-in forwards}
+@keyframes confettiFall{0%{transform:translateY(-100vh) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+/* Scrollbar */
+.company-list::-webkit-scrollbar{width:4px}
+.company-list::-webkit-scrollbar-track{background:transparent}
+.company-list::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
+
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--dark);color:#fff;padding:12px 20px;border-radius:12px;font-size:13px;font-weight:600;z-index:250;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Mobile */
+@media(max-width:480px){
+  .step h2{font-size:20px}
+  .industry-grid{grid-template-columns:1fr 1fr}
+  .report-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="app" id="app">
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">P</div>
+    <div class="brand">Pesat AI</div>
+    <div class="step-badge" id="stepBadge">Langkah 1/7</div>
+  </div>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- Step 1: Pilih Industri -->
+  <div class="step active" id="step1">
+    <div class="section-title">Langkah 1</div>
+    <h2>Pilih Target Industri</h2>
+    <p class="subtitle">Pilih industri mana yang mau Anda target untuk cold email campaign.</p>
+    <div class="industry-grid">
+      <div class="industry-card" onclick="selectIndustry(this,'Automotive')" data-industry="automotive">
+        <div class="icon">🚗</div>
+        <div class="name">Automotive</div>
+        <div class="count">247 perusahaan</div>
+      </div>
+      <div class="industry-card" onclick="selectIndustry(this,'Technology')" data-industry="tech">
+        <div class="icon">💻</div>
+        <div class="name">Technology</div>
+        <div class="count">389 perusahaan</div>
+      </div>
+      <div class="industry-card" onclick="selectIndustry(this,'Retail & F&B')" data-industry="retail">
+        <div class="icon">🛍️</div>
+        <div class="name">Retail & F&B</div>
+        <div class="count">412 perusahaan</div>
+      </div>
+      <div class="industry-card" onclick="selectIndustry(this,'Pharmaceutical')" data-industry="pharma">
+        <div class="icon">💊</div>
+        <div class="name">Pharmaceutical</div>
+        <div class="count">156 perusahaan</div>
+      </div>
+      <div class="industry-card" onclick="selectIndustry(this,'Manufacturing')" data-industry="manufacturing">
+        <div class="icon">🏭</div>
+        <div class="name">Manufacturing</div>
+        <div class="count">523 perusahaan</div>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btnStep1" onclick="goStep2()" disabled>Mulai Riset →</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Hasil Riset Perusahaan -->
+  <div class="step" id="step2">
+    <div class="section-title">Langkah 2</div>
+    <h2 id="step2Title">Perusahaan Ditemukan!</h2>
+    <p class="subtitle">Kami berhasil menemukan <strong id="companyCount">389</strong> perusahaan dari internet yang sesuai target Anda.</p>
+    <div class="company-list" id="companyList"></div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="goStep3()">🔍 Lanjut Cari Email →</button>
+      <button class="btn btn-outline" onclick="goStep(1)">← Ganti Industri</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Email Ditemukan -->
+  <div class="step" id="step3">
+    <div class="section-title">Langkah 3</div>
+    <h2>Email Ditemukan! 🎯</h2>
+    <p class="subtitle">Dari <strong id="step3Total">389</strong> perusahaan, kami menemukan <strong id="step3Emails">312</strong> email decision maker yang valid.</p>
+    <div class="company-list" id="emailList"></div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="goStep4()">✍️ Lanjut Tulis Email →</button>
+    </div>
+  </div>
+
+  <!-- Step 4: Preview Email -->
+  <div class="step" id="step4">
+    <div class="section-title">Langkah 4</div>
+    <h2>Template Email Siap! ✨</h2>
+    <p class="subtitle">AI kami sudah membuat email personal untuk setiap perusahaan. Ini contohnya:</p>
+    <div class="email-box">
+      <div class="email-header">
+        <div class="field"><span class="label">Dari:</span><span class="value">hanuman@hanumanexpo.com</span></div>
+        <div class="field"><span class="label">Kepada:</span><span class="value" id="emailTo">budi@toyota-astra.co.id</span></div>
+        <div class="field"><span class="label">Subjek:</span><span class="value" id="emailSubject">Booth Honda di GIICOMVEC 2026 — Bisakah Kami Bantu?</span></div>
+      </div>
+      <div class="email-body" id="emailBody">
+        <p>Halo <span class="highlight">Pak Budi</span>,</p>
+        <p>Kami lihat <span class="highlight">Toyota Astra Motor</span> akan berpartisipasi di <span class="highlight">GIICOMVEC 2026</span> bulan depan. Kami dari Hanuman Expo baru saja menyelesaikan booth <span class="highlight">Honda</span> di pameran otomotif terbesar di Indonesia.</p>
+        <p>Bisakah kami tunjukkan bagaimana kami bisa bantu <span class="highlight">Toyota Astra</span> tampil lebih impressive dari kompetitor?</p>
+        <p>Salam,<br><strong>Nell VH</strong><br>Hanuman Expo</p>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="goStep5()">🚀 Hubungi Sekarang →</button>
+      <button class="btn btn-outline" onclick="goStep(3)">← Kembali</button>
+    </div>
+  </div>
+
+  <!-- Step 5: Sending Animation -->
+  <div class="step" id="step5">
+    <div class="section-title">Langkah 5</div>
+    <h2>Mengirim Email... 📨</h2>
+    <p class="subtitle">AI sedang mengirim email personal ke setiap decision maker.</p>
+    <div class="send-container" id="sendContainer">
+      <div class="send-stats">
+        <div class="send-stat"><div class="num" id="sentCount">0</div><div class="label">Terkirim</div></div>
+        <div class="send-stat"><div class="num" id="openedCount">0</div><div class="label">Dibuka</div></div>
+        <div class="send-stat"><div class="num" id="replyCount">0</div><div class="label">Balasan</div></div>
+      </div>
+      <div class="send-progress"><div class="send-progress-fill" id="sendProgress"></div></div>
+      <div id="sendLog" style="font-size:12px;color:var(--muted);text-align:center;min-height:40px"></div>
+    </div>
+    <div id="sendDone" style="display:none">
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="goStep6()">📊 Lihat Laporan →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 6: Report -->
+  <div class="step" id="step6">
+    <div class="section-title">Langkah 6</div>
+    <h2>Laporan Campaign 📊</h2>
+    <p class="subtitle">Campaign sudah berjalan. Tunggu beberapa hari dan lihat inbox masuk!</p>
+    <div class="report-grid">
+      <div class="report-card"><div class="num">312</div><div class="label">Email Terkirim</div></div>
+      <div class="report-card"><div class="num">187</div><div class="label">Dibuka (60%)</div></div>
+      <div class="report-card"><div class="num">43</div><div class="label">Klik Link (14%)</div></div>
+      <div class="report-card"><div class="num">18</div><div class="label">Balasan (5.8%)</div></div>
+      <div class="report-card wide" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#fbbf24">
+        <div class="num" style="color:#d97706">8</div>
+        <div class="label" style="color:#92400e">Meeting Scheduled 🎯</div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;padding:20px">
+      <div style="font-size:40px;margin-bottom:8px">⏳</div>
+      <div style="font-weight:700;color:var(--dark);margin-bottom:4px">Tunggu 2-3 Hari</div>
+      <div style="font-size:13px;color:#666">Email sedang dalam perjalanan. Decision maker biasanya merespon dalam 24-72 jam.</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="goStep7()">📬 Lihat Inbox Masuk →</button>
+    </div>
+  </div>
+
+  <!-- Step 7: Inbox -->
+  <div class="step" id="step7">
+    <div class="section-title">Langkah 7</div>
+    <h2>Inbox Masuk! 🎉</h2>
+    <p class="subtitle">Beberapa decision maker sudah membalas! Lihat semangat mereka.</p>
+    <div id="inboxList">
+      <div class="inbox-item">
+        <div class="inbox-from">
+          <div class="inbox-avatar" style="background:#3b82f6">BT</div>
+          <div>
+            <div class="inbox-name">Budi Tanjung</div>
+            <div style="font-size:11px;color:var(--muted)">Toyota Astra Motor</div>
+          </div>
+          <div class="inbox-time">2 jam lalu</div>
+        </div>
+        <div class="inbox-subject">Re: Booth Honda di GIICOMVEC 2026</div>
+        <div class="inbox-preview">Halo Nell, terima kasih emailnya! Kami memang lagi cari kontraktor booth untuk GIICOMVEC. Bisa kirim proposal lengkap dan portfolio Honda-nya? Kalau bisa minggu ini...</div>
+        <div class="inbox-tag tag-hot">🔥 Hot Lead</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-from">
+          <div class="inbox-avatar" style="background:#8b5cf6">RS</div>
+          <div>
+            <div class="inbox-name">Rina Sari</div>
+            <div style="font-size:11px;color:var(--muted)">PT Kimia Farma</div>
+          </div>
+          <div class="inbox-time">5 jam lalu</div>
+        </div>
+        <div class="inbox-subject">Re: Booth Kimia Farma di IFEX 2026</div>
+        <div class="inbox-preview">Wah, kebetulan sekali! Kami baru dapat budget untuk booth di IFEX. Portfolio Hanuman keren banget. Bisa janji presentasi minggu depan?</div>
+        <div class="inbox-tag tag-hot">🔥 Hot Lead</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-from">
+          <div class="inbox-avatar" style="background:#f59e0b">AW</div>
+          <div>
+            <div class="inbox-name">Andi Wijaya</div>
+            <div style="font-size:11px;color:var(--muted)">Fortinet Indonesia</div>
+          </div>
+          <div class="inbox-time">1 hari lalu</div>
+        </div>
+        <div class="inbox-subject">Re: Booth Fortinet di Security Conference</div>
+        <div class="inbox-preview">Hi Nell, thanks for reaching out. We're actually looking for a new booth contractor. Your portfolio with Honda and Canon is impressive. Can we schedule a call this week?</div>
+        <div class="inbox-tag tag-warm">⚡ Warm Lead</div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;padding:20px;background:linear-gradient(135deg,#f0fdf9,#ecfdf5);border-color:#86efac;margin-top:16px">
+      <div style="font-size:40px;margin-bottom:8px">🎯</div>
+      <div style="font-weight:700;color:var(--dark);margin-bottom:4px;font-size:16px">3 Hot Leads Masuk!</div>
+      <div style="font-size:13px;color:#666;margin-bottom:12px">Potensi 3 proyek baru senilai <strong style="color:var(--primary)">Rp 300-450 Juta</strong></div>
+      <div style="font-size:12px;color:var(--muted)">Ini baru dari 312 email. Bayangkan jika 1.000 email/bulan?</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="showCTA()" style="font-size:16px;padding:18px">🚀 Mulai Campaign Saya</button>
+      <button class="btn btn-outline" onclick="goStep(1)">↻ Mulai Ulang Demo</button>
+    </div>
+  </div>
+
+  <!-- CTA Final -->
+  <div class="step" id="cta" style="text-align:center;padding-top:60px">
+    <div style="font-size:64px;margin-bottom:16px;animation:float 2s ease-in-out infinite">🚀</div>
+    <h2 style="font-size:24px;margin-bottom:8px">Siap Mulai?</h2>
+    <p class="subtitle" style="max-width:320px;margin:0 auto 24px">Strategy Call 30 menit GRATIS. Kita breakdown roadmap spesifik bisnis Anda.</p>
+    <div class="btn-group" style="max-width:320px;margin:0 auto">
+      <a href="https://wa.me/628119118898?text=Halo%20Nell%20dari%20pesat.ai%20-%20saya%20mau%20strategy%20call%20untuk%20cold%20email%20campaign" class="btn btn-primary" style="text-decoration:none;font-size:16px">💬 Chat WhatsApp Sekarang</a>
+      <a href="https://proposal.pesat.ai/hanuman/" class="btn btn-outline" style="text-decoration:none">📄 Lihat Proposal Lengkap</a>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loading">
+  <div class="spinner"></div>
+  <div class="loading-text" id="loadingText">Memproses...</div>
+  <div class="loading-detail" id="loadingDetail"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+const industries = {
+  automotive: { name: 'Automotive', count: 247, emails: 198, companies: [
+    {name:'Toyota Astra Motor',loc:'Jakarta',color:'#3b82f6',email:'budi@toyota-astra.co.id'},
+    {name:'PT Honda Prospect Motor',loc:'Karawang',color:'#ef4444',email:'riko@honda-indonesia.co.id'},
+    {name:'PT Mitsubishi Motors',loc:'Tangerang',color:'#8b5cf6',email:'dian@mitsubishi-motors.co.id'},
+    {name:'Suzuki Indomobil Sales',loc:'Jakarta',color:'#f59e0b',email:'andi@suzuki.co.id'},
+    {name:'PT Toyota Astra Financial',loc:'Jakarta',color:'#3b82f6',email:'maylinda@taf.co.id'},
+    {name:'Astra Daihatsu Motor',loc:'Karawang',color:'#22c55e',email:'herman@daihatsu.co.id'},
+    {name:'PT Hyundai Motors',loc:'Tangerang',color:'#0ea5e9',email:'joko@hyundai-motor.co.id'},
+    {name:'Wuling Motors Indonesia',loc:'Cikarang',color:'#dc2626',email:'sari@wuling-motors.co.id'},
+  ]},
+  tech: { name: 'Technology', count: 389, emails: 312, companies: [
+    {name:'PT Telkom Indonesia',loc:'Bandung',color:'#3b82f6',email:'agung@telkom.co.id'},
+    {name:'PT Bank Mandiri',loc:'Jakarta',color:'#1e40af',email:'rini@mandiri.co.id'},
+    {name:'PT Astra International',loc:'Jakarta',color:'#8b5cf6',email:'budi@astra.co.id'},
+    {name:'GoTo Group',loc:'Jakarta',color:'#22c55e',email:'dedi@gotocompany.com'},
+    {name:'PT Pertamina',loc:'Jakarta',color:'#ef4444',email:'sari@pertamina.com'},
+    {name:'PT PLN Persero',loc:'Jakarta',color:'#f59e0b',email:'andi@pln.co.id'},
+    {name:'PT Semen Indonesia',loc:'Gresik',color:'#6366f1',email:'heri@semen-indonesia.co.id'},
+    {name:'PT Unilever Indonesia',loc:'Tangerang',color:'#0ea5e9',email:'maya@unilever.co.id'},
+  ]},
+  retail: { name: 'Retail & F&B', count: 412, emails: 287, companies: [
+    {name:'PT Alfamart',loc:'Tangerang',color:'#ef4444',email:'budi@alfamart.co.id'},
+    {name:'PT Indomaret',loc:'Jakarta',color:'#3b82f6',email:'rina@indomaret.co.id'},
+    {name:'PT Mayora Indah',loc:'Jakarta',color:'#22c55e',email:'andi@mayora.co.id'},
+    {name:'PT Garudafood',loc:'Jakarta',color:'#f59e0b',email:'sari@garudafood.co.id'},
+    {name:'PT Indofood Sukses',loc:'Jakarta',color:'#8b5cf6',email:'herman@indofood.co.id'},
+    {name:'PT Sinar Mas Agribusiness',loc:'Jakarta',color:'#0ea5e9',email:'dian@sinarmas-agri.com'},
+    {name:'PT Ultra Jaya',loc:'Bandung',color:'#dc2626',email:'joko@ultrajaya.co.id'},
+    {name:'PT Campina Ice Cream',loc:'Surabaya',color:'#6366f1',email:'maya@campina.co.id'},
+  ]},
+  pharma: { name: 'Pharmaceutical', count: 156, emails: 124, companies: [
+    {name:'PT Kimia Farma',loc:'Jakarta',color:'#3b82f6',email:'rina@kimiafarma.co.id'},
+    {name:'PT Bio Farma',loc:'Bandung',color:'#22c55e',email:'budi@biofarma.co.id'},
+    {name:'PT Kalbe Farma',loc:'Jakarta',color:'#8b5cf6',email:'andi@kalbe.co.id'},
+    {name:'PT Dexa Medica',loc:'Jakarta',color:'#f59e0b',email:'sari@dexamedica.com'},
+    {name:'PT Tempo Scan Pacific',loc:'Jakarta',color:'#ef4444',email:'herman@tempo.co.id'},
+    {name:'PT Sanbe Farma',loc:'Bandung',color:'#0ea5e9',email:'dian@sanbe.co.id'},
+    {name:'PT Merck Indonesia',loc:'Jakarta',color:'#6366f1',email:'joko@merck.co.id'},
+    {name:'PT Pfizer Indonesia',loc:'Jakarta',color:'#dc2626',email:'maya@pfizer.co.id'},
+  ]},
+  manufacturing: { name: 'Manufacturing', count: 523, emails: 418, companies: [
+    {name:'PT Astra Otoparts',loc:'Karawang',color:'#3b82f6',email:'budi@astra-otoparts.co.id'},
+    {name:'PT United Tractors',loc:'Jakarta',color:'#22c55e',email:'andi@unitedtractors.co.id'},
+    {name:'PT Pamapersada',loc:'Jakarta',color:'#8b5cf6',email:'sari@pamapersada.com'},
+    {name:'PT Jaya Konstruksi',loc:'Jakarta',color:'#f59e0b',email:'herman@jayakonstruksi.co.id'},
+    {name:'PT Adhi Karya',loc:'Jakarta',color:'#ef4444',email:'dian@adhikarya.co.id'},
+    {name:'PT Waskita Karya',loc:'Jakarta',color:'#0ea5e9',email:'joko@waskita.co.id'},
+    {name:'PT Holcim Indonesia',loc:'Tangerang',color:'#6366f1',email:'maya@holcim.co.id'},
+    {name:'PT Indocement',loc:'Citeureup',color:'#dc2626',email:'andi@indocement.co.id'},
+  ]}
+};
+
+let currentStep = 1;
+let selectedIndustry = null;
+
+function goStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  currentStep = n;
+  document.getElementById('stepBadge').textContent = 'Langkah ' + n + '/7';
+  document.getElementById('progressFill').style.width = ((n / 7) * 100) + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectIndustry(el, name) {
+  document.querySelectorAll('.industry-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedIndustry = el.dataset.industry;
+  document.getElementById('btnStep1').disabled = false;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function showLoading(text, detail, duration) {
+  return new Promise(resolve => {
+    const l = document.getElementById('loading');
+    document.getElementById('loadingText').textContent = text;
+    document.getElementById('loadingDetail').textContent = detail || '';
+    l.classList.add('show');
+    setTimeout(() => { l.classList.remove('show'); resolve(); }, duration);
+  });
+}
+
+function createCompanyList(container, data, showEmail) {
+  container.innerHTML = '';
+  data.forEach((c, i) => {
+    const div = document.createElement('div');
+    div.className = 'company-item';
+    div.style.animationDelay = (i * 0.05) + 's';
+    div.innerHTML = `
+      <div class="avatar" style="background:${c.color}">${c.name.split(' ').map(w=>w[0]).slice(0,2).join('')}</div>
+      <div class="info"><div class="cname">${c.name}</div><div class="cloc">${c.loc}</div></div>
+      ${showEmail ? `<span class="badge badge-email">✉️ ${c.email.split('@')[0]}</span>` : `<span class="badge badge-found">✓ Ditemukan</span>`}
+    `;
+    container.appendChild(div);
+  });
+}
+
+async function goStep2() {
+  const data = industries[selectedIndustry];
+  await showLoading('🔍 Searching internet...', `Mencari perusahaan ${data.name} dari Google, LinkedIn, dan database publik...`, 2000);
+  await showLoading('📊 Processing data...', `${data.count} perusahaan ditemukan. Filtering kualitas data...`, 1500);
+  document.getElementById('step2Title').textContent = `${data.count} Perusahaan Ditemukan!`;
+  document.getElementById('companyCount').textContent = data.count;
+  createCompanyList(document.getElementById('companyList'), data.companies, false);
+  goStep(2);
+  showToast(`✅ ${data.count} perusahaan ditemukan!`);
+}
+
+async function goStep3() {
+  const data = industries[selectedIndustry];
+  await showLoading('📧 Extracting emails...', `Mencari email decision maker dari ${data.count} perusahaan...`, 2000);
+  await showLoading('✅ Validating emails...', `${data.emails} email valid ditemukan. Memverifikasi deliverability...`, 1500);
+  document.getElementById('step3Total').textContent = data.count;
+  document.getElementById('step3Emails').textContent = data.emails;
+  createCompanyList(document.getElementById('emailList'), data.companies, true);
+  goStep(3);
+  showToast(`✅ ${data.emails} email valid!`);
+}
+
+async function goStep4() {
+  const data = industries[selectedIndustry];
+  const c = data.companies[0];
+  document.getElementById('emailTo').textContent = c.email;
+  document.getElementById('emailSubject').textContent = `Booth ${data.companies[1]?.name.split(' ')[1] || 'Partner'} di Pameran 2026 — Bisakah Kami Bantu?`;
+  goStep(4);
+  showToast('✨ Email template sudah dipersonalisasi!');
+}
+
+async function goStep5() {
+  goStep(5);
+  const companies = industries[selectedIndustry].companies;
+  const total = companies.length;
+  let sent = 0, opened = 0, replied = 0;
+  const log = document.getElementById('sendLog');
+  const prog = document.getElementById('sendProgress');
+  const names = ['Toyota Astra', 'Honda PM', 'Mitsubishi', 'Suzuki', 'Astra Financial', 'Daihatsu', 'Hyundai', 'Wuling'];
+
+  for (let i = 0; i < total; i++) {
+    sent++;
+    document.getElementById('sentCount').textContent = sent;
+    prog.style.width = ((i + 1) / total * 100) + '%';
+    log.innerHTML = `📨 Mengirim ke <strong>${companies[i].name}</strong>...`;
+    if (i > 0 && i % 3 === 0) { opened = Math.min(Math.floor(sent * 0.6), sent); document.getElementById('openedCount').textContent = opened; }
+    if (i > 2 && i % 5 === 0) { replied = Math.min(Math.floor(sent * 0.05), sent); document.getElementById('replyCount').textContent = replied; }
+    await new Promise(r => setTimeout(r, 400));
+  }
+  log.innerHTML = '✅ Semua email terkirim!';
+  document.getElementById('sendDone').style.display = 'block';
+  showToast(`🚀 ${sent} email terkirim!`);
+}
+
+function showCTA() {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('cta').classList.add('active');
+  document.getElementById('stepBadge').textContent = 'Selesai! 🎉';
+  document.getElementById('progressFill').style.width = '100%';
+  launchConfetti();
+}
+
+function launchConfetti() {
+  const c = document.createElement('div');
+  c.className = 'confetti';
+  const colors = ['#00d4aa','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#22c55e'];
+  for (let i = 0; i < 50; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDelay = Math.random() * 2 + 's';
+    p.style.animationDuration = (2 + Math.random() * 2) + 's';
+    c.appendChild(p);
+  }
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 4000);
+}
+
+// Init
+document.getElementById('progressFill').style.width = '14.28%';
+</script>
+</body>
+</html>
