@@ -49,18 +49,16 @@ Kami menawarkan sistem cold email yang didukung AI untuk menjangkau Decision Mak
 
 Kami menawarkan dua model. Keduanya tanpa setup fee.
 
-| | **Model A: Retainer + Rev Share** | **Model B: Harga Tetap** |
+| | **Model A: Retainer + Profit Share** | **Model B: Harga Tetap** |
 |---|---|---|
 | Setup | Rp 0 (di-waive) | Rp 0 (di-waive) |
 | Per bulan | Rp 5.000.000 | Rp 8.000.000 |
-| Total 3 bulan | ~Rp 15-25 Juta | **Rp 24.000.000** |
-| Rev share | 5-10% dari proyek baru yang closing | Tidak ada |
-| Kapan rev share diambil? | Hanya kalau closing proyek dari campaign | — |
-| Minimum komitmen | 6 bulan | 3 bulan |
+| Profit share | 10-30% dari net profit proyek baru | Tidak ada |
+| Kapan profit share diambil? | Hanya kalau closing & ada untung | — |
 | Review | Bulan ke-3 | — |
-| Cocok untuk | Percaya closing akan besar | Ingin budget pasti |
+| Cocok untuk | Percaya hasil akan besar | Ingin budget pasti |
 
-> Contoh Model A: 1 proyek closing dari campaign (Rp 100 Jt). Rev share 8% = Rp 8 Jt. Total bayar = Rp 13 Jt. Anda tetap hemat **Rp 4 Jt** dibanding broker (Rp 12 Jt fee).
+> Contoh Model A: 1 proyek closing (Rp 100 Jt, margin 25% = untung Rp 25 Jt). Profit share 15% = Rp 3,75 Jt. Total bayar = Rp 8,75 Jt. Anda tetap hemat **Rp 3,25 Jt** dibanding broker (Rp 12 Jt fee).
 
 > Catatan: Pembayaran dapat dilakukan dalam **USD** sesuai kurs berlaku.
 
