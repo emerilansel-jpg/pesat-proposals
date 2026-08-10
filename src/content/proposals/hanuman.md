@@ -72,25 +72,31 @@ Kami menawarkan dua model. Keduanya tanpa setup fee.
 
 ## Skenario Hasil (3 Bulan)
 
-> Angka berdasarkan benchmark industri cold email B2B — 1-3% reply rate, 20-30% meeting rate, 10-20% close rate.
+> Angka berdasarkan benchmark industri cold email B2B 2026 — open rate 30-45%, reply rate 3-5%, reply→meeting 40-60%, meeting→close 10-20%. Sumber: Woodpecker (20M+ emails), Saleshandy.
 
-| Metrik | Paling Rendah | Sesuai Target | Melebihi Target |
+| Metrik | Konservatif | Target | Optimistis |
 |---|---|---|---|
 | Email terkirim / bulan | 200 | 500 | 1.000 |
-| Reply rate | 1% | 2% | 3% |
-| Meeting set / bulan | 1 | 3 | 6 |
-| Proyek closing / bulan | 0,5 | 1 | 2 |
-| Nilai proyek rata-rata | Rp 75 Jt | Rp 100 Jt | Rp 150 Jt |
-| Tambahan omzet (3 bln) | Rp 112,5 Jt | Rp 300 Jt | Rp 900 Jt |
-| Hemat broker fee (3 bln) | Rp 13,5 Jt | Rp 36 Jt | Rp 108 Jt |
-| **Total benefit (3 bln)** | **Rp 126 Jt** | **Rp 336 Jt** | **Rp 1,01 M** |
-| **ROI** | **+425%** | **+1.300%** | **+4.100%** |
+| Open rate | 30% | 35% | 45% |
+| Reply rate | 3% | 4% | 5% |
+| Reply / bulan | 6 | 20 | 50 |
+| Reply → Meeting | 40% | 50% | 60% |
+| Meeting / bulan | 2 | 10 | 30 |
+| Meeting → Close | 10% | 15% | 20% |
+| Closing / bulan | 0,2 | 1,5 | 6 |
+| Nilai proyek rata-rata | Rp 75 Jt | Rp 100 Jt | Rp 120 Jt |
+| Omzet tambahan / bulan | Rp 15 Jt | Rp 150 Jt | Rp 720 Jt |
+| **Omzet tambahan (3 bln)** | **Rp 45 Jt** | **Rp 450 Jt** | **Rp 2,16 M** |
+| Hemat broker fee (3 bln) | Rp 10,8 Jt | Rp 54 Jt | Rp 259 Jt |
+| **Total benefit (3 bln)** | **Rp 55,8 Jt** | **Rp 504 Jt** | **Rp 2,42 M** |
+| Biaya campaign (3 bln) | Rp 15 Jt | Rp 15 Jt | Rp 24 Jt |
+| **ROI** | **+272%** | **+3.260%** | **+10.000%** |
 
-> Paling Rendah: Setiap Rp 1 investasi = Rp 5 return.
+> **Konservatif:** 1 closing per 5 bulan dari 200 email/bulan. Balik modal di bulan ke-4.
 
-> Sesuai Target: Setiap Rp 1 investasi = Rp 14 return.
+> **Target:** 1-2 closing per bulan dari 500 email/bulan. Setiap Rp 1 jadi Rp 33.
 
-> Melebihi Target: Setiap Rp 1 investasi = Rp 42 return.
+> **Optimistis:** 5-6 closing per bulan dari 1.000 email/bulan. Butuh volume tinggi + personalisasi advanced.
 
 ---
 
