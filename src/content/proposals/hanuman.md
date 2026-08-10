@@ -70,33 +70,29 @@ Kami menawarkan dua model. Keduanya tanpa setup fee.
 
 ---
 
-## Skenario Hasil (3 Bulan)
+## Skenario Hasil
 
-> Angka berdasarkan benchmark industri cold email B2B 2026 — open rate 30-45%, reply rate 3-5%, reply→meeting 40-60%, meeting→close 10-20%. Sumber: Woodpecker (20M+ emails), Saleshandy.
+> Bulan 1 = persiapan (setup, database, warmup). Mulai kirim di bulan ke-2. Volume email mengikuti ukuran database yang tersedia.
 
-| Metrik | Konservatif | Target | Optimistis |
+| Metrik | Worst Case | Ideal | Best Case |
 |---|---|---|---|
-| Email terkirim / bulan | 200 | 500 | 1.000 |
-| Open rate | 30% | 35% | 45% |
-| Reply rate | 3% | 4% | 5% |
-| Reply / bulan | 6 | 20 | 50 |
-| Reply → Meeting | 40% | 50% | 60% |
-| Meeting / bulan | 2 | 10 | 30 |
-| Meeting → Close | 10% | 15% | 20% |
-| Closing / bulan | 0,2 | 1,5 | 6 |
-| Nilai proyek rata-rata | Rp 75 Jt | Rp 100 Jt | Rp 120 Jt |
-| Omzet tambahan / bulan | Rp 15 Jt | Rp 150 Jt | Rp 720 Jt |
-| **Omzet tambahan (3 bln)** | **Rp 45 Jt** | **Rp 450 Jt** | **Rp 2,16 M** |
-| Hemat broker fee (3 bln) | Rp 10,8 Jt | Rp 54 Jt | Rp 259 Jt |
-| **Total benefit (3 bln)** | **Rp 55,8 Jt** | **Rp 504 Jt** | **Rp 2,42 M** |
-| Biaya campaign (3 bln) | Rp 15 Jt | Rp 15 Jt | Rp 24 Jt |
-| **ROI** | **+272%** | **+3.260%** | **+10.000%** |
+| Email terkirim / bulan (mulai bln 2) | 1.000 | 3.000 | 5.000 |
+| Open rate | 10% | 20% | 30% |
+| Reply rate | 1% | 2% | 3% |
+| Reply / bulan | 10 | 60 | 150 |
+| Reply → Close | 10% | 20% | 30% |
+| Closing / bulan | 1 | 12 | 45 |
+| Nilai proyek rata-rata | Rp 75 Jt | Rp 100 Jt | Rp 150 Jt |
+| **Omzet tambahan / bulan** | **Rp 75 Jt** | **Rp 1,2 M** | **Rp 6,75 M** |
+| **Omzet tambahan (6 bulan aktif)** | **Rp 450 Jt** | **Rp 7,2 M** | **Rp 40,5 M** |
+| Biaya campaign / bulan | Rp 5 Jt | Rp 5 Jt | Rp 8 Jt |
+| **ROI (6 bulan)** | **+1.400%** | **+23.900%** | **+84.375%** |
 
-> **Konservatif:** 1 closing per 5 bulan dari 200 email/bulan. Balik modal di bulan ke-4.
+> **Worst case:** 1 closing/bulan dari 1.000 email. Masih lebih baik dari broker fee.
 
-> **Target:** 1-2 closing per bulan dari 500 email/bulan. Setiap Rp 1 jadi Rp 33.
+> **Ideal:** 10-12 closing/bulan dari 3.000 email. Target realistis dengan database bagus + personalisasi.
 
-> **Optimistis:** 5-6 closing per bulan dari 1.000 email/bulan. Butuh volume tinggi + personalisasi advanced.
+> **Best case:** 40+ closing/bulan dari 5.000 email. Butuh database premium + email infra mumpuni.
 
 ---
 
