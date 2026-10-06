@@ -8,7 +8,7 @@ draft: false
 
 <div style="text-align:center;margin:0 0 24px">
   <a href="https://pesat.app/audit/youngpro/" target="_blank" style="display:inline-block;padding:12px 28px;background:rgba(229,169,106,0.15);border:1.5px solid #e5a96a;color:#e5a96a;font-weight:700;border-radius:10px;text-decoration:none;font-size:15px;margin-right:10px">📊 Buka Dokumen Audit Youngpro</a>
-  <a href="https://pesat.app/hanuman/demo/" target="_blank" style="display:inline-block;padding:12px 28px;background:#00d4aa;color:#0a0a2e;font-weight:700;border-radius:10px;text-decoration:none;font-size:15px">🚀 Lihat Demo Outreach B2B</a>
+  <a href="https://pesat.app/youngpro/demo/" target="_blank" style="display:inline-block;padding:12px 28px;background:#00d4aa;color:#0a0a2e;font-weight:700;border-radius:10px;text-decoration:none;font-size:15px">🚀 Coba Demo Interaktif Outreach B2B</a>
 </div>
 
 ## Ringkasan Eksekutif
@@ -64,7 +64,7 @@ Google & AI membutuhkan rujukan eksternal untuk memvalidasi Youngpro sebagai pab
 
 > **Tujuan:** Mengakuisisi ratusan toko perabot, grosir plastik daerah, dan jaringan supermarket mandiri di seluruh Indonesia secara proaktif, terukur, dan langsung ke pemilik toko (Direct to Retailer/Distributor).
 
-Mengadopsi mesin otomatisasi seperti pada [pesat.app/hanuman/demo/](https://pesat.app/hanuman/demo/), kami mengekstrak dan memfilter data ribuan toko perabot & perlengkapan rumah tangga dari Google Maps se-Indonesia (Sumatera, Jawa, Kalimantan, Sulawesi, hingga Papua), lalu menjalankan outreach terpersonalisasi.
+Menggunakan mesin otomatisasi AI B2B Pesat AI yang telah kami siapkan khusus untuk Youngpro ([pesat.app/youngpro/demo/](https://pesat.app/youngpro/demo/)), sistem mengekstrak dan memfilter data ribuan toko perabot & perlengkapan rumah tangga dari Google Maps se-Indonesia (Sumatera, Jawa, Kalimantan, Sulawesi, hingga Papua), lalu menjalankan outreach terpersonalisasi.
 
 ### Cara Kerja Sistem
 1. **Pemetaan & Scrape Google Maps:** Mengambil data nama toko, alamat lengkap, rating, nomor telepon kantor, dan kontak WhatsApp owner/PIC.
@@ -74,18 +74,19 @@ Mengadopsi mesin otomatisasi seperti pada [pesat.app/hanuman/demo/](https://pesa
 
 ### Pilihan Investasi Modul 2
 
-Mengikuti struktur penawaran terbukti Pesat AI, kami menawarkan dua model investasi **tanpa biaya setup**:
+Pesat AI menawarkan dua opsi skema kemitraan **tanpa biaya setup**:
 
 | Parameter | Model A: Retainer + Bagi Hasil | Model B: Harga Tetap (Flat) |
 |---|---|---|
 | **Setup Fee** | **Rp 0** (di-waive) | **Rp 0** (di-waive) |
-| **Biaya Bulanan** | **Rp 5.000.000 / bln** | **Rp 8.000.000 / bln** |
-| **Bagi Hasil (Profit/Rev Share)** | **5–10%** dari pesanan pertama PO toko baru | **Tidak ada (0%)** |
-| **Kapan Bagi Hasil Dibayar?** | Hanya saat ada transaksi closing yang lunas | — |
-| **Review Performa** | Akhir bulan ke-3 | Setiap bulan |
-| **Kecocokan** | Ingin investasi awal hemat & bagi risiko | Menginginkan kepastian anggaran bulanan |
+| **Biaya Bulanan Jasa Pesat** | **Rp 5.000.000 / bln** | **Rp 8.000.000 / bln** |
+| **Bagi Hasil (Rev/Profit Share)** | **10% – 30%** dari nilai PO perdana toko baru | **Tidak ada (0%)** |
+| **Kapan Bagi Hasil Dibayar?** | Hanya saat pesanan pertama closing & lunas | — |
+| **Biaya Pihak Ketiga (WhatsApp)** | Dibayar terpisah langsung ke Meta/WhatsApp | Dibayar terpisah langsung ke Meta/WhatsApp |
+| **Kecocokan** | Investasi awal lebih ringan & bagi risiko | Anggaran jasa tetap tanpa bagi hasil |
 
-> 📌 *Catatan Operasional: Infrastruktur pengiriman dan kuota verifikasi data pihak ketiga diestimasikan ~Rp 2.000.000 – Rp 3.000.000/bulan sesuai volume kampanye.*
+> 📌 **Catatan Biaya Pihak Ketiga (Infrastruktur WhatsApp):**
+> Biaya pengiriman pesan WhatsApp Business API resmi Meta dibayar langsung oleh Youngpro ke penyedia infrastruktur (Meta / WhatsApp BSP). Biayanya sangat hemat (~Rp 350 – Rp 450 per sesi percakapan bisnis). Pesat AI tidak mengambil keuntungan atau markup apa pun dari biaya pihak ketiga ini.
 
 ### Skenario Proyeksi Akuisisi Toko (Mulai Bulan ke-2)
 
@@ -101,18 +102,21 @@ Mengikuti struktur penawaran terbukti Pesat AI, kami menawarkan dua model invest
 
 ## MODUL 3: Sistem Reaktivasi & Repeat Order Agen Grosir (Slide 15 Audit)
 
-> **Tujuan:** Mencegah perputaran pelanggan (*churn*) dan kebocoran margin dengan mengotomasi jadwal restock toko perabot via WhatsApp B2B (+Rp 96 Jt/thn potensi pemulihan omzet).
+> **Tujuan:** Mengunci repeat order dan memulihkan potensi omzet yang bocor (+Rp 96 Jt/thn) dengan mendeteksi siklus habis barang toko perabot secara otomatis via WhatsApp B2B.
 
 Sebagaimana diuraikan dalam [Slide 15 Audit Youngpro](https://pesat.app/audit/youngpro/#15):
-- **Masalah:** Agen dan toko perabot luar pulau memiliki siklus habis barang 30–45 hari. Saat stok mereka menipis, ketiadaan pengingat proaktif dari sales membuat mereka mudah tergiur penawaran pabrik kompetitor.
-- **Solusi AI Restock Guard:** Sistem membaca riwayat faktur/PO toko, mendeteksi hari ke-30 pasca pengiriman, dan menyiapkan pesan draf WhatsApp yang ramah dan kontekstual ke pemilik toko (misal: *"Halo Pak Edi, stok Sapu YB-03 & Wiper YWF-01 masih aman? Truk kargo Baraka rute Medan berangkat hari Kamis ini"*).
+- **Masalah:** Agen dan toko perabot luar pulau memiliki siklus habis barang 30–45 hari. Keterlambatan follow-up dari sales membuat mereka mudah beralih ke pabrik kompetitor.
+- **Solusi AI Restock Guard:** Sistem memantau riwayat faktur/PO toko, mendeteksi hari ke-30 pasca pengiriman, dan menyiapkan pesan draf WhatsApp yang ramah dan kontekstual ke pemilik toko (misal: *"Halo Pak Hendra, stok Sapu YB-03 & Wiper YWF-01 masih aman? Truk kargo Baraka rute Medan berangkat hari Kamis ini"*).
 
-### Struktur Investasi Modul 3
+### Struktur Investasi Modul 3 (Setup + Performance Fee)
+
+Skema ini dirancang berbasis performa murni: Youngpro hanya membayar bagi hasil dari omzet riil yang berhasil diselamatkan dari agen/toko yang sebelumnya pasif:
 
 | Komponen | Biaya | Keterangan & Deliverable |
 |---|---|---|
-| **Setup & Integrasi Awal**<br><small>(One-Time)</small> | **Rp 5.000.000** | • Pembersihan dan impor database riwayat agen & toko grosir.<br>• Pemetaan SKU utama (kartonan), kubikasi CBM, dan siklus restock per wilayah.<br>• Konfigurasi sistem pemicu WhatsApp dan template pesan kontekstual.<br>• Pelatihan admin penjualan Youngpro (1-klik approval kirim). |
-| **Retainer Pemeliharaan & Monitoring**<br><small>(Bulanan)</small> | **Rp 3.500.000 / bln** | • Pemantauan kestabilan bot pemicu WhatsApp.<br>• Pembaruan data siklus dan katalog produk bulanan.<br>• Dashboard pelaporan: rasio reaktivasi agen pasif dan total PO berulang yang terselamatkan.<br>• Optimasi pesan berdasarkan respon pemilik toko. |
+| **Setup & Integrasi Awal**<br><small>(One-Time)</small> | **Rp 5.000.000** | • Pembersihan dan impor database pelanggan agen & toko grosir.<br>• Pemetaan SKU utama (kartonan), kubikasi CBM, dan siklus restock per wilayah.<br>• Konfigurasi sistem pemicu WhatsApp dan template pesan kontekstual.<br>• Pelatihan admin penjualan Youngpro (1-klik approval kirim). |
+| **Performance Fee (Bagi Hasil)** | **10% – 30%** | Dihitung **hanya** dari nilai pesanan berulang (repeat order) yang berhasil direaktivasi dari agen pasif (>30–45 hari tidak memesan). **Jika agen tidak pesan, Youngpro tidak membayar biaya performa.** |
+| **Biaya Pihak Ketiga (WhatsApp)** | Sangat kecil (~Rp 300–400 / pesan) | Biaya percakapan utility WhatsApp Business API dibayar langsung ke Meta/WhatsApp. Sangat murah dan transparan. |
 
 ---
 
@@ -120,12 +124,12 @@ Sebagaimana diuraikan dalam [Slide 15 Audit Youngpro](https://pesat.app/audit/yo
 
 Pak Bendy dapat memilih konfigurasi layanan yang paling sesuai dengan prioritas pabrik saat ini:
 
-| Pilihan Modul | Fokus Bisnis | Investasi Awal | Biaya Berjalan / Bulan |
+| Pilihan Modul | Fokus Bisnis | Investasi Awal | Skema Berjalan |
 |---|---|---|---|
 | **Pilihan A: GEO Search Saja** | Dominasi rekomendasi Google & AI untuk pencarian maklon/pabrik | Setup Rp 2.000.000 | **Rp 12.000.000 / bln** *(Paket Advance)* + Deposit Media |
-| **Pilihan B: Outreach Toko Saja** | Akuisisi ratusan toko perabot & supermarket se-Indonesia | **Rp 0** *(Setup di-waive)* | **Rp 5.000.000 / bln** *(+ Bagi Hasil 5-10%)* atau **Rp 8 Jt Flat** |
-| **Pilihan C: Reaktivasi Agen Saja** | Kunci repeat order toko lama via bot pengingat restock WhatsApp | Setup Rp 5.000.000 | **Rp 3.500.000 / bln** |
-| **Pilihan D: Bundling Lengkap (Semua Modul)** | Pertumbuhan menyeluruh: Lead baru masuk, toko dijangkau, repeat order terkunci | **Setup Hemat Rp 5.000.000**<br><small>*(Diskon Setup Rp 2 Jt di-waive)*</small> | **Rp 19.500.000 / bln**<br><small>*(Advance GEO + Outreach Model A + Reaktivasi Agen)*</small> |
+| **Pilihan B: Outreach Toko Saja** | Akuisisi ratusan toko perabot & supermarket se-Indonesia | **Rp 0** *(Setup di-waive)* | **Rp 5.000.000 / bln + Bagi Hasil 10–30%** *(atau Rp 8 Jt Flat)* + Biaya WA |
+| **Pilihan C: Reaktivasi Agen Saja** | Kunci repeat order toko lama via bot pengingat restock WhatsApp | **Setup Rp 5.000.000** | **Bagi Hasil 10–30% dari PO Reaktivasi** + Biaya WA kecil |
+| **Pilihan D: Bundling Lengkap** | Solusi menyeluruh: Lead baru masuk, toko dijangkau, repeat order terkunci | **Setup Hemat Rp 5.000.000**<br><small>*(Diskon Setup Rp 2 Jt di-waive)*</small> | **GEO Advance + Outreach Toko + Reaktivasi Agen** |
 
 ---
 
@@ -133,10 +137,10 @@ Pak Bendy dapat memilih konfigurasi layanan yang paling sesuai dengan prioritas 
 
 | Parameter | Menunda Keputusan | Rekrut Tim In-House Sendiri | Bermitra dengan Pesat AI |
 |---|---|---|---|
-| **Biaya Bulanan** | Rp 0 / bln *(tapi kehilangan potensi omzet Rp 40,5 Jt/bln)* | Rp 25–40 Jt / bln *(gaji 3–4 staf: SEO, copywriter, telemarketing, developer)* | **Mulai Rp 5 Jt – Rp 19,5 Jt / bln** *(terukur sesuai modul)* |
+| **Biaya Bulanan** | Rp 0 / bln *(tapi kehilangan potensi omzet Rp 40,5 Jt/bln)* | Rp 25–40 Jt / bln *(gaji 3–4 staf: SEO, copywriter, telemarketing, developer)* | **Mulai Rp 5 Jt / bln** *(terukur sesuai modul & bagi hasil)* |
 | **Kecepatan Implementasi** | Tidak ada progres | Butuh 2–3 bulan rekrutmen & pelatihan | **Sistem langsung aktif berjalan di minggu ke-1** |
 | **Kepemilikan Aset** | Tidak ada aset baru | Berisiko hilang saat staf resign | **100% database toko, konten, dan sistem jadi milik Youngpro** |
-| **Risiko Bisnis** | Tertinggal dari kompetitor yang sudah masuk AI | Biaya tetap tinggi dengan efektivitas belum teruji | **Evaluasi hasil bulanan, bebas kontrak kaku 3 bulan** |
+| **Risiko Bisnis** | Tertinggal dari kompetitor yang sudah masuk AI | Biaya tetap tinggi dengan efektivitas belum teruji | **Evaluasi hasil bulanan, berbasis bagi hasil kinerja** |
 
 ---
 
@@ -144,7 +148,7 @@ Pak Bendy dapat memilih konfigurasi layanan yang paling sesuai dengan prioritas 
 
 1. **Fleksibel Bulanan:** Sistem evaluasi bulanan tanpa keterikatan kontrak jangka panjang.
 2. **Faktur & Pembayaran:** Penagihan dapat dilakukan dalam mata uang Rupiah (IDR) atau USD via invoice resmi PayPal (kurs acuan Rp 17.500 / USD).
-3. **Kerahasiaan Data (NDA):** Seluruh data pelanggan grosir, harga distributor, dan formulasi pabrik Youngpro dijamin kerahasiaannya 100%.
+3. **Kerahasiaan Data (NDA):** Seluruh database pelanggan grosir, kontak toko, harga distributor, dan formulasi pabrik Youngpro dijamin kerahasiaannya 100%.
 
 ### Langkah Selanjutnya
 
