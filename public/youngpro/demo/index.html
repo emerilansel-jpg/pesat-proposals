@@ -94,8 +94,6 @@ body{
 .step{display:none;padding:24px 20px 110px;animation:fadeUp 0.4s ease}
 .step.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
-@keyframes floatUp{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-80px);opacity:0}}
 
 .section-tag{
   display:inline-block;
@@ -142,7 +140,22 @@ body{
   border-radius:4px;
 }
 
-/* Company List */
+/* Maps Simulated Box */
+.map-banner{
+  background:#0e1d17;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 16px;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.map-banner .pin{font-size:24px}
+.map-banner .mtxt{font-size:13px;line-height:1.45}
+.map-banner .mtxt strong{color:var(--caramel)}
+
+/* Store List */
 .store-list{
   max-height:330px;
   overflow-y:auto;
@@ -226,8 +239,7 @@ body{
 }
 .wa-bubble p{margin-bottom:8px}
 .wa-bubble p:last-child{margin-bottom:0}
-.wa-bubble .hl{color:var(--caramel);font-weight:700}
-.wa-bubble .tag-kargo{
+.wa-bubble .tag-cluster{
   display:inline-block;
   background:rgba(229,169,106,0.15);
   color:var(--caramel);
@@ -367,138 +379,99 @@ body{
   <div class="step active" id="step1">
     <span class="section-tag">Tahap 1 · Kategori Toko</span>
     <h2>Pilih Kategori <span>Toko Grosir &amp; Retail</span></h2>
-    <p class="subtitle">AI akan men-scrape seluruh data toko di Google Maps berdasarkan kategori barang plastik rumah tangga:</p>
+    <p class="subtitle">AI mengekstrak toko spesifik di Google Maps berdasarkan komoditas barang plastik &amp; alat rumah tangga:</p>
     
     <div class="selection-grid">
-      <div class="select-card selected" onclick="pickCategory(this, 'Toko Perabot & Plastik Daerah', 480)">
+      <div class="select-card selected" onclick="pickCategory(this, 'Toko Perabot & Plastik Rumah Tangga', 48)">
         <span class="badge">Volume Besar</span>
         <div class="icon">🪑</div>
         <div class="name">Toko Perabot &amp; Plastik</div>
-        <div class="count">480 prospek toko</div>
+        <div class="count">48 toko / kecamatan</div>
       </div>
-      <div class="select-card" onclick="pickCategory(this, 'Supermarket & Swalayan Daerah', 215)">
+      <div class="select-card" onclick="pickCategory(this, 'Supermarket & Swalayan Lokal', 24)">
         <span class="badge">Repeat Cepat</span>
         <div class="icon">🏪</div>
         <div class="name">Supermarket / Swalayan</div>
-        <div class="count">215 jaringan retail</div>
+        <div class="count">24 jaringan retail</div>
       </div>
-      <div class="select-card" onclick="pickCategory(this, 'Grosir Pasar Tradisional', 340)">
+      <div class="select-card" onclick="pickCategory(this, 'Grosir Plastik Pasar Tradisional', 38)">
         <div class="icon">🏢</div>
         <div class="name">Grosir Pasar Tradisional</div>
-        <div class="count">340 agen besar</div>
+        <div class="count">38 agen pasar</div>
       </div>
-      <div class="select-card" onclick="pickCategory(this, 'Toko Alat Rumah Tangga & Bangunan', 190)">
+      <div class="select-card" onclick="pickCategory(this, 'Toko Bahan Bangunan & Alat Kebersihan', 28)">
         <div class="icon">🏗️</div>
         <div class="name">Alat Rumah Tangga</div>
-        <div class="count">190 toko retail</div>
+        <div class="count">28 toko kelontong</div>
       </div>
     </div>
 
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;line-height:1.5;color:var(--muted)">
-      💡 <strong>Kriteria Filter AI:</strong> Toko memiliki toko fisik di Google Maps, rating aktif, dan nomor WhatsApp kontak pemilik / bagian pembelian.
+      💡 <strong>Kriteria Filter Google Maps:</strong> Memiliki titik toko fisik terdaftar, jam operasional aktif, ulasan Google Maps, dan kontak WhatsApp owner / penanggung jawab pengadaan.
     </div>
   </div>
 
-  <!-- Step 2: Pilih Wilayah Target -->
+  <!-- Step 2: Pilih Wilayah Target (Area Kecamatan / Komersial) -->
   <div class="step" id="step2">
-    <span class="section-tag">Tahap 2 · Wilayah Kargo</span>
-    <h2>Pilih <span>Wilayah Target Kargo</span></h2>
-    <p class="subtitle">Fokuskan penetrasi pasar ke pulau luar Jabodetabek dengan konsolidasi truk ekspedisi murah:</p>
+    <span class="section-tag">Tahap 2 · Radius Google Maps</span>
+    <h2>Pilih Area Target <span>Tingkat Kecamatan</span></h2>
+    <p class="subtitle">Scrape Google Maps per klaster komersial untuk efisiensi pengiriman armada pabrik Cengkareng:</p>
     
     <div class="selection-grid">
-      <div class="select-card selected" onclick="pickRegion(this, 'Sumatera (Medan, Palembang, Lampung)', 'Baraka / Indah Kargo')">
-        <span class="badge">Margin Tinggi</span>
-        <div class="icon">🚢</div>
-        <div class="name">Sumatera</div>
-        <div class="count">Medan, Palembang, Lampung</div>
+      <div class="select-card selected" onclick="pickArea(this, 'gading-serpong')">
+        <span class="badge">Klaster Ruko</span>
+        <div class="icon">📍</div>
+        <div class="name">Gading Serpong &amp; BSD</div>
+        <div class="count">Tangerang · 52 Toko Valid</div>
       </div>
-      <div class="select-card" onclick="pickRegion(this, 'Jawa Luar Jabodetabek (Surabaya, Semarang)', 'Dakota Cargo')">
-        <div class="icon">🚛</div>
-        <div class="name">Jawa Luar Kota</div>
-        <div class="count">Surabaya, Solo, Semarang</div>
+      <div class="select-card" onclick="pickArea(this, 'kemayoran')">
+        <span class="badge">Pasar Grosir</span>
+        <div class="icon">📍</div>
+        <div class="name">Kemayoran &amp; Cempaka Putih</div>
+        <div class="count">Jakpus · 64 Toko Valid</div>
       </div>
-      <div class="select-card" onclick="pickRegion(this, 'Kalimantan (Balikpapan, Banjarmasin)', 'Ekspedisi Kapal Laut')">
-        <div class="icon">🚢</div>
-        <div class="name">Kalimantan</div>
-        <div class="count">Balikpapan, Banjarmasin</div>
+      <div class="select-card" onclick="pickArea(this, 'cengkareng')">
+        <div class="icon">🏭</div>
+        <div class="name">Cengkareng &amp; Kalideres</div>
+        <div class="count">Jakbar · 78 Toko Valid</div>
       </div>
-      <div class="select-card" onclick="pickRegion(this, 'Sulawesi (Makassar, Manado)', 'Kargo Kontainer Laut')">
-        <div class="icon">🚢</div>
-        <div class="name">Sulawesi</div>
-        <div class="count">Makassar, Manado, Palu</div>
+      <div class="select-card" onclick="pickArea(this, 'kelapa-gading')">
+        <div class="icon">📍</div>
+        <div class="name">Kelapa Gading &amp; Sunter</div>
+        <div class="count">Jakut · 45 Toko Valid</div>
       </div>
     </div>
 
-    <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;line-height:1.5;color:var(--muted)">
-      📦 <strong>Kalkulasi Logistik:</strong> Setiap penawaran otomatis mencantumkan rute kargo terjadwal sehingga pemilik toko tidak terbebani biaya ongkir mahal.
+    <div class="map-banner">
+      <div class="pin">🗺️</div>
+      <div class="mtxt">
+        Radius Google Maps: <strong id="lblSelectedArea">Gading Serpong &amp; BSD (Tangerang)</strong><br>
+        <span style="color:var(--muted);font-size:11.5px">Jarak dari pabrik Youngpro Cengkareng: ~25 menit perjalanan via tol.</span>
+      </div>
     </div>
   </div>
 
-  <!-- Step 3: Hasil Scraping Google Maps -->
+  <!-- Step 3: Hasil Scraping Google Maps Sesuai Kecamatan -->
   <div class="step" id="step3">
-    <span class="section-tag">Tahap 3 · Ekstraksi Data</span>
-    <h2>Hasil Scrape <span>Google Maps Terverifikasi</span></h2>
-    <p class="subtitle">AI telah mengekstrak kontak pemilik toko beserta status WhatsApp bisnis yang aktif:</p>
+    <span class="section-tag">Tahap 3 · Ekstraksi Data Maps</span>
+    <h2>Toko Terverifikasi di <span id="lblMapsTitle">Gading Serpong</span></h2>
+    <p class="subtitle">AI telah mengekstrak nama ruko, alamat presisi Google Maps, dan nomor WhatsApp owner:</p>
 
-    <div class="store-list">
-      <div class="store-item">
-        <div class="avatar">S</div>
-        <div class="info">
-          <div class="sname">Toko Perabot Subur Makmur</div>
-          <div class="sloc">Jl. Gatot Subroto No. 42, Medan Petisah</div>
-          <div class="sphone">WA: 0812-6021-xxxx (Hendra - Owner)</div>
-        </div>
-        <span class="tag tag-verified">✓ Terverifikasi</span>
-      </div>
-      <div class="store-item">
-        <div class="avatar">M</div>
-        <div class="info">
-          <div class="sname">Swalayan Maju Bersama</div>
-          <div class="sloc">Jl. Kolonel Atmo No. 88, Palembang</div>
-          <div class="sphone">WA: 0813-7319-xxxx (Bag. Purchasing)</div>
-        </div>
-        <span class="tag tag-verified">✓ Terverifikasi</span>
-      </div>
-      <div class="store-item">
-        <div class="avatar">B</div>
-        <div class="info">
-          <div class="sname">Grosir Plastik Bintang Jaya</div>
-          <div class="sloc">Jl. Raden Intan No. 15, Bandar Lampung</div>
-          <div class="sphone">WA: 0821-8204-xxxx (Bpk. Surya)</div>
-        </div>
-        <span class="tag tag-verified">✓ Terverifikasi</span>
-      </div>
-      <div class="store-item">
-        <div class="avatar">S</div>
-        <div class="info">
-          <div class="sname">Toko Rumah Tangga Sentosa</div>
-          <div class="sloc">Jl. Sudirman No. 110, Pekanbaru</div>
-          <div class="sphone">WA: 0852-6581-xxxx (Ibu Liana)</div>
-        </div>
-        <span class="tag tag-verified">✓ Terverifikasi</span>
-      </div>
-      <div class="store-item">
-        <div class="avatar">A</div>
-        <div class="info">
-          <div class="sname">Toserba Abadi Sukses</div>
-          <div class="sloc">Jl. Ahmad Yani No. 55, Jambi</div>
-          <div class="sphone">WA: 0812-7489-xxxx (Bpk. Rudi)</div>
-        </div>
-        <span class="tag tag-verified">✓ Terverifikasi</span>
-      </div>
+    <div class="store-list" id="storeListContainer">
+      <!-- Injected via JS -->
     </div>
 
     <div style="display:flex;justify-content:space-between;background:rgba(229,169,106,0.12);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:13px">
-      <span>Total Toko Terfilter: <strong style="color:var(--caramel)">350 Kontak Valid</strong></span>
-      <span>Tingkat Validitas WA: <strong style="color:#4ade80">98,2%</strong></span>
+      <span>Total Toko Terekstrak: <strong style="color:var(--caramel)" id="lblTotalToko">52 Kontak Toko</strong></span>
+      <span>Validitas WA Owner: <strong style="color:#4ade80">98,1%</strong></span>
     </div>
   </div>
 
   <!-- Step 4: Draf Pesan Penawaran WhatsApp Pabrik -->
   <div class="step" id="step4">
     <span class="section-tag">Tahap 4 · Draf Penawaran B2B</span>
-    <h2>Preview Pesan <span>WhatsApp ke Owner Toko</span></h2>
-    <p class="subtitle">Pesan terpersonalisasi nama toko, produk kartonan tangan pertama, dan jadwal ekspedisi kargo:</p>
+    <h2>Pesan Personal ke <span id="lblDraftArea">Owner Toko</span></h2>
+    <p class="subtitle">Pesan menyebutkan nama toko, lokasi area mereka, dan kemudahan kirim langsung armada pabrik:</p>
 
     <div class="wa-preview">
       <div class="wa-header">
@@ -509,38 +482,29 @@ body{
         </div>
       </div>
       <div class="wa-body">
-        <div class="wa-bubble">
-          <p>Halo <strong>Bpk. Hendra</strong> (Toko Perabot Subur Makmur, Medan) 🙏</p>
-          <p>Perkenalkan, kami dari <strong>Pabrik Plastik Youngpro Indonesia</strong> (produsen tangan pertama di Cengkareng, Jakarta Barat).</p>
-          <p>Kami melihat toko Bapak menyediakan perlengkapan rumah tangga berkualitas di Medan. Izin mengirimkan penawaran harga grosir kartonan langsung pabrik:</p>
-          <p>
-            🧹 <strong>Sapu Plastik YB-03</strong>: Rp 168.000 / dus (12 pcs)<br>
-            🪟 <strong>Wiper Lantai YWF-01</strong>: Rp 144.000 / dus (12 pcs)<br>
-            🗑️ <strong>Pengki Plastik PK-02</strong>: Rp 120.000 / dus (12 pcs)
-          </p>
-          <div class="tag-kargo">🚛 Rute Kargo Truk Baraka Medan: Berangkat Kamis (Ongkir ~Rp 850/kg)</div>
-          <p style="margin-top:8px">Boleh kami kirimkan e-katalog lengkap beserta pricelist grosir, Pak?</p>
+        <div class="wa-bubble" id="waBubbleContent">
+          <!-- Injected via JS -->
         </div>
       </div>
     </div>
 
     <div style="font-size:12.5px;color:var(--muted);line-height:1.5">
-      ✅ <em>Pesan tidak terdengar seperti spam robot. Bersifat sopan, langsung to-the-point ke harga grosir tangan pertama pabrik.</em>
+      ✅ <em>Pesan terdengar profesional, tidak spam. Langsung menggarisbawahi harga tangan pertama pabrik &amp; pengiriman cepat karena lokasi dekat.</em>
     </div>
   </div>
 
-  <!-- Step 5: Animasi Pengiriman Massal Terjadwal -->
+  <!-- Step 5: Simulasi Pengiriman Massal Terjadwal -->
   <div class="step" id="step5">
     <span class="section-tag">Tahap 5 · Eksekusi Mesin</span>
-    <h2>Simulasi <span>Pengiriman Massal WhatsApp</span></h2>
-    <p class="subtitle">Sistem mengirimkan penawaran dengan jeda natural (human-like pacing) agar aman dari blokir:</p>
+    <h2>Simulasi Kirim <span>WhatsApp ke Area Target</span></h2>
+    <p class="subtitle">Mengirimkan pesan penawaran dengan jeda natural (human-like pacing) melalui API resmi:</p>
 
     <div class="send-box">
-      <div style="font-size:14px;color:var(--caramel);font-weight:700" id="sendTargetTitle">Mengirim ke Toko Perabot di Sumatera...</div>
+      <div style="font-size:14px;color:var(--caramel);font-weight:700" id="sendTargetTitle">Mengirim ke 52 toko di Gading Serpong &amp; BSD...</div>
       <div class="send-meter">
         <div class="send-meter-fill" id="sendProgressFill"></div>
       </div>
-      <div style="font-size:13px;color:var(--muted)" id="sendStatusText">Memulai antrean pesan...</div>
+      <div style="font-size:13px;color:var(--muted)" id="sendStatusText">Memulai antrean pengiriman...</div>
 
       <div class="send-stats">
         <div class="stat">
@@ -553,90 +517,66 @@ body{
         </div>
         <div class="stat">
           <div class="num" id="statRead" style="color:var(--blue)">0</div>
-          <div class="lbl">Dibaca</div>
+          <div class="lbl">Dibaca Owner</div>
         </div>
       </div>
     </div>
 
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;color:var(--muted)">
-      🛡️ <strong>Keamanan WhatsApp API:</strong> Menggunakan WhatsApp Cloud API resmi Meta, nomor Youngpro terverifikasi centang hijau tanpa risiko blokir nomor seluler.
+      🛡️ <strong>WhatsApp Business API Resmi:</strong> Menggunakan akun bisnis resmi centang hijau Youngpro, aman dari pemblokiran nomor.
     </div>
   </div>
 
   <!-- Step 6: Laporan Hasil Kampanye -->
   <div class="step" id="step6">
     <span class="section-tag">Tahap 6 · Laporan Performa</span>
-    <h2>Laporan Kampanye <span>Bulan ke-1</span></h2>
-    <p class="subtitle">Hasil terukur dari pengiriman penawaran ke 350 toko target di Google Maps:</p>
+    <h2>Laporan Kampanye di <span id="lblReportArea">Gading Serpong</span></h2>
+    <p class="subtitle">Hasil nyata respon pemilik toko setelah penawaran pabrik dikirimkan:</p>
 
     <div class="report-grid">
       <div class="report-card">
-        <div class="num">350</div>
-        <div class="lbl">Total Toko Dihubungi</div>
+        <div class="num" id="repTotal">52 Toko</div>
+        <div class="lbl">Toko Dihubungi</div>
       </div>
       <div class="report-card accent">
-        <div class="num">92,4%</div>
+        <div class="num">92,3%</div>
         <div class="lbl">Pesan Dibaca Owner</div>
       </div>
       <div class="report-card accent">
-        <div class="num">48 Toko</div>
-        <div class="lbl">Respon Minta Pricelist (13,7%)</div>
+        <div class="num" id="repRespon">11 Toko</div>
+        <div class="lbl">Respon Minta Pricelist (21,1%)</div>
       </div>
       <div class="report-card">
-        <div class="num">18 Toko</div>
-        <div class="lbl">Minta Sampel &amp; Proforma</div>
+        <div class="num">6 Toko</div>
+        <div class="lbl">Minta Sampel Produk</div>
       </div>
       <div class="report-card wide">
-        <div class="num">11 Toko Baru</div>
-        <div class="lbl">Closing PO Grosir Perdana (3,1% Konversi Closing)</div>
+        <div class="num" id="repClosing">4 Toko Baru</div>
+        <div class="lbl">Closing PO Grosir Perdana di Minggu ke-1</div>
       </div>
     </div>
 
     <div style="background:rgba(0,212,170,0.12);border:1px solid rgba(0,212,170,0.3);border-radius:12px;padding:14px;font-size:13px;color:var(--text);line-height:1.5">
-      📈 <strong>Hasil Bisnis:</strong> Dari 350 toko yang dihubungi, 11 toko langsung melakukan pemesanan kartonan perdana di bulan pertama!
+      📈 <strong>Efisiensi Akusisi:</strong> Hanya dari satu area kecamatan saja, Youngpro langsung mengamankan 4 toko retail/perabot baru sebagai mitra rutin!
     </div>
   </div>
 
   <!-- Step 7: Respon Masuk & Kalkulasi Omzet Baru -->
   <div class="step" id="step7">
     <span class="section-tag">Tahap 7 · Respon Masuk &amp; Omzet</span>
-    <h2>Inbox Masuk &amp; <span>Proyeksi Omzet Baru</span></h2>
-    <p class="subtitle">Admin Youngpro tinggal merespons pemilik toko yang siap melakukan pemesanan grosir:</p>
+    <h2>Respon Masuk di <span id="lblInboxArea">Gading Serpong</span></h2>
+    <p class="subtitle">Chat nyata dari pemilik toko yang siap menerima kiriman kartonan Youngpro:</p>
 
-    <div class="inbox-list">
-      <div class="inbox-card">
-        <div class="inbox-top">
-          <div class="inbox-name">Toko Subur Makmur (Medan)</div>
-          <div class="inbox-badge">PO Ready</div>
-        </div>
-        <div class="inbox-text">
-          "Siang Pak, boleh tolong hitung total biaya 50 dus Sapu YB-03 dan 20 dus Wiper YWF-01 kirim pakai Baraka Kargo ke Medan? Siap transfer hari ini."
-        </div>
-        <div style="font-size:11.5px;color:var(--caramel);font-weight:700;margin-top:6px">
-          💵 Estimasi Nilai PO: Rp 11.280.000
-        </div>
-      </div>
-
-      <div class="inbox-card">
-        <div class="inbox-top">
-          <div class="inbox-name">Swalayan Maju Bersama (Palembang)</div>
-          <div class="inbox-badge">Katalog &amp; Tempo</div>
-        </div>
-        <div class="inbox-text">
-          "Halo Youngpro, pricelist sudah kami cek. Kami mau ambil 30 dus pengki dan 40 dus sapu untuk 3 cabang kami di Palembang. Apakah bisa terbitkan faktur tempo 14 hari?"
-        </div>
-        <div style="font-size:11.5px;color:var(--caramel);font-weight:700;margin-top:6px">
-          💵 Estimasi Nilai PO: Rp 10.320.000
-        </div>
-      </div>
+    <div class="inbox-list" id="inboxContainer">
+      <!-- Injected via JS -->
     </div>
 
     <!-- Financial Card -->
     <div style="background:linear-gradient(135deg,var(--panel2),#23473b);border:2px solid var(--caramel);border-radius:16px;padding:18px;text-align:center;margin-bottom:10px">
-      <div style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Total Proyeksi Omzet Tambahan</div>
-      <div style="font-size:32px;font-weight:800;color:var(--caramel);font-family:'Space Grotesk';margin:6px 0">+Rp 185.000.000 / bln</div>
+      <div style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Estimasi Omzet Baru per Kecamatan</div>
+      <div style="font-size:30px;font-weight:800;color:var(--caramel);font-family:'Space Grotesk';margin:6px 0">+Rp 38.500.000 / bln</div>
       <div style="font-size:13px;color:#e2e8f0;line-height:1.5">
-        Dari 10–15 toko retail/grosir baru di luar pulau per bulan, omzet pabrik terakselerasi tanpa perlu merekrut puluhan sales lapangan.
+        Jika diekspansi ke <strong>10–15 kecamatan strategis</strong> di Jabodetabek &amp; sekitarnya, potensi omzet baru mencapai <strong>+Rp 350–500 Juta / bulan</strong>!
       </div>
     </div>
   </div>
@@ -644,18 +584,206 @@ body{
   <!-- Bottom Navigation -->
   <div class="btn-nav">
     <button class="btn btn-secondary" id="btnPrev" style="display:none" onclick="prevStep()">← Kembali</button>
-    <button class="btn btn-primary" id="btnNext" onclick="nextStep()">Lanjut ke Wilayah Kargo →</button>
+    <button class="btn btn-primary" id="btnNext" onclick="nextStep()">Lanjut ke Radius Kecamatan →</button>
   </div>
 </div>
 
-<div class="toast" id="toast">Kategori Toko Terpilih!</div>
+<div class="toast" id="toast">Area Terpilih!</div>
 
 <script>
 let currentStep = 1;
 const totalSteps = 7;
-let selectedCategory = 'Toko Perabot & Plastik Daerah';
-let selectedRegion = 'Sumatera (Medan, Palembang, Lampung)';
+let selectedAreaKey = 'gading-serpong';
 let sendTimer = null;
+
+const areaData = {
+  'gading-serpong': {
+    name: 'Gading Serpong & BSD',
+    fullLoc: 'Kecamatan Kelapa Dua & Serpong, Tangerang',
+    time: '~25 menit dari Cengkareng',
+    totalToko: 52,
+    stores: [
+      { name: 'Toko Perabot Subur Jaya', loc: 'Ruko Gading Serpong Blok BA2 No. 18', phone: '0812-9841-xxxx (Hendra - Owner)' },
+      { name: 'GS Mart Swalayan', loc: 'Jl. Boulevard Raya Gading Serpong No. 45', phone: '0813-8820-xxxx (Bpk. Alex - Purchasing)' },
+      { name: 'Grosir Plastik Sentosa BSD', loc: 'Ruko Mendrisio 3 Blok B No. 12', phone: '0821-1490-xxxx (Ibu Liana - Owner)' },
+      { name: 'Toko Perabot Bintang Terang', loc: 'Pasar Modern Paramount Blok B No. 05', phone: '0852-1134-xxxx (Bpk. Surya)' },
+      { name: 'Toserba Sinar Baru Serpong', loc: 'Ruko Golden 8 Gading Serpong No. 22', phone: '0812-7741-xxxx (Bpk. Rudi)' }
+    ],
+    sampleOwner: 'Bpk. Hendra (Toko Perabot Subur Jaya, Gading Serpong)',
+    deliveryNote: 'Armada pick-up pabrik siap antar langsung ke ruko Bapak (Free Ongkir min. 20 dus)',
+    inbox: [
+      {
+        name: 'Toko Perabot Subur Jaya (Gading Serpong)',
+        badge: 'PO Ready',
+        text: 'Siang Pak, boleh tolong kirimkan 40 dus Sapu YB-03 dan 20 dus Wiper YWF-01 ke ruko Gading Serpong? Kalau barang bagus dan harga pabrik langsung, kami siap kontrak repeat order tiap 2 minggu.',
+        est: '💵 Nilai PO Perdana: Rp 9.600.000'
+      },
+      {
+        name: 'GS Mart Swalayan (Gading Serpong)',
+        badge: 'Katalog & Faktur',
+        text: 'Halo Youngpro, pricelist sudah kami pelajari. Kami mau coba display 15 dus pengki dan 25 dus sapu untuk 2 cabang kami di Serpong. Bisa kirim besok?',
+        est: '💵 Nilai PO Perdana: Rp 6.000.000'
+      }
+    ]
+  },
+  'kemayoran': {
+    name: 'Kemayoran & Cempaka Putih',
+    fullLoc: 'Kecamatan Kemayoran & Cempaka Putih, Jakarta Pusat',
+    time: '~30 menit dari Cengkareng via Tol Dalam Kota',
+    totalToko: 64,
+    stores: [
+      { name: 'Toko Perabot Makmur Kemayoran', loc: 'Jl. Garuda No. 34, Kemayoran', phone: '0812-1022-xxxx (Ko Hendra - Owner)' },
+      { name: 'Toko Plastik Berkah Cempaka', loc: 'Jl. Cempaka Putih Raya No. 12', phone: '0813-9081-xxxx (Bpk. Rudi - Owner)' },
+      { name: 'Toserba Sumber Rezeki', loc: 'Pasar Jiung Kemayoran Blok A No. 08', phone: '0821-3451-xxxx (Ibu Ratna)' },
+      { name: 'Grosir Alat Rumah Tangga Kemayoran', loc: 'Jl. Letjen Suprapto No. 56', phone: '0852-7711-xxxx (Bpk. Surya)' },
+      { name: 'Toko Perabot Bintang Baru', loc: 'Jl. Serdang Raya No. 18', phone: '0812-8890-xxxx (Ibu Liana)' }
+    ],
+    sampleOwner: 'Ko Hendra (Toko Perabot Makmur Kemayoran)',
+    deliveryNote: 'Truk pabrik Cengkareng rute Jakarta Pusat berangkat setiap Selasa & Jumat',
+    inbox: [
+      {
+        name: 'Toko Perabot Makmur Kemayoran',
+        badge: 'PO Ready',
+        text: 'Halo Pabrik Youngpro, kami butuh pasokan 50 dus sapu dan 30 dus wiper untuk langganan grosir kami di Kemayoran. Tolong kirim faktur dan jadwal kirim.',
+        est: '💵 Nilai PO Perdana: Rp 12.720.000'
+      },
+      {
+        name: 'Toko Plastik Berkah Cempaka',
+        badge: 'Sampel & Harga',
+        text: 'Pricelist kartonan sapu dan pengki menarik. Boleh sales mampir bawakan sampel sapu YB-03? Kami siap ambil 30 dus kalau cocok.',
+        est: '💵 Nilai PO Perdana: Rp 5.040.000'
+      }
+    ]
+  },
+  'cengkareng': {
+    name: 'Cengkareng & Kalideres',
+    fullLoc: 'Kecamatan Cengkareng & Kalideres, Jakarta Barat',
+    time: 'Area lokal pabrik Youngpro (Langsung Kirim)',
+    totalToko: 78,
+    stores: [
+      { name: 'Grosir Plastik Daan Mogot Jaya', loc: 'Jl. Daan Mogot KM 14, Cengkareng', phone: '0812-4411-xxxx (Bpk. Wijaya - Owner)' },
+      { name: 'Toko Perabot Pasar Cengkareng', loc: 'Pasar Ganefo Cengkareng Timur Blok C', phone: '0813-7722-xxxx (Ko Aseng)' },
+      { name: 'Toko Plastik Kalideres Permai', loc: 'Jl. Peta Selatan No. 25, Kalideres', phone: '0821-9981-xxxx (Ibu Melly)' },
+      { name: 'Toserba Sahabat Rumah Tangga', loc: 'Komp. Ruko Citra Garden 2 No. 10', phone: '0852-6631-xxxx (Bpk. David)' },
+      { name: 'Grosir Alat Bersih Rawa Buaya', loc: 'Jl. Rawa Buaya No. 88, Cengkareng', phone: '0812-3301-xxxx (Ibu Santi)' }
+    ],
+    sampleOwner: 'Bpk. Wijaya (Grosir Plastik Daan Mogot Jaya)',
+    deliveryNote: 'Pengiriman Same-Day langsung dari gudang pabrik Cengkareng',
+    inbox: [
+      {
+        name: 'Grosir Plastik Daan Mogot Jaya',
+        badge: 'PO Besar',
+        text: 'Karena dekat pabrik, kami mau ambil rutin 100 dus sapu YB-03 dan 50 dus ember E-15 per minggu. Bisa kirim besok pagi?',
+        est: '💵 Nilai PO Perdana: Rp 22.500.000'
+      },
+      {
+        name: 'Toko Perabot Pasar Cengkareng',
+        badge: 'PO Ready',
+        text: 'Sore Youngpro, tolong kirimkan 30 dus wiper dan 20 dus pengki ke pasar ganefo. Pembayaran tunai saat barang sampai.',
+        est: '💵 Nilai PO Perdana: Rp 6.720.000'
+      }
+    ]
+  },
+  'kelapa-gading': {
+    name: 'Kelapa Gading & Sunter',
+    fullLoc: 'Kecamatan Kelapa Gading & Tanjung Priok, Jakarta Utara',
+    time: '~35 menit via Tol Wiyoto Wiyono',
+    totalToko: 45,
+    stores: [
+      { name: 'Toserba Perabot Gading Indah', loc: 'Jl. Boulevard Barat Raya Blok LC6 No. 2', phone: '0812-9901-xxxx (Ko Erwin)' },
+      { name: 'Sunter Household Mart', loc: 'Jl. Danau Sunter Utara Blok F No. 15', phone: '0813-6621-xxxx (Ibu Jessica)' },
+      { name: 'Grosir Plastik Mandiri Sunter', loc: 'Pasar Sunter Podomoro Blok B No. 12', phone: '0821-5541-xxxx (Bpk. Gunawan)' },
+      { name: 'Toko Alat Rumah Tangga Kelapa Dua', loc: 'Jl. Boulevard Raya Kelapa Gading', phone: '0852-8812-xxxx (Ko David)' },
+      { name: 'Swalayan Gading Permai', loc: 'Ruko Mall Kelapa Gading Blok C No. 04', phone: '0812-3344-xxxx (Bag. Stock)' }
+    ],
+    sampleOwner: 'Ko Erwin (Toserba Perabot Gading Indah)',
+    deliveryNote: 'Jadwal pengiriman armada pabrik Cengkareng rute Jakarta Utara tiap Senin & Kamis',
+    inbox: [
+      {
+        name: 'Toserba Perabot Gading Indah',
+        badge: 'PO Ready',
+        text: 'Halo Youngpro, kami mau restock 40 dus sapu YB-03 dan 30 dus wiper YWF-01 untuk toko kami di Boulevard Kelapa Gading. Siap transfer DP.',
+        est: '💵 Nilai PO Perdana: Rp 11.040.000'
+      },
+      {
+        name: 'Sunter Household Mart',
+        badge: 'Katalog & Sampel',
+        text: 'Bisa kirim sampel ember dan pengki ke Danau Sunter? Kami mau pasok untuk 2 minimarket mitra kami.',
+        est: '💵 Nilai PO Perdana: Rp 7.500.000'
+      }
+    ]
+  }
+};
+
+function renderAreaContent(){
+  const data = areaData[selectedAreaKey];
+
+  // Update banner & labels
+  document.getElementById('lblSelectedArea').textContent = `${data.name} (${data.fullLoc})`;
+  document.getElementById('lblMapsTitle').textContent = data.name;
+  document.getElementById('lblDraftArea').textContent = data.name;
+  document.getElementById('lblReportArea').textContent = data.name;
+  document.getElementById('lblInboxArea').textContent = data.name;
+  document.getElementById('lblTotalToko').textContent = `${data.totalToko} Kontak Toko`;
+  document.getElementById('sendTargetTitle').textContent = `Mengirim ke ${data.totalToko} toko di ${data.name}...`;
+
+  // Render Stores
+  const storeContainer = document.getElementById('storeListContainer');
+  storeContainer.innerHTML = '';
+  data.stores.forEach(s => {
+    const item = document.createElement('div');
+    item.className = 'store-item';
+    item.innerHTML = `
+      <div class="avatar">${s.name.charAt(0)}</div>
+      <div class="info">
+        <div class="sname">${s.name}</div>
+        <div class="sloc">${s.loc}</div>
+        <div class="sphone">WA: ${s.phone}</div>
+      </div>
+      <span class="tag tag-verified">✓ Terverifikasi</span>
+    `;
+    storeContainer.appendChild(item);
+  });
+
+  // Render WhatsApp Bubble
+  const wa = document.getElementById('waBubbleContent');
+  wa.innerHTML = `
+    <p>Halo <strong>${data.sampleOwner}</strong> 🙏</p>
+    <p>Perkenalkan, kami dari <strong>Pabrik Plastik Youngpro Indonesia</strong> (produsen tangan pertama di Cengkareng, Jakarta Barat).</p>
+    <p>Kami melihat toko Bapak/Ibu aktif melayani perlengkapan rumah tangga di area <strong>${data.name}</strong>. Izin mengirimkan penawaran harga grosir kartonan langsung dari pabrik:</p>
+    <p>
+      🧹 <strong>Sapu Plastik YB-03</strong>: Rp 168.000 / dus (12 pcs)<br>
+      🪟 <strong>Wiper Lantai YWF-01</strong>: Rp 144.000 / dus (12 pcs)<br>
+      🗑️ <strong>Pengki Plastik PK-02</strong>: Rp 120.000 / dus (12 pcs)
+    </p>
+    <div class="tag-cluster">🚛 ${data.deliveryNote}</div>
+    <p style="margin-top:8px">Boleh kami kirimkan e-katalog lengkap beserta pricelist grosir, Pak?</p>
+  `;
+
+  // Render Reports
+  document.getElementById('repTotal').textContent = `${data.totalToko} Toko`;
+  const resCount = Math.round(data.totalToko * 0.21);
+  document.getElementById('repRespon').textContent = `${resCount} Toko (${Math.round((resCount/data.totalToko)*100)}%)`;
+  const closeCount = Math.max(3, Math.round(data.totalToko * 0.08));
+  document.getElementById('repClosing').textContent = `${closeCount} Toko Baru`;
+
+  // Render Inbox
+  const inboxContainer = document.getElementById('inboxContainer');
+  inboxContainer.innerHTML = '';
+  data.inbox.forEach(ib => {
+    const card = document.createElement('div');
+    card.className = 'inbox-card';
+    card.innerHTML = `
+      <div class="inbox-top">
+        <div class="inbox-name">${ib.name}</div>
+        <div class="inbox-badge">${ib.badge}</div>
+      </div>
+      <div class="inbox-text">${ib.text}</div>
+      <div style="font-size:11.5px;color:var(--caramel);font-weight:700;margin-top:6px">${ib.est}</div>
+    `;
+    inboxContainer.appendChild(card);
+  });
+}
 
 function updateView(){
   // Update step cards
@@ -676,7 +804,7 @@ function updateView(){
   btnPrev.style.display = currentStep > 1 ? 'block' : 'none';
 
   if(currentStep === 1){
-    btnNext.textContent = 'Lanjut ke Wilayah Kargo →';
+    btnNext.textContent = 'Lanjut ke Radius Kecamatan →';
   } else if(currentStep === 2){
     btnNext.textContent = 'Lihat Hasil Scrape Google Maps →';
   } else if(currentStep === 3){
@@ -704,20 +832,20 @@ function showToast(msg){
 function pickCategory(card, name, count){
   document.querySelectorAll('#step1 .select-card').forEach(c=>c.classList.remove('selected'));
   card.classList.add('selected');
-  selectedCategory = name;
   showToast(`Dipilih: ${name}`);
 }
 
-function pickRegion(card, name, kargo){
+function pickArea(card, key){
   document.querySelectorAll('#step2 .select-card').forEach(c=>c.classList.remove('selected'));
   card.classList.add('selected');
-  selectedRegion = name;
-  showToast(`Wilayah: ${name}`);
+  selectedAreaKey = key;
+  renderAreaContent();
+  showToast(`Kecamatan: ${areaData[key].name}`);
 }
 
 function runSendSimulation(){
   let sent = 0;
-  const target = 350;
+  const target = areaData[selectedAreaKey].totalToko;
   const fill = document.getElementById('sendProgressFill');
   const txtSent = document.getElementById('statSent');
   const txtDelivered = document.getElementById('statDelivered');
@@ -733,21 +861,21 @@ function runSendSimulation(){
   if(sendTimer) clearInterval(sendTimer);
 
   sendTimer = setInterval(()=>{
-    sent += 25;
+    sent += 5;
     if(sent >= target){
       sent = target;
       clearInterval(sendTimer);
-      statusTxt.textContent = 'Selesai! 350 pesan penawaran terkirim.';
-      showToast('350 Pesan WhatsApp Terkirim!');
+      statusTxt.textContent = `Selesai! ${target} pesan penawaran terkirim ke pemilik toko.`;
+      showToast(`${target} Pesan WhatsApp Terkirim!`);
     } else {
-      statusTxt.textContent = `Mengirim ke nomor pemilik toko di ${selectedRegion}... (${sent}/${target})`;
+      statusTxt.textContent = `Mengirim ke nomor pemilik toko di ${areaData[selectedAreaKey].name}... (${sent}/${target})`;
     }
 
     const pct = Math.round((sent / target) * 100);
     fill.style.width = pct + '%';
     txtSent.textContent = sent;
     txtDelivered.textContent = Math.round(sent * 0.96);
-    txtRead.textContent = Math.round(sent * 0.89);
+    txtRead.textContent = Math.round(sent * 0.92);
   }, 100);
 }
 
@@ -759,7 +887,6 @@ function nextStep(){
     return;
   }
   if(currentStep === 7){
-    // Navigate back to youngpro proposal
     window.location.href = 'https://pesat.app/proposal/youngpro/';
     return;
   }
@@ -775,6 +902,9 @@ function prevStep(){
     updateView();
   }
 }
+
+// Init view
+renderAreaContent();
 </script>
 
 </body>
