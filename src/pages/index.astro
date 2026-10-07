@@ -33,7 +33,7 @@ published.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date)
         <ul>
           {published.map(p => {
             const slug = p.data.slug || p.slug;
-            return <li><a href={`/${slug}/`}><strong>{p.data.client}</strong><span>{p.data.title}</span></a></li>;
+            return <li><a href={`/proposal/${slug}/`}><strong>{p.data.client}</strong><span>{p.data.title}</span></a></li>;
           })}
         </ul>
       )}

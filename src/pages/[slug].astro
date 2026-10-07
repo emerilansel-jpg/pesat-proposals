@@ -31,7 +31,7 @@ const { Content } = await proposal.render();
   <div class="doc">
     <header class="doc-header">
       <div class="doc-brand">
-        <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#00d4aa"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#0a0a2e" font-family="Inter,sans-serif" font-weight="900" font-size="18">P</text></svg>
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#6366f1"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="Inter,sans-serif" font-weight="900" font-size="18">P</text></svg>
         <span class="brand-name">Pesat AI</span>
       </div>
       <h1>{data.title}</h1>
@@ -51,6 +51,13 @@ const { Content } = await proposal.render();
   </div>
 </body>
 </html>
+
+<style is:global>
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+</style>
 
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -91,30 +98,42 @@ const { Content } = await proposal.render();
   .doc-body { padding: 1.5rem 1.25rem 2rem; font-size: 0.92rem; line-height: 1.7; }
 
   :global(.doc-body h1) { font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.5rem; color: #111; }
-  :global(.doc-body h2) { font-size: 1.2rem; font-weight: 700; margin: 1rem 0 0.5rem; color: #00d4aa; }
+  :global(.doc-body h2) { font-size: 1.2rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: #6366f1; }
   :global(.doc-body h2:first-child) { margin-top: 0; }
-  :global(.doc-body h3) { font-size: 1rem; font-weight: 700; margin: 0.75rem 0 0.35rem; color: #111; }
-  :global(.doc-body p) { margin-bottom: 0.5rem; color: #333; }
-  :global(.doc-body ul), :global(.doc-body ol) { padding-left: 1.5rem; margin-bottom: 0.5rem; color: #333; }
+  :global(.doc-body h3) { font-size: 1rem; font-weight: 700; margin: 0.85rem 0 0.35rem; color: #111; }
+  :global(.doc-body p) { margin-bottom: 0.6rem; color: #333; }
+  :global(.doc-body ul), :global(.doc-body ol) { padding-left: 1.5rem; margin-bottom: 0.6rem; color: #333; }
   :global(.doc-body li) { margin-bottom: 0.25rem; }
   :global(.doc-body strong) { color: #111; }
-  :global(.doc-body hr) { border: none; border-top: 1px solid #e5e7eb; margin: 1rem 0; }
+  :global(.doc-body hr) { border: none; border-top: 1px solid #e5e7eb; margin: 1.25rem 0; }
+
+  /* Links */
+  :global(.doc-body a) {
+    color: #6366f1;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
+  :global(.doc-body a:hover) {
+    color: #4f46e5;
+  }
 
   /* Tables — match CMS */
   :global(.doc-body table) {
-    width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem;
+    width: 100%; border-collapse: collapse; margin: 0.85rem 0 1.25rem; font-size: 0.86rem; line-height: 1.5;
   }
-  :global(.doc-body th), :global(.doc-body td) { padding: 0.5rem 0.6rem; text-align: left; border: 1px solid #e5e7eb; }
-  :global(.doc-body th) { background: #f0fdf9; font-weight: 700; color: #00d4aa; }
+  :global(.doc-body th), :global(.doc-body td) { padding: 0.55rem 0.65rem; text-align: left; border: 1px solid #e5e7eb; vertical-align: top; }
+  :global(.doc-body th) { background: #f5f3ff; font-weight: 700; color: #6366f1; }
   :global(.doc-body td) { color: #333; }
 
   /* Blockquote — match CMS */
   :global(.doc-body blockquote) {
-    border-left: 3px solid #00d4aa; padding-left: 0.75rem;
-    margin: 0.5rem 0; color: #666; font-style: italic;
+    border-left: 3px solid #6366f1; padding-left: 0.85rem;
+    margin: 0.75rem 0; color: #555; background: #fafafa; padding-top: 0.4rem; padding-bottom: 0.4rem; border-radius: 0 4px 4px 0;
   }
   :global(.doc-body blockquote p) { margin-bottom: 0.25rem; }
-  :global(.doc-body blockquote strong) { color: #00d4aa; font-style: normal; }
+  :global(.doc-body blockquote strong) { color: #6366f1; font-style: normal; }
 
   /* Footer */
   .doc-footer {
@@ -124,9 +143,114 @@ const { Content } = await proposal.render();
 
   /* Print */
   @media print {
-    body { background: #fff; }
-    .doc { box-shadow: none; max-width: 100%; }
-    .doc-body { padding: 0; }
+    body {
+      background: #fff;
+      font-size: 8.2pt;
+      line-height: 1.42;
+      color: #111;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .doc {
+      box-shadow: none;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .doc-header {
+      padding: 0 0 0.6rem 0;
+      margin-bottom: 0.6rem;
+      border-bottom: 2px solid #111;
+    }
+    .doc-brand {
+      margin-bottom: 0.4rem;
+    }
+    .doc-header h1 {
+      font-size: 1.2rem;
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
+    }
+    .doc-for {
+      font-size: 0.8rem;
+      margin-bottom: 0.15rem;
+    }
+    .doc-meta {
+      font-size: 0.7rem;
+    }
+    .doc-body {
+      padding: 0;
+      font-size: 8.2pt;
+      line-height: 1.42;
+    }
+    :global(.doc-body h1),
+    :global(.doc-body h2),
+    :global(.doc-body h3),
+    :global(.doc-body h2 + p),
+    :global(.doc-body h3 + p) {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    :global(.doc-body h2) {
+      font-size: 1rem;
+      margin: 0.75rem 0 0.3rem;
+      color: #4f46e5;
+    }
+    :global(.doc-body h3) {
+      font-size: 0.86rem;
+      margin: 0.55rem 0 0.2rem;
+    }
+    :global(.doc-body p) {
+      margin-bottom: 0.32rem;
+    }
+    :global(.doc-body ul),
+    :global(.doc-body ol) {
+      margin-bottom: 0.32rem;
+      padding-left: 1.15rem;
+    }
+    :global(.doc-body li) {
+      margin-bottom: 0.14rem;
+    }
+    :global(.doc-body table) {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin: 0.4rem 0 0.55rem;
+      font-size: 7.3pt;
+      line-height: 1.3;
+    }
+    :global(.doc-body th) {
+      background: #f5f3ff !important;
+      color: #4f46e5;
+      padding: 3px 5px;
+      font-weight: 700;
+    }
+    :global(.doc-body td) {
+      padding: 3px 5px;
+      vertical-align: top;
+    }
+    :global(.doc-body blockquote) {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      background: #f8fafc !important;
+      border-left: 3px solid #6366f1;
+      padding: 0.25rem 0.5rem;
+      margin: 0.35rem 0;
+      font-size: 7.8pt;
+    }
+    :global(.doc-body blockquote p) {
+      margin-bottom: 0.12rem;
+    }
+    :global(.doc-body hr) {
+      margin: 0.55rem 0;
+      border-top: 1px solid #e2e8f0;
+    }
+    .doc-footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 0.5rem 0 0;
+      margin-top: 0.6rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-size: 7pt;
+    }
   }
 
   /* Mobile */
